@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="45"
+   height="45"
+   viewBox="0 0 11.906258 11.90625"
+   version="1.1"
+   id="svg3374"
+   sodipodi:docname="threeValve-1.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3376"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.9651515"
+     inkscape:cx="49.873"
+     inkscape:cy="43.418847"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g18633-5-79-9" />
+  <defs
+     id="defs3371" />
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g18633-5-79-9"
+       inkscape:label="Клапан-3 115"
+       transform="matrix(0.26458333,0,0,0.26458333,-12.524187,-73.434829)"
+       style="fill:none;fill-opacity:1;stroke-width:2;stroke-dasharray:none">
+      <path
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 69.952335,299.65619 V 288.93126"
+         id="path18623-4-82-74" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         id="rect18625-2-54-9"
+         width="9.7764111"
+         height="7.7764153"
+         x="65.064125"
+         y="282.08292" />
+      <g
+         id="g87158-42-5"
+         transform="translate(-28.36668,-61.96896)"
+         style="fill:#ffffff;fill-opacity:1"
+         inkscape:label="Левый">
+        <path
+           style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 78.851874,351.46878 18.35882,9.8912 -18.35882,9.8912"
+           id="path87148-52-9"
+           inkscape:label="Угол" />
+        <path
+           style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 78.85187,351.46878 v 19.7824"
+           id="path87150-54-33"
+           inkscape:label="Основание" />
+      </g>
+      <g
+         id="g87158-7-36-4"
+         transform="matrix(-1,0,0,1,168.0377,-61.960097)"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:2;stroke-dasharray:none"
+         inkscape:label="Правый">
+        <path
+           style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 78.851874,351.46878 18.35882,9.8912 -18.35882,9.8912"
+           id="path87148-6-39-1"
+           inkscape:label="Угол" />
+        <path
+           style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 78.85187,351.46878 v 19.7824"
+           id="path87150-4-76-7"
+           inkscape:label="Основание" />
+      </g>
+      <g
+         id="g87158-7-36-3-7"
+         transform="matrix(0,-1,-1,0,431.31232,396.86688)"
+         style="fill:#ffffff;fill-opacity:1;stroke-width:2;stroke-dasharray:none"
+         inkscape:label="Низ">
+        <path
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 78.851874,351.46878 18.35882,9.8912 -18.35882,9.8912"
+           id="path87148-6-39-7-5"
+           inkscape:label="Угол" />
+        <path
+           style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 78.85187,351.46878 v 19.7824"
+           id="path87150-4-76-8-8"
+           inkscape:label="Основание" />
+      </g>
+      <rect
+         style="opacity:0.0266667;fill:#729fcf;fill-opacity:1;stroke:#729fcf;stroke-width:0;stroke-linecap:round"
+         id="rect1563"
+         width="40.70063"
+         height="37.932091"
+         x="329.0423"
+         y="237.14578"
+         transform="translate(-279.5571,43.937138)"
+         inkscape:label="Маска клапана 115" />
+    </g>
+  </g>
+</svg>
