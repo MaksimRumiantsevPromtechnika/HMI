@@ -42,7 +42,7 @@ const CleanScreen = ({ isOpen, onClose }) => {
             {" "}
             Не используйте абразивные или агрессивные чистящие средства!
           </h2>
-          <div className="antenna-progress">
+          <div className="progress">
             <div className="progress-cl-value">Окончание блокировки</div>
             <div className="progress-cl-timer">{moment.utc(secondsRemaining * 1000).format('m:ss')}</div>
             <div className="progress-inner" style={{

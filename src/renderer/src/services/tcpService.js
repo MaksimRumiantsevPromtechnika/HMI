@@ -232,6 +232,7 @@ const useTcpConnection = () => {
       }
       console.log(newDot);
       dispatch(addNewDot(newDot))
+      client.write(...parsedData.milkStat)
     } else if (parsedData.hasOwnProperty("washHistoryLast")) {      
       let origTime = parsedData.washHistoryLast.lastWash
       let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format("DD MMMM HH:mm")
@@ -263,6 +264,7 @@ const useTcpConnection = () => {
       console.log(newData);
       dispatch(addNewMilking(newData))
       dispatch(clearData());
+      client.write("end")
       if (parsedData.milkLast.actualMilk > 0) {
         let lastMilk = {
           cowId: parsedData.milkLast.id,
