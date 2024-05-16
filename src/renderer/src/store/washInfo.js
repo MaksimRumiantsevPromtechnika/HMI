@@ -54,7 +54,7 @@ const defaultState = {
 
   washingHistory: {i0: '01.01.0001 00:00:00', i1: '01.01.0001 00:00:00', i2: '01.01.0001 00:00:00', i3: '01.01.0001 00:00:00'},
 
-  currentWash: 2,
+  currentWash: 0,
 
   currentStage: 0,
 }

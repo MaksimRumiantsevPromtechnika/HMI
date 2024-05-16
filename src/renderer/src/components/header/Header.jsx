@@ -14,7 +14,7 @@ const Header = () => {
   const timerRef = useRef();
   const dispatch = useDispatch()
   const milkingInfo = useSelector(state => state.milking.milkingList)
-  const lastSuccessMilking = useSelector(state => state.milking.milkingList)
+  const lastSuccessMilking = useSelector(state => state.milking.lastSuccessMilking)
   const handleOpen = (value, e) => {
     setOpenPopup(value);
 

@@ -20,7 +20,7 @@ const CleanControl = () => {
         <div className="cl-date-value">
           <p>{moment(washHistory.i0, 'DD.MM.YYYY HH:mm:ss').locale('ru').format('DD MMMM HH:mm')}</p>
         </div>
-        <div className="cl-bar-button clean-nav-button sidetouch acid-container-icon" id="status-pump-acid"></div>
+        <div className="cl-bar-button clean-nav-button sidetouch acid-container-icon" id="status-pump-acid" onClick={() => TcpConnection.sendTcpData("set_on(9)")}></div>
       </div>
       <div className="alkaline-control-bar">
         <button className="cl-bar-button clean-nav-button sidetouch alkaline-cleaning-icon" onClick={() => TcpConnection.sendTcpData("start_wash(1)")} id="status-alkaline"></button>
@@ -28,7 +28,7 @@ const CleanControl = () => {
         <div className="cl-date-value acid-value">
           <p>{moment(washHistory.i1, 'DD.MM.YYYY HH:mm:ss').locale('ru').format('DD MMMM HH:mm')}</p>
         </div>
-        <div className="cl-bar-button clean-nav-button sidetouch alkaline-container-icon" id="status-pump-alkaline"></div>
+        <div className="cl-bar-button clean-nav-button sidetouch alkaline-container-icon" id="status-pump-alkaline" onClick={() => TcpConnection.sendTcpData("set_on(13)")}></div>
       </div>
       <div className="line-rinsing-bar">
         <div className="cl-bar-button sidetouch clean-nav-button line-rinsing-icon" onClick={() => TcpConnection.sendTcpData("start_wash(2)")} id="status-line-rising"></div>
@@ -36,7 +36,7 @@ const CleanControl = () => {
         <div className="cl-date-value line-rinsing-value">
           <p>{moment(washHistory.i2, 'DD.MM.YYYY HH:mm:ss').locale('ru').format('DD MMMM HH:mm')}</p>
         </div>
-        <div className="cl-bar-button sidetouch clean-nav-button peracetic-container-icon" id="status-pump-peracetic"></div>
+        <div className="cl-bar-button sidetouch clean-nav-button peracetic-container-icon" id="status-pump-peracetic" onClick={() => TcpConnection.sendTcpData("set_on(17)")}></div>
       </div>
       <div className="robot-rinsing-bar">
         <div className="cl-bar-button sidetouch clean-nav-button robot-rinsing-icon" id="status-robot-rising" onClick={() => TcpConnection.sendTcpData("start_wash(3)")}></div>

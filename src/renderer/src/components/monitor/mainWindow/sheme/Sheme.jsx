@@ -2222,6 +2222,7 @@ const Sheme = () => {
               className="cup scheme-arm"
               transform="translate(64.254567,42.643022)"
               style={{ fill: "none", fillOpacity: 1 }}
+              onClick={() => handleArmOpen(true)}
             >
               <rect
                 style={{
@@ -2262,6 +2263,7 @@ const Sheme = () => {
               className="cup"
               transform="translate(43.754567,42.643022)"
               style={{ fill: "#000000", fillOpacity: 1 }}
+              onClick={() => handleArmOpen(true)}
             >
               <rect
                 style={{
@@ -2302,6 +2304,7 @@ const Sheme = () => {
               className="cup"
               transform="translate(23.830871,42.643074)"
               style={{ fill: "#000000", fillOpacity: 1 }}
+              onClick={() => handleArmOpen(true)}
             >
               <rect
                 style={{
@@ -2343,6 +2346,7 @@ const Sheme = () => {
               className="cup"
               transform="translate(3.3308714,42.643074)"
               style={{ fill: "#000000", fillOpacity: 1 }}
+              onClick={() => handleArmOpen(true)}
             >
               <rect
                 style={{

@@ -56,7 +56,7 @@ const ManualAttachmentPopup = ({ manualAttachmentPopup, manualAttachmentPopupClo
               display: "flex", justifyContent: "space-between", width: '100%'
             }}>
               <div style={{ display: 'flex' }}>
-                <button className="button teat-cup-confirm" onClick={() => closeCow(inputValues)}></button>
+                <button className="button teat-cup-confirm" onClick={() => { closeCow(inputValues); manualAttachmentPopupClose() }}></button>
               </div>
               <button className="button popup-contetn-close" onClick={() => manualAttachmentPopupClose()}></button>
               {/* <button className="button popup-contetn-close" onClick={() => vacPopupClose()}></button> */}

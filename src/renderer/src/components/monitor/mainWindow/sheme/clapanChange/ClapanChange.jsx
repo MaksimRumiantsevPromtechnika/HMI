@@ -40,63 +40,63 @@ const ClapanChange = ({ onClose, valvePopup, currentValve, valveOpen, valveClose
                   <button className="klapan-mode-button sidetouch gate-mode-open" onClick={() => {
                     setOn(currentValve)
                   }}></button>
-                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button>; </div>
+                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button> </div>
 
               case "Food":
                 return <div className="klapan-mode-content"> <button className="klapan-mode-button sidetouch food-mode-off" onClick={() => { setOff(currentValve) }}></button>
                   <button className="klapan-mode-button sidetouch food-mode-on" onClick={() => {
                     setOn(currentValve)
                   }}></button>
-                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button>; </div>
+                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button> </div>
 
               case "Air":
                 return <div className="klapan-mode-content"> <button className="klapan-mode-button sidetouch cow-air-mode-off" onClick={() => { setOff(currentValve) }}></button>
                   <button className="klapan-mode-button sidetouch cow-air-mode-on" onClick={() => {
                     setOn(currentValve)
                   }}></button>
-                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button>; </div>
+                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button> </div>
 
               case "Valve-3-Right":
                 return <div className="klapan-mode-content"> <button className="klapan-mode-button sidetouch klapan-mode-right-0" onClick={() => { setOff(currentValve) }}></button>
                   <button className="klapan-mode-button sidetouch klapan-mode-right-1" onClick={() => {
                     setOn(currentValve)
                   }}></button>
-                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button>; </div>
+                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button> </div>
 
               case "Valve-3":
                 return <div className="klapan-mode-content"> <button className="klapan-mode-button sidetouch klapan-mode-0" onClick={() => { setOff(currentValve) }}></button>
                   <button className="klapan-mode-button sidetouch klapan-mode-1" onClick={() => {
                     setOn(currentValve)
                   }}></button>
-                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button>; </div>
+                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button> </div>
 
               case "Valve-3-Left":
                 return <div className="klapan-mode-content"> <button className="klapan-mode-button sidetouch klapan-mode-left-0" onClick={() => { setOff(currentValve) }}></button>
                   <button className="klapan-mode-button sidetouch klapan-mode-left-1" onClick={() => {
                     setOn(currentValve)
                   }}></button>
-                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button>; </div>
+                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button> </div>
 
               case "Brushes":
                 return <div className="klapan-mode-content"> <button className="klapan-mode-button sidetouch brushes-clean-mode-off" onClick={() => { setOff(currentValve) }}></button>
                   <button className="klapan-mode-button sidetouch brushes-clean-mode-on" onClick={() => {
                     setOn(currentValve)
                   }}></button>
-                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button>; </div>
+                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button> </div>
 
               case "Brushes-lever":
                 return <div className="klapan-mode-content"> <button className="klapan-mode-button sidetouch brushes-mode-off" onClick={() => { setOff(currentValve) }}></button>
                   <button className="klapan-mode-button sidetouch brushes-mode-on" onClick={() => {
                     setOn(currentValve)
                   }}></button>
-                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button>; </div>
+                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button> </div>
 
               case "Pulsator":
                 return <div className="klapan-mode-content"> <button className="klapan-mode-button sidetouch pulsator-mode-off" onClick={() => { setOff(currentValve) }}></button>
                   <button className="klapan-mode-button sidetouch pulsator-mode-on" onClick={() => {
                     setOn(currentValve)
                   }}></button>
-                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button>; </div>
+                  <button className="klapan-mode-button sidetouch klapan-mode-close" onClick={handleClose}></button> </div>
 
               case "Cups":
                 return <div className="klapan-mode-content"> <button className="klapan-mode-button sidetouch cup-mode-on" onClick={() => { setOff(currentValve) }}></button>
