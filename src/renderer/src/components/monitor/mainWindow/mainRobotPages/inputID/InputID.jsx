@@ -36,7 +36,7 @@ const InputID = () => {
               C
             </button>
             <button className="numpud-button sidetouch" value="0" onClick={handleClick}>0</button>
-            <button className="numpud-button sidetouch numpud-enter" onClick={() => TcpConnection.sendTcpData(`set_cowid(${val})`)}>ОК</button>
+            <button className="numpud-button sidetouch numpud-enter" onClick={() => { TcpConnection.sendTcpData(`set_cowid(${val})`); setVal("0") }}>ОК</button>
           </div>
         </div>
       </div>
