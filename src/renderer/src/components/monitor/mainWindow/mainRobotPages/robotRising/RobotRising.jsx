@@ -1,4 +1,5 @@
 
+import moment from "moment";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -46,7 +47,7 @@ const RobotRising = () => {
                 <div className="alkaline-stage progress-child value-progress">
                   {stageList[currentStage]}
                 </div>
-                <div className="alkaline-stage progress-child local-stage-time">{`0:00`}</div>
+                <div className="alkaline-stage progress-child local-stage-time">{moment.utc(robotRisingStageWashTime * 1000).format('m:ss')}</div>
                 <div className="progress-child acid-local-progress-inner"
                   style={{
                     width: stageProgressBarWidth,
@@ -59,7 +60,7 @@ const RobotRising = () => {
               <div className="status-cleaning-progress-bar-global pump-global">
                 <div className="progress-child value-progress">Ополаскивание УДР</div>
                 <div className="half-stage progress-child global-stage-time">
-                  {`0:00`}
+                  {moment.utc(robotRisingWashTime * 1000).format('m:ss')}
                 </div>
                 <div className="progress-child acid-global-progress-inner"
                   style={{

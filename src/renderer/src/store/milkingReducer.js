@@ -8,7 +8,7 @@ const defaultState = {
 
   lastSuccessMilking: {
     cowId: "",
-    milkAmount: "",
+    milkAmount: 0,
     expMilk: ""
   },
 
