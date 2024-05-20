@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearBucket } from '../../../../store/bucketReducer';
 const MilkPathControl = () => {
 
   const [backetValue, setBacketValue] = useState(5)
   const pathList = []
   const [selectedBucket, setSelectedBucket] = useState(3)
-
+  const dispatch = useDispatch()
   const swapBucket = (e) => {
     setSelectedBucket(e.target.id);
     console.log(selectedBucket);
@@ -38,7 +39,7 @@ const MilkPathControl = () => {
         <div className='milk-path-icon milk-path-cow-icon'></div>
         <div className='milk-path-icon milk-path-milk-amount-icon'></div>
         <div className='milk-path-icon milk-path-timer-icon'></div>
-        <button className="button milk-path-drain-button"></button>
+        <button className="button milk-path-drain-button" onClick={() => dispatch(clearBucket(selectedBucket))}></button>
       </div>
       <div style={{ height: "100%", display: "flex", justifyContent: "center", gap: "50px", marginLeft: '30px' }} className="BacketsList">
         {pathList}

@@ -71,17 +71,17 @@ const AlarmInfo = () => {
 
 
   const [NewColumnDefs, setNewColumnDefs] = useState([
-    { headerName: 'Время ошибки', field: 'dateTime', width: 134, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
-    { headerName: 'Тип ошибки', field: 'msgType', width: 230, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
+    { headerName: 'Время', field: 'dateTime', width: 134, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
+    { headerName: 'Тип', field: 'msgType', width: 230, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
     { headerName: 'Номер', field: 'nameID', width: 79, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
-    { headerName: 'Подробности', field: 'msgDecription', width: 270, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' }
+    { headerName: 'Наименование', field: 'msgDecription', width: 270, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' }
   ]);
 
   const [columnDefs, setColumnDefs] = useState([
-    { headerName: 'Время ошибки', field: 'dateTime', width: 134, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
-    { headerName: 'Тип ошибки', field: 'msgType', width: 230, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
+    { headerName: 'Время', field: 'dateTime', width: 134, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
+    { headerName: 'Тип', field: 'msgType', width: 230, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
     { headerName: 'Номер', field: 'nameID', width: 79, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
-    { headerName: 'Подробности', field: 'msgDecription', width: 270, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' }
+    { headerName: 'Наименование', field: 'msgDecription', width: 270, resizable: false, wrapHeaderText: true, autoHeaderHeight: true, cellClass: "grid-cell-centered", lockPosition: 'left' }
   ]);
 
   return (
