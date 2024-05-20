@@ -13,6 +13,14 @@ const MilkInfo = React.memo(() => {
   const gridRef = useRef(); // Optional - for accessing Grid's API
 
   const milkingInfo = useSelector(state => state.milkingHistory.milkingHistory)
+  const [filter, setFilter] = useState(false);
+  const [filterData, setFilterData] = useState()
+  const toggleFilter = () => {
+    setFilter((prev) => !prev);
+  };
+  useEffect(() => {
+    setFilterData(milkingInfo.filter(obj => obj.milkAmount.hasOwnProperty("%")));
+  }, [milkingInfo]);
 
   // Each Column Definition results in one Column.
   const [columnDefs, setColumnDefs] = useState([
@@ -46,8 +54,8 @@ const MilkInfo = React.memo(() => {
         <AgGridReact
           ref={gridRef} // Ref for accessing Grid's API
           rowHeight={rowHeight}
-          rowData={milkingInfo} // Row Data for Rows
-
+          // rowData={milkingInfo} // Row Data for Rows
+          rowData={filter ? filterData : milkingInfo}
           columnDefs={columnDefs} // Column Defs for Columns
 
           // Optional - set to 'true' to have rows animate when sorted
@@ -55,7 +63,7 @@ const MilkInfo = React.memo(() => {
           overlayNoRowsTemplate='<span style="padding: 10px; border: 2px solid #444; background: lightgoldenrodyellow;">Нет данных для отображения</span>'
           onCellClicked={cellClickedListener} // Optional - registering for Grid Event
         />
-        <button className="button milk-filter sidetouch"></button>
+        <button className="button milk-filter sidetouch" style={{ backgroundColor: filter ? 'rgba(42, 86, 154, 0.66)' : '', }} onClick={toggleFilter}></button>
         <button className="button milk-search sidetouch"></button>
       </div>
     </div>

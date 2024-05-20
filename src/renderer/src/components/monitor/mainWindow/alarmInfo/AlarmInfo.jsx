@@ -127,7 +127,7 @@ const AlarmInfo = () => {
           // onCellClicked={cellClickedListener} // Optional - registering for Grid Event
           />
         </div>
-        <button className="button filter-alarm sidetouch" onClick={toggleFilter}></button>
+        <button className="button filter-alarm sidetouch" style={{ backgroundColor: filter ? 'rgba(42, 86, 154, 0.66)' : '', }} onClick={toggleFilter}></button>
       </div>
     </>
   );
