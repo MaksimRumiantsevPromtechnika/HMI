@@ -1,7 +1,7 @@
 
 import moment from 'moment/dist/moment';
 import 'moment/dist/locale/ru';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addHistoryAlarm, addNewAlarm, addNewHistory } from '../store/alarm';
 import { changeConnectionAction } from '../store/connectionReducer';
@@ -19,6 +19,11 @@ const split2 = require('split2');
 
 const net = require('net');
 const useTcpConnection = () => {
+  const currentMode = useSelector(state => state.mode.main);
+  const [currentModeVal, setCurrentModeVal] = useState(false)
+  useEffect(() => {
+    setCurrentModeVal(currentMode)
+  }, [currentMode]);
   const [isConnected, setIsConnected] = useState(false)
   const dispatch = useDispatch()
   const connection = useSelector(state => state.connection.connection)
@@ -34,7 +39,7 @@ const useTcpConnection = () => {
 };
 
   const connectionToTcpServer = async () => {
-    client.connect(12000, '10.5.130.250', () => {
+    client.connect(12000, '11.5.130.250', () => {
     })
   }
   let buffer = ""
@@ -378,12 +383,21 @@ const useTcpConnection = () => {
     // setTimeout(getCowParams, 4500)
   });
 
-  client.on('close', async () => {
+  client.on('close', () => {
     console.log('Connection closed');
+    const netuti = currentModeVal
     setTimeout(connectionToTcpServer, 10000);
     dispatch(changeConnectionStatusAction(false))
     setIsConnected(false)
-    
+    console.log(netuti);
+      const time = new Date()
+      const mm = time.getMinutes().toString().padStart(2, '0');
+      const hh = time.getHours().toString().padStart(2, '0');
+      const formattedTime = `${hh}:${mm}`;
+      console.log(formattedTime);
+      console.log(currentMode);
+      dispatch(addNewAlarm({nameID: 666, dateTime: formattedTime, msgType: "Авария", msgDecription: "Нет связи с КСПВ"}))
+      dispatch(changeMainAction(10))
   })
 
   client.on('data', async (data) => {

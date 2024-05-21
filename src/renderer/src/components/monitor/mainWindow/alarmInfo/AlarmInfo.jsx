@@ -6,7 +6,7 @@ import '/public/ag-grid.css'; // Core grid CSS, always needed
 import '/public/ag-theme-balham.css'; // Optional theme CSSC:\Action\ViteHmi\hmi\node_modules\ag-grid-community\styles\ag-theme-alpine.css
 import '../../../../App.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { addHistoryAlarm, deletaAlarm } from '../../../../store/alarm';
+import { addHistoryAlarm, addNewAlarm, addNewHistory, deletaAlarm } from '../../../../store/alarm';
 import useTcpConnection from '../../../../services/tcpService';
 
 const AlarmInfo = () => {
@@ -36,7 +36,8 @@ const AlarmInfo = () => {
     console.log(selecterAlarmData);
     if (selectedAlarm >= 0) {
       dispatch(deletaAlarm(selectedAlarm))
-      dispatch(addHistoryAlarm(selecterAlarmData))
+      // dispatch(addHistoryAlarm(selecterAlarmData))
+      dispatch(addNewHistory(selecterAlarmData))
       setSelectedAlarm();
       setSelectedAlarmData();
     }
@@ -45,6 +46,7 @@ const AlarmInfo = () => {
   const cellClickedListener = useCallback(event => {
     setSelectedAlarm(event.data.id);
     setSelectedAlarmData(event.data);
+    console.log(event.data);
   });
 
   useEffect(() => {

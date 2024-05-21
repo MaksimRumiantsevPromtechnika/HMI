@@ -17,7 +17,6 @@ const Header = () => {
   const lastSuccessMilking = useSelector(state => state.milking.lastSuccessMilking)
   const handleOpen = (value, e) => {
     setOpenPopup(value);
-
   }
 
   useEffect(() => {
