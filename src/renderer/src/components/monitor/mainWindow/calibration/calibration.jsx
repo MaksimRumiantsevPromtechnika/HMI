@@ -15,6 +15,7 @@ const Calibration = () => {
 
   const cameraPopupOpen = (value) => {
     setCameraPopup(value);
+    TcpConnection.connectionToCamera()
   }
 
   const [vacSensorsPopup, setVacSensorsPopup] = useState(false)

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CleanScreen from "./cleanScreen/CleanScreen";
-
+const poweroff = require('node-poweroff');
+const { exec } = require('child_process');
 const TouchControl = () => {
 
   const [isPopupOpen, setPopupOpen] = useState(false);
@@ -13,6 +14,11 @@ const TouchControl = () => {
     setPopupOpen(false);
   };
 
+
+  const powerOff = () => {
+    exec('shutdown -r now');
+    // poweroff.reboot();
+  }
   return (
     <>
       <div className="touch-bar">
@@ -35,7 +41,7 @@ const TouchControl = () => {
           </div> */}
           <div className="off-system-bar">
             <div className="off-system-text">Перезагрузить панель</div>
-            <button className="off-system sidetouch"></button>
+            <button className="off-system sidetouch" onClick={powerOff}></button>
           </div>
         </div>
       </div>

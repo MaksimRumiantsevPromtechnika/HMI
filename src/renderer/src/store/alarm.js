@@ -94,11 +94,16 @@ const ADD_ALARM = "ADD_ALARM"
 const DELETE_ALARM = "DELETE_ALARM"
 const ADD_ALARM_HISTORY = "ADD_ALARM_HISTORY"
 const ADD_NEW_HISTORY = "ADD_NEW_HISTORY"
+const ADD_DISCONNECT_ALARM = "ADD_DISCONNECT_ALARM"
 
 export const alarmReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_ALARM:
       return { ...state, newAlarmList: [action.payload, ...state.newAlarmList] }
+    case ADD_DISCONNECT_ALARM:
+      if (!state.newAlarmList.some(obj => obj.nameID === 666)) {
+        return { ...state, newAlarmList: [action.payload, ...state.newAlarmList] }
+      }
     case DELETE_ALARM:
       return {...state, newAlarmList: state.newAlarmList.filter((_, i) => i !== action.payload)}  
     case ADD_ALARM_HISTORY:
@@ -114,3 +119,4 @@ export const addNewAlarm = (payload) => ({ type: ADD_ALARM, payload })
 export const deletaAlarm = (payload) => ({ type: DELETE_ALARM, payload })
 export const addHistoryAlarm = (payload) => ({ type: ADD_ALARM_HISTORY, payload })
 export const addNewHistory = (payload) => ({type: ADD_NEW_HISTORY, payload})
+export const addDisconnectAlarm = (payload) => ({type: ADD_DISCONNECT_ALARM, payload})

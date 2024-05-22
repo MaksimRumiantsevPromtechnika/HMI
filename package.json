@@ -29,6 +29,7 @@
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "moment": "^2.29.4",
+    "node-poweroff": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.2",

@@ -3,7 +3,7 @@ import moment from 'moment/dist/moment';
 import 'moment/dist/locale/ru';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addHistoryAlarm, addNewAlarm, addNewHistory } from '../store/alarm';
+import { addDisconnectAlarm, addHistoryAlarm, addNewAlarm, addNewHistory, deletaAlarm } from '../store/alarm';
 import { changeConnectionAction } from '../store/connectionReducer';
 import { updateTeatValueAction } from '../store/cupsInfoReducer';
 import { changeConnectionStatusAction, changeMainAction, changeModeAction } from '../store/hmiMode';
@@ -31,6 +31,7 @@ const useTcpConnection = () => {
   const washVocabulary = useSelector(state => state.washHistory.washVocabulary)
   const milkVocabulary = useSelector(state => state.milkingHistory.milkingVocabulary)
   const client = new net.Socket();
+  const client2 = new net.Socket();
   let transformDict = {
     "vak1": { "false": 1, "true": 2 },
     "vak2": { "false": 3, "true": 4 },
@@ -39,7 +40,12 @@ const useTcpConnection = () => {
 };
 
   const connectionToTcpServer = async () => {
-    client.connect(12000, '11.5.130.250', () => {
+    client.connect(12000, '10.5.130.250', () => {
+    })
+  }
+
+  const connectionToCamera = async () => {
+    client2.connect(12000, "10.5.130.186", () => {
     })
   }
   let buffer = ""
@@ -369,7 +375,7 @@ const useTcpConnection = () => {
   })
 
   client.on('connect', async () => {
-   
+    // dispatch(deletaAlarm(0))
     dispatch(changeConnectionAction(client))
     client.write("auto_status_on()");
     setTimeout(getCurState, 500)
@@ -383,7 +389,7 @@ const useTcpConnection = () => {
     // setTimeout(getCowParams, 4500)
   });
 
-  client.on('close', () => {
+  client.on('close', async() => {
     console.log('Connection closed');
     const netuti = currentModeVal
     setTimeout(connectionToTcpServer, 10000);
@@ -396,7 +402,7 @@ const useTcpConnection = () => {
       const formattedTime = `${hh}:${mm}`;
       console.log(formattedTime);
       console.log(currentMode);
-      dispatch(addNewAlarm({nameID: 666, dateTime: formattedTime, msgType: "Авария", msgDecription: "Нет связи с КСПВ"}))
+      dispatch(addDisconnectAlarm({nameID: 666, dateTime: formattedTime, msgType: "Авария", msgDecription: "Нет связи с КСПВ"}))
       dispatch(changeMainAction(10))
   })
 
@@ -423,6 +429,30 @@ const useTcpConnection = () => {
     startTimeout();
   });
 
+  client2.on('data', async (data) => {
+    // dispatch(changeConnectionStatusAction(true))
+    // let array = data.toString().split(/(\)|\]}|\}\})/).filter(Boolean);
+    // console.log(array);
+    // if (array.length === 1) {
+    //   await checkType(array[0]);
+    // } else {
+     
+    //   for (let i = 0; i < array.length; i += 2) {
+        
+    //     if (i + 1 < array.length) {
+         
+    //       await checkType(array[i] + array[i + 1]);
+    //     } else {
+          
+    //       await checkType(array[i]);
+    //     }
+    //   }
+    // }
+    // clearTimeout(timeout);
+    // startTimeout();
+    console.log(data);
+  });
+
  
   let timeout;
   const startTimeout = async () => {
@@ -443,7 +473,8 @@ const useTcpConnection = () => {
   return {
     connectionToTcpServer,
     sendTcpData,
-    client
+    client,
+    connectionToCamera
   }
 }
 
