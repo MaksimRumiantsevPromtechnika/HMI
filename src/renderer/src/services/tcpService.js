@@ -1,6 +1,7 @@
 
 import moment from 'moment/dist/moment';
 import 'moment/dist/locale/ru';
+import Moment from 'moment';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDisconnectAlarm, addHistoryAlarm, addNewAlarm, addNewHistory, deletaAlarm } from '../store/alarm';
@@ -210,7 +211,7 @@ const useTcpConnection = () => {
   const checkJSON = async (parsedData) => {
     if (parsedData.hasOwnProperty("eventMsg")) {      
       let origTime = parsedData.eventMsg.dateTime
-      let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format("DD MMMM HH:mm")
+      let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
       let convertedType = alarmVocabulary.alarmType[parsedData.eventMsg.msgType]
       console.log(parsedData);
       let newData = {
@@ -237,7 +238,7 @@ const useTcpConnection = () => {
       let newDataList = {
         msg: parsedData.eventMsgs.map(item => {
           let origTime = item.dateTime
-          let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format("DD MMMM HH:mm")
+          let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
           let convertedType = alarmVocabulary.alarmType[item.msgType]
             return {
                 ...item,
@@ -279,7 +280,7 @@ const useTcpConnection = () => {
       client.write(...parsedData.milkStat)
     } else if (parsedData.hasOwnProperty("washHistoryLast")) {      
       let origTime = parsedData.washHistoryLast.lastWash
-      let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format("DD MMMM HH:mm")
+      let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
       let convertedType = washVocabulary.washType[parsedData.washHistoryLast.washType]
       let newData = {
         dateTime: convertedTime,
@@ -291,7 +292,7 @@ const useTcpConnection = () => {
       dispatch(addNewWash(newData))
     } else if (parsedData.hasOwnProperty("milkLast")) {      
       let origTime = parsedData.milkLast.dateTime
-      let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format("DD MMMM HH:mm")
+      let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
       let convertedResult = milkVocabulary.result[parsedData.milkLast.result]
       let convertedDestination = milkVocabulary.destination[parsedData.milkLast.destination]
       let convertedMilkAmount = parsedData.milkLast.actualMilk > 0 ? `${((parsedData.milkLast.actualMilk/30).toFixed(1)).replace(".", ",")}/${((parsedData.milkLast.expMilk).toFixed(1)).replace(".", ",")}` : `${(parsedData.milkLast.milkAvail).toFixed(0)}%`
@@ -322,7 +323,7 @@ const useTcpConnection = () => {
       let newDataList = {
         milking: parsedData.milkingHistory.map(item => {
           let origTime = item.dateTime
-          let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format("DD MMMM HH:mm")
+          let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
           let convertedResult = milkVocabulary.result[item.result]
           let convertedDestination = milkVocabulary.destination[item.destination]
           let convertedMilkAmount = item.actualMilk > 0 ? `${((item.actualMilk/30).toFixed(1)).replace(".", ",")}/${((item.expMilk).toFixed(1)).replace(".", ",")}` : `${(item.milkAvail).toFixed(0)}%`
@@ -345,7 +346,7 @@ const useTcpConnection = () => {
       let newDataList = {
         wash: parsedData.washHistory.map(item => {
           let origTime = item.lastWash
-          let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format("DD MMMM HH:mm")
+          let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
           let convertedType = washVocabulary.washType[item.washType]
             return {
                 dateTime: convertedTime,
@@ -435,7 +436,7 @@ const useTcpConnection = () => {
       const formattedTime = `${hh}:${mm}`;
       console.log(formattedTime);
       console.log(currentMode);
-      dispatch(addDisconnectAlarm({nameID: 666, dateTime: formattedTime, msgType: "Авария", msgDecription: "666 Нет связи с КСПВ"}))
+      dispatch(addDisconnectAlarm({nameID: 666, dateTime: Moment().format('HH:mm D MMM'), msgType: "Авария", msgDecription: "666 Нет связи с КСПВ"}))
       dispatch(changeMainAction(10))
   })
 

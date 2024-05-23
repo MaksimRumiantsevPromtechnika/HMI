@@ -1,6 +1,6 @@
 const defaultState = {
   mode: "2",
-  main: "9",
+  main: "4",
   milking: false,
   accessRights: 0, 
   connectionStatus: false,
