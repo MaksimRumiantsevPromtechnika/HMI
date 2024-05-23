@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CleanScreen from "./cleanScreen/CleanScreen";
-const poweroff = require('node-poweroff');
+// const poweroff = require('node-poweroff');
 const { exec } = require('child_process');
 const TouchControl = () => {
 

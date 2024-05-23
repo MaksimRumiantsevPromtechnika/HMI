@@ -56,9 +56,9 @@ const Header = () => {
     9: "status-cow-close-icon",
     10: "alarm-button",
   };
-  useEffect(() => {
-    console.log(connectionStatus);
-  }, [connectionStatus])
+  // useEffect(() => {
+  //   console.log(connectionStatus);
+  // }, [connectionStatus])
   return (
     <>
       <header className='header'>

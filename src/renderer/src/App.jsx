@@ -11,7 +11,6 @@ function App() {
   const connectChange = (adress) => {
     setConnection(adress)
   }
-
   const dispatch = useDispatch()
 
   const TcpConnecion = useTcpConnection()

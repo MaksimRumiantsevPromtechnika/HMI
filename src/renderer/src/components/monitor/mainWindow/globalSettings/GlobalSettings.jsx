@@ -7,6 +7,7 @@ import NumPad from "../numPad/NumPad";
 import NumPadPopup from "../numPadPopup/NumPadPopup";
 
 const GlobalSettings = () => {
+
   const TcpConnecion = useTcpConnection()
   const dispatch = useDispatch()
   const [openPopup, setOpenPopup] = useState(false)

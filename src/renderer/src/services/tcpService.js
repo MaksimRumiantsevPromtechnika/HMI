@@ -4,7 +4,7 @@ import 'moment/dist/locale/ru';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDisconnectAlarm, addHistoryAlarm, addNewAlarm, addNewHistory, deletaAlarm } from '../store/alarm';
-import { changeConnectionAction } from '../store/connectionReducer';
+import { changeCameraConnectionAction, changeConnectionAction } from '../store/connectionReducer';
 import { updateTeatValueAction } from '../store/cupsInfoReducer';
 import { changeConnectionStatusAction, changeMainAction, changeModeAction } from '../store/hmiMode';
 import { updateShemeValueAction } from '../store/schemeInfoReducer';
@@ -15,6 +15,7 @@ import { addHistoryWash, addNewWash } from '../store/clean';
 import { updateCowValueAction } from '../store/cowInfoReducer';
 import { addMilkingHistory, addNewMilking } from '../store/milkingHistoryReducer';
 import { changeSettings, updateSettings } from '../store/mainSettingsReduser';
+import { changeCameraMap } from '../store/cameraReducer';
 const split2 = require('split2');
 
 const net = require('net');
@@ -27,6 +28,7 @@ const useTcpConnection = () => {
   const [isConnected, setIsConnected] = useState(false)
   const dispatch = useDispatch()
   const connection = useSelector(state => state.connection.connection)
+  const cameraConnection = useSelector(state => state.connection.cameraConnection)
   const alarmVocabulary = useSelector(state => state.alarm.alarmVocabulary)
   const washVocabulary = useSelector(state => state.washHistory.washVocabulary)
   const milkVocabulary = useSelector(state => state.milkingHistory.milkingVocabulary)
@@ -40,12 +42,12 @@ const useTcpConnection = () => {
 };
 
   const connectionToTcpServer = async () => {
-    client.connect(12000, '10.5.130.250', () => {
+    client.connect(12000, '11.5.130.250', () => {
     })
   }
 
   const connectionToCamera = async () => {
-    client2.connect(12000, "10.5.130.186", () => {
+    client2.connect(12001, "10.5.130.186", () => {
     })
   }
   let buffer = ""
@@ -158,7 +160,29 @@ const useTcpConnection = () => {
       dispatch(changeModeAction(modifiedData))
     }
     else {
-      console.log(data.toString());
+      // console.log(data.toString());
+    }
+  }
+
+  function onlyNumbers(str) {
+    return /^\d+$/.test(str);
+  }
+
+  const checkMap = async (data) => {
+    if (data.toString().includes("{") || onlyNumbers(data.toString()) || data.toString().includes("}")) {
+      buffer += data
+      let parsedData = ""
+      console.log(buffer);
+      try {
+        parsedData = JSON.parse(buffer.toString())
+      } catch (error) {
+      
+      }
+      if (parsedData) {
+        console.log(parsedData);
+        buffer = "";
+        await checkJSON(parsedData)
+      }
     }
   }
 
@@ -176,6 +200,7 @@ const useTcpConnection = () => {
         console.log(parsedData);
         buffer = "";
         await checkJSON(parsedData)
+        console.log(44);
       }
     } else {
       await checkMsg(data)
@@ -191,11 +216,14 @@ const useTcpConnection = () => {
       let newData = {
         ...parsedData.eventMsg,
         dateTime: convertedTime,
-        msgType: convertedType,
-        msgDecription: alarmVocabulary.alarmDescription[parsedData.eventMsg.nameID]
+        // msgType: convertedType,
+        msgDecription: `${parsedData.eventMsg.nameID} ${alarmVocabulary.alarmDescription[parsedData.eventMsg.nameID]}`
       }
       switch (parsedData.eventMsg.msgType) {
         case 4:
+          dispatch(addNewHistory(newData))
+          break;
+        case 3:
           dispatch(addNewHistory(newData))
           break;
         default:
@@ -214,8 +242,8 @@ const useTcpConnection = () => {
             return {
                 ...item,
                 dateTime: convertedTime,
-                msgType: convertedType,
-                msgDecription: alarmVocabulary.alarmDescription[item.nameID]
+                // msgType: convertedType,
+                msgDecription: `${item.nameID} ${alarmVocabulary.alarmDescription[item.nameID]}`
             };
         })
     };
@@ -228,7 +256,12 @@ const useTcpConnection = () => {
         ...parsedData.cowParameters
       }
       dispatch(updateCowValueAction(cowInfo))
-    } else if (parsedData.hasOwnProperty("milkStat")) {
+    } 
+    else if (parsedData.hasOwnProperty("cameraMap")) {
+      dispatch(changeCameraMap(parsedData.cameraMap.map))
+      console.log(parsedData.cameraMap.map);
+    } 
+    else if (parsedData.hasOwnProperty("milkStat")) {
       console.log(parsedData.milkStat.vak1);
       let convertVak1 = transformDict["vak1"][parsedData.milkStat.vak1]
       let convertVak2 = transformDict["vak2"][parsedData.milkStat.vak2]
@@ -402,7 +435,7 @@ const useTcpConnection = () => {
       const formattedTime = `${hh}:${mm}`;
       console.log(formattedTime);
       console.log(currentMode);
-      dispatch(addDisconnectAlarm({nameID: 666, dateTime: formattedTime, msgType: "Авария", msgDecription: "Нет связи с КСПВ"}))
+      dispatch(addDisconnectAlarm({nameID: 666, dateTime: formattedTime, msgType: "Авария", msgDecription: "666 Нет связи с КСПВ"}))
       dispatch(changeMainAction(10))
   })
 
@@ -430,30 +463,57 @@ const useTcpConnection = () => {
   });
 
   client2.on('data', async (data) => {
-    // dispatch(changeConnectionStatusAction(true))
-    // let array = data.toString().split(/(\)|\]}|\}\})/).filter(Boolean);
+    dispatch(changeConnectionStatusAction(true))
+    let array = data.toString().split(/(\)|\]}|\}\})/).filter(Boolean);
     // console.log(array);
-    // if (array.length === 1) {
-    //   await checkType(array[0]);
-    // } else {
+    if (array.length === 1) {
+      await checkMap(array[0]);
+    } else {
      
-    //   for (let i = 0; i < array.length; i += 2) {
+      for (let i = 0; i < array.length; i += 2) {
         
-    //     if (i + 1 < array.length) {
+        if (i + 1 < array.length) {
          
-    //       await checkType(array[i] + array[i + 1]);
-    //     } else {
+          await checkMap(array[i] + array[i + 1]);
+        } else {
           
-    //       await checkType(array[i]);
-    //     }
-    //   }
-    // }
-    // clearTimeout(timeout);
-    // startTimeout();
-    console.log(data);
+          await checkMap(array[i]);
+        }
+      }
+    }
+    
+    // console.log(data.toString());
   });
 
+  client2.on('error', async () => {
+    console.error('TCP connection ERROR', "Check Connection");
+    client2.end();
+  })
  
+
+  client2.on('close', async() => {
+    console.log('Connection closed');
+    
+  })
+
+  client2.on('connect', async () => {
+    console.log("Состыковались");
+    client2.write("start")
+    dispatch(changeCameraConnectionAction(client2))
+  });
+
+  const cancelCameraConnection = () => {
+    setTimeout(client2.end(), 2000)
+    console.log("end");}
+
+  const sendTcpDataCamera = async (data) => {
+    if (cameraConnection && cameraConnection.writable) {
+      cameraConnection.write(data);
+    } else {
+      console.error("TCP connection in not available")
+    }
+  }
+
   let timeout;
   const startTimeout = async () => {
     timeout = setTimeout(() => {
@@ -474,7 +534,9 @@ const useTcpConnection = () => {
     connectionToTcpServer,
     sendTcpData,
     client,
-    connectionToCamera
+    connectionToCamera,
+    cancelCameraConnection,
+    sendTcpDataCamera
   }
 }
 

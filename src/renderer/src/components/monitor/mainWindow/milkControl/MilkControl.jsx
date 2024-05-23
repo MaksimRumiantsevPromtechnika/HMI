@@ -95,7 +95,6 @@ const MilkControl = () => {
 
   const renderProbablePoints = () => {
     return probablePoints.map((point, index) => {
-      console.log(point.s);
       const radius = 5;
       const points = [
         { x: point.x, y: point.y - radius }, // вершина треугольника

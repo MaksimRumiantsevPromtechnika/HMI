@@ -2,6 +2,7 @@ import { createStore, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { alarmReducer } from "./alarm";
 import { bucketInfoReducer } from "./bucketReducer";
+import { cameraMap } from "./cameraReducer";
 import { clean } from "./clean";
 import { configuratorReduser } from "./configuratorReducer";
 import { connectionReducer } from "./connectionReducer";
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
   milking: milkingReducer,
   washHistory: clean,
   milkingHistory: milkingHistory,
+  cameraMap: cameraMap
 })
 
 export const store = createStore(rootReducer, composeWithDevTools())
