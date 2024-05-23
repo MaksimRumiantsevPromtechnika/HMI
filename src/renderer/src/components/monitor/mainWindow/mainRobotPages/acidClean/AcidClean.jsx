@@ -47,7 +47,7 @@ const AcidClean = () => {
                 {stageList[currentStage]}
               </div>
               <div className="acid-stage progress-child local-stage-time">
-                {moment.utc(AcidStageTime * 1000).format('m:ss')}
+                {AcidStageTime ? moment.utc(AcidStageTime * 1000).format('m:ss') : "0:00"}
               </div>
               <div className="progress-child acid-local-progress-inner"
                 style={{
@@ -63,7 +63,7 @@ const AcidClean = () => {
                 Промывка кислотная
               </div>
               <div className="acid-stage progress-child global-stage-time">
-                {moment.utc(AcidWashTime * 1000).format('m:ss')}
+                {AcidWashTime ? moment.utc(AcidWashTime * 1000).format('m:ss') : "0:00"}
               </div>
               <div className="progress-child acid-global-progress-inner"
                 style={{

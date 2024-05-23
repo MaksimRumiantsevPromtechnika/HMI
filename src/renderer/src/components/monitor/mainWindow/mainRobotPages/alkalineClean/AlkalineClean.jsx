@@ -47,7 +47,7 @@ const AlkalineClean = () => {
                 {stageList[currentStage]}
               </div>
               <div className="alkaline-stage progress-child local-stage-time">
-                {moment.utc(alkalineStageTime * 1000).format('m:ss')}
+                {alkalineStageTime ? moment.utc(alkalineStageTime * 1000).format('m:ss') : "0:00"}
               </div>
               <div className="progress-child acid-global-progress-inner"
                 style={{
@@ -62,7 +62,7 @@ const AlkalineClean = () => {
             <div className="status-cleaning-progress-bar-global pump-global">
               <div className="progress-child value-progress">Промывка щелочная</div>
               <div className="alkaline-stage progress-child global-stage-time">
-                {moment.utc(alkalineWashTime * 1000).format('m:ss')}
+                {alkalineWashTime ? moment.utc(alkalineWashTime * 1000).format('m:ss') : "0:00"}
               </div>
               <div className="progress-child acid-global-progress-inner"
                 style={{

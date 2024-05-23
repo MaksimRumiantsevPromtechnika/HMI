@@ -47,7 +47,7 @@ const LineRising = () => {
                 <div className="acid-stage progress-child value-progress">
                   {stageList[currentStage]}
                 </div>
-                <div className="acid-stage progress-child local-stage-time">{moment.utc(lineRisingStageWashTime * 1000).format('m:ss')}</div>
+                <div className="acid-stage progress-child local-stage-time">{lineRisingStageWashTime ? moment.utc(lineRisingStageWashTime * 1000).format('m:ss') : "0:00"}</div>
                 <div className="progress-child acid-local-progress-inner"
                   style={{
                     width: stageProgressBarWidth,
@@ -60,7 +60,7 @@ const LineRising = () => {
               <div className="status-cleaning-progress-bar-global pump-global">
                 <div className="progress-child value-progress">Промывка линии</div>
                 <div className="acid-stage progress-child global-stage-time">
-                  {moment.utc(lineRisingWashTime * 1000).format('m:ss')}
+                  {lineRisingWashTime ? moment.utc(lineRisingWashTime * 1000).format('m:ss') : "0:00"}
                 </div>
                 <div className="progress-child acid-global-progress-inner"
                   style={{

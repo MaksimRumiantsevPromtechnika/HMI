@@ -47,7 +47,7 @@ const RobotRising = () => {
                 <div className="alkaline-stage progress-child value-progress">
                   {stageList[currentStage]}
                 </div>
-                <div className="alkaline-stage progress-child local-stage-time">{moment.utc(robotRisingStageWashTime * 1000).format('m:ss')}</div>
+                <div className="alkaline-stage progress-child local-stage-time">{robotRisingStageWashTime ? moment.utc(robotRisingStageWashTime * 1000).format('m:ss') : "0:00"}</div>
                 <div className="progress-child acid-local-progress-inner"
                   style={{
                     width: stageProgressBarWidth,
@@ -60,7 +60,7 @@ const RobotRising = () => {
               <div className="status-cleaning-progress-bar-global pump-global">
                 <div className="progress-child value-progress">Ополаскивание УДР</div>
                 <div className="half-stage progress-child global-stage-time">
-                  {moment.utc(robotRisingWashTime * 1000).format('m:ss')}
+                  {robotRisingWashTime ? moment.utc(robotRisingWashTime * 1000).format('m:ss') : "0:00"}
                 </div>
                 <div className="progress-child acid-global-progress-inner"
                   style={{
