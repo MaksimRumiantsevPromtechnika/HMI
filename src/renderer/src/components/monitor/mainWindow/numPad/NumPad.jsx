@@ -3,6 +3,10 @@ import React, { useState } from "react";
 const NumPad = ({ handleChange, currentSett, handleClose }) => {
   const [val, setVal] = useState("0")
 
+  const changeSign = () => {
+    setVal(val * (-1))
+  }
+
   const handleClick = (e) => {
     val === "0"
       ? setVal(e.target.value)
@@ -25,6 +29,7 @@ const NumPad = ({ handleChange, currentSett, handleClose }) => {
         <button className="num-button sidetouch" value="3" onClick={handleClick}>3</button>
         <button className="clear num-button sidetouch" id="clear" value="C" onClick={(e) => setVal("0")}>C</button>
         <button className="num-button sidetouch" value="0" onClick={handleClick}>0</button>
+        <button className="num-button sidetouch" value="+/-" onClick={changeSign}>+/-</button>
         <button className="num-button enter sidetouch" onClick={() => { handleChange(val, currentSett); handleClose() }}>ОК</button>
 
       </div>

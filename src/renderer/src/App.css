@@ -2515,7 +2515,7 @@ input, button {
 
 
 .main-content {
-  height: 526px;
+  height: 629px;
   width: 335px;
   background: #f9f9f9;
   border: solid #2a569a;
@@ -2587,6 +2587,7 @@ input, button {
   color: white;
   padding-bottom: 4px;
   border: solid #25be2c;
+  width: 289px;
 }
 
 .number-div {
