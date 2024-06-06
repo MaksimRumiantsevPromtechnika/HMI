@@ -83,19 +83,19 @@ const MilkControl = () => {
   // Создание элементов <circle> для каждой точки
   const renderPoints = () => {
     return relativePoints.map((point, index) => {
-      return <circle key={index} cx={point.x} cy={point.y} r={5} fill={point.s == "1" ? 'red' : 'white'} />;
+      return <circle key={index} cx={point.x} cy={point.y} r={7} fill={point.s == "1" ? 'red' : 'white'} />;
     });
   };
 
   const renderHistoryPoints = () => {
     return historyPoints.map((point, index) => {
-      return <rect key={index} x={point.x} y={point.y} width="10" height="10" fill="grey" />;
+      return <rect key={index} x={point.x} y={point.y} width="13" height="13" fill="grey" />;
     });
   };
 
   const renderProbablePoints = () => {
     return probablePoints.map((point, index) => {
-      const radius = 5;
+      const radius = 7;
       const points = [
         { x: point.x, y: point.y - radius }, // вершина треугольника
         { x: point.x - radius, y: point.y + radius },  // левая точка внизу
