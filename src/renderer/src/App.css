@@ -575,10 +575,11 @@ body {
 
 .status-milk-transport-bar {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50%;
-  margin-bottom: 45px;
+  /* margin-bottom: 45px; */
 }
 
 .status-milk-status {
@@ -642,6 +643,15 @@ body {
   background-size: 110px;
   width: 120px;
   height: 120px;
+}
+
+.conductivity {
+  background-size: 40px;
+  width: 45px;
+  height: 45px;
+  background-image: url(../svg/conductivity.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .milking-path.transport-tanker {
@@ -1001,7 +1011,6 @@ body {
 }*/
 
 .current-state {
-  border: solid #25be2c;
   background-color: #25be2c;
   border-radius: 5px;
 }
@@ -2117,7 +2126,20 @@ button.cup-button:disabled {
 
 .milk-path-setting-item {
   display: flex;
+  gap: 10px;
+}
 
+
+.milk-path-setting-item-id {
+  width: 112px;
+height: 62px;
+display: flex;
+gap: 10px;
+}
+
+.milk-path-setiing-id {
+  display: flex;
+  flex-direction: column;
 }
 
 .milk-path-drain-button {
