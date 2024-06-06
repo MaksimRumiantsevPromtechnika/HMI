@@ -6,6 +6,7 @@ import '/public/ag-grid.css'; // Core grid CSS, always needed
 import '/public/ag-theme-balham.css'; // Optional theme CSSC:\Action\ViteHmi\hmi\node_modules\ag-grid-community\styles\ag-theme-alpine.css
 import '../../../../App.css'
 import { useSelector } from 'react-redux';
+import MilkingReport from './milkingReport/MilkingReport';
 
 const MilkInfo = React.memo(() => {
   console.log("RENDER");
@@ -49,7 +50,7 @@ const MilkInfo = React.memo(() => {
     <div>
 
       {/* On div wrapping Grid a) specify theme CSS Class Class and b) sets Grid size */}
-      <div className="ag-theme-alpine" style={{ width: 834, height: 477, margin: 3, }}>
+      {/* <div className="ag-theme-alpine" style={{ width: 834, height: 477, margin: 3, }}>
 
         <AgGridReact
           ref={gridRef} // Ref for accessing Grid's API
@@ -65,7 +66,8 @@ const MilkInfo = React.memo(() => {
         />
         <button className="button milk-filter sidetouch" style={{ backgroundColor: filter ? 'rgba(42, 86, 154, 0.66)' : '', }} onClick={toggleFilter}></button>
         <button className="button milk-search sidetouch"></button>
-      </div>
+      </div> */}
+      <MilkingReport></MilkingReport>
     </div>
   );
 })
