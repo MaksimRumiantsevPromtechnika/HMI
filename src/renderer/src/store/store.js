@@ -16,6 +16,7 @@ import { milkingReducer } from "./milkingReducer";
 import { shemeInfoReducer } from "./schemeInfoReducer";
 import { vacCalibrationReducer } from "./vacCalibration";
 import { washReducer } from "./washInfo";
+import { washReportReducer } from "./washReport";
 
 const rootReducer = combineReducers({
   globalSettings: mainSettingsReduser,
@@ -33,7 +34,8 @@ const rootReducer = combineReducers({
   milking: milkingReducer,
   washHistory: clean,
   milkingHistory: milkingHistory,
-  cameraMap: cameraMap
+  cameraMap: cameraMap,
+  washReport: washReportReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools())
