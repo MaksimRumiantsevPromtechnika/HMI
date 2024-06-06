@@ -326,7 +326,7 @@ const useTcpConnection = () => {
           let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
           let convertedResult = milkVocabulary.result[item.result]
           let convertedDestination = milkVocabulary.destination[item.destination]
-          let convertedMilkAmount = item.actualMilk > 0 ? `${((item.actualMilk/30).toFixed(1)).replace(".", ",")}/${((item.expMilk).toFixed(1)).replace(".", ",")}` : `${(item.milkAvail).toFixed(0)}%`
+          let convertedMilkAmount = item.milkAvail >= 100 ? `${((item.actualMilk/30).toFixed(1)).replace(".", ",")}/${((item.expMilk).toFixed(1)).replace(".", ",")}` : `${(item.milkAvail).toFixed(0)}%`
           let originAmt = moment.duration(item.amt, "seconds");
           let convertedAmt = moment.utc(originAmt.asMilliseconds()).format('mm:ss');   
           return {

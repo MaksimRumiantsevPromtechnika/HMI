@@ -4,31 +4,31 @@ const defaultState = {
         val: 12,
         status: "",
         dateTime: "10:25",
-        id: "77"
+        id: "5541"
     },
     {
         val: 8,
         status: "Мастит",
         dateTime: "10:35",
-        id: "22"
+        id: "2422"
+    },
+    {
+        val: "",
+        status: "Молозево",
+        dateTime: "",
+        id: "3333"
+    },
+    {
+        val: "",
+        status: "Антибиотик",
+        dateTime: "",
+        id: "4242"
     },
     {
         val: "",
         status: "",
         dateTime: "",
-        id: ""
-    },
-    {
-        val: "",
-        status: "",
-        dateTime: "",
-        id: ""
-    },
-    {
-        val: "",
-        status: "",
-        dateTime: "",
-        id: ""
+        id: "9876"
     }
   ]
 }

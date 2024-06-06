@@ -45,13 +45,13 @@ const Sidebar = ({ toggleTab, toggleTabInfo, setMode, handleModeChange, connecti
     // setTimeout(TcpConnection.sendTcpData(`get_cowparameters()`, 250))
   }
 
-  const sendMode = (value) => {
-    if (connection) {
-      connection.write(`set_mode_${value}()`);
-      console.log(`set_mode_${value}()`);
-      // connection.write("get_all_state()")
-    }
-  }
+  // const sendMode = (value) => {
+  //   if (connection) {
+  //     connection.write(`set_mode_${value}()`);
+  //     console.log(`set_mode_${value}()`);
+  //     // connection.write("get_all_state()")
+  //   }
+  // }
 
   const TcpConnection = useTcpConnection()
 
@@ -83,14 +83,17 @@ const Sidebar = ({ toggleTab, toggleTabInfo, setMode, handleModeChange, connecti
         </div>
         <button className="side-bar-button sidetouch alarm-button medium" id="tab__content_info" value="info-page" onClick={() => { toggleTab(2); toggleTabInfo(3) }}></button>
         <button className="side-bar-button sidetouch button-close-cow-exit" onClick={() => handleLockCow(true)}></button>
-        <button className="side-bar-button sidetouch button-feed" onClick={() => TcpConnection.sendTcpData("get_cowparameters()")}></button>
+        <button className="side-bar-button sidetouch button-feed"
+          onTouchStart={(e) => TcpConnection.sendTcpData("set_on(0)")}
+          onTouchEnd={() => TcpConnection.sendTcpData("set_off(0)")}>
+        </button>
         <button className={separateMode === 0 ? "side-bar-button sidetouch button-separate" : "separeate side-bar-button sidetouch button-separate"} onClick={toggleSeparateStatus}></button>
         <button className="side-bar-button sidetouch button-milk-action-select" onClick={() => handleModeMilkOpen(true)}></button>
         <button className="side-bar-button sidetouch button-open-cell" onClick={() => TcpConnection.sendTcpData("get_bucket_info()")}></button>
       </div>
       <HmiMode
         changeMode={changeMode}
-        sendMode={sendMode}
+        // sendMode={sendMode}
         modePopup={modePopup}
         modePopupClose={modePopupClose}
       >
