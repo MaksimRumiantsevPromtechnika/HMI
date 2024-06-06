@@ -44,10 +44,16 @@ const CleanControl = () => {
         <div className="cl-date-value robot-rinsing-value">
           <p>{moment(washHistory.i3, 'DD.MM.YYYY HH:mm:ss').locale('ru').format('DD MMMM HH:mm')}</p>
         </div>
-        <div className="cl-bar-button sidetouch robot-rinsing-container-icon" ></div>
+        <div className="cl-bar-button sidetouch robot-rinsing-container-icon"
+          onTouchStart={(e) => TcpConnection.sendTcpData("set_on(0)")}
+          onTouchEnd={() => TcpConnection.sendTcpData("set_off(0)")}
+        ></div>
       </div>
       <div className="iodine-valve">
-        <div className="cl-bar-button clean-nav-button sidetouch iodine-valve-icon" id="graphics"></div>
+        <div className="cl-bar-button clean-nav-button sidetouch iodine-valve-icon" id="graphics"
+          onTouchStart={(e) => TcpConnection.sendTcpData("set_on(0)")}
+          onTouchEnd={() => TcpConnection.sendTcpData("set_off(0)")}
+        ></div>
       </div>
     </>
   );
