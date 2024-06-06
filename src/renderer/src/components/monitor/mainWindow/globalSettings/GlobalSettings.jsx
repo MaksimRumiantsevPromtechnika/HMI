@@ -32,6 +32,10 @@ const GlobalSettings = () => {
     setTimeout(TcpConnecion.sendTcpData(`get_globalsettings()`), 200)
   }, [globalSettings.udrGlobalSettings])
 
+  useEffect(() => {
+
+  }, [globalSettings.realSettings.configurateParams])
+
   const handleChange = (value, currentSett) => {
     const inputValue = {
       value: value,
