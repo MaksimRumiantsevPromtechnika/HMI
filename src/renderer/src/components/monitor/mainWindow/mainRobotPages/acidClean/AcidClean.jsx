@@ -79,6 +79,7 @@ const AcidClean = () => {
       </div>
       <div className="status-cleaning-icons acid-icons">
         <div className={currentStage === 0 && currentWash === 0 ? "status-icon-clean-tanker status-icon current-state" : "status-icon-clean-tanker status-icon"}>
+          <div>0:00</div>
         </div>
         <div className={currentStage === 1 && currentWash === 0 ? "status-icon-cups-shower status-icon current-state" : "status-icon-cups-shower status-icon"}>
         </div>
