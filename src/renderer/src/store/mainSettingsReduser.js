@@ -1,18 +1,23 @@
 const defaultState = {
   udrGlobalSettings: {
-    detachmentDelay: "3",
+    configurateParams: {
+      detachmentDelay: "3",
     xOffset: "8",
     zOffset: "9",
     yOffset: "2",
-    armSlowSpeed: true
+    },
+    armSlowSpeed: true,
+    cowSeparate: false
   }
   ,
 
   realSettings: {
-    detachmentDelay: "3",
-    xOffset: "8",
-    zOffset: "9",
-    yOffset: "2",
+    configurateParams: {
+      detachmentDelay: "3",
+      xOffset: "8",
+      zOffset: "9",
+      yOffset: "2",
+    },
     armSlowSpeed: true
   }
 }

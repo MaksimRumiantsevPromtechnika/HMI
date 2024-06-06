@@ -119,7 +119,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
             <rect
               style={{
                 fill: "#2a569a",
-                fillOpacity: (cupState.i911 === 1 || cupState.i911 === 2) && state.i109 === 1 ? 1 : 0,
+                fillOpacity: (cupState.i911 === 1 || cupState.i911 === 2) && state.i50 === 1 ? 1 : 0,
                 stroke: "#000000",
                 strokeWidth: "0.529153",
                 strokeLinecap: "round",
@@ -136,7 +136,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
             <rect
               style={{
                 fill: "#2a569a",
-                fillOpacity: (cupState.i912 === 1 || cupState.i912 === 2) && state.i117 === 1 ? 1 : 0,
+                fillOpacity: (cupState.i912 === 1 || cupState.i912 === 2) && state.i48 === 1 ? 1 : 0,
                 stroke: "#000000",
                 strokeWidth: "0.529153",
                 strokeLinecap: "round",
@@ -153,7 +153,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
             <rect
               style={{
                 fill: "#2a569a",
-                fillOpacity: (cupState.i914 === 1 || cupState.i914 === 2) && state.i105 === 1 ? 1 : 0,
+                fillOpacity: (cupState.i914 === 1 || cupState.i914 === 2) && state.i51 === 1 ? 1 : 0,
                 stroke: "#000000",
                 strokeWidth: "0.529153",
                 strokeLinecap: "round",
@@ -170,7 +170,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
             <rect
               style={{
                 fill: "#2a569a",
-                fillOpacity: (cupState.i913 === 1 || cupState.i913 === 2) && state.i113 === 1 ? 1 : 0,
+                fillOpacity: (cupState.i913 === 1 || cupState.i913 === 2) && state.i49 === 1 ? 1 : 0,
                 stroke: "#000000",
                 strokeWidth: "0.529153",
                 strokeLinecap: "round",
@@ -267,7 +267,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-57"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#ffffff", fillOpacity: state.i145 === 0 ? 1 : 0, }}
+                style={{ fill: "#ffffff", fillOpacity: state.i23 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -307,7 +307,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: state.i145 === 0 ? 1 : 0,
+                  fillOpacity: state.i23 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -365,7 +365,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               id="path29568"
               style={{
                 fill: "#2a569a",
-                fillOpacity: state.i73 === 1 ? 1 : 0,
+                fillOpacity: state.i35 === 1 ? 1 : 0,
                 stroke: "#000000",
                 strokeWidth: "0.529185",
                 strokeLinecap: "butt",
@@ -377,7 +377,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               id="path32458"
               style={{
                 fill: "#2a569a",
-                fillOpacity: state.i73 === 1 ? 1 : 0,
+                fillOpacity: state.i35 === 1 ? 1 : 0,
                 stroke: "#000000",
                 strokeWidth: "0.529225",
                 strokeLinecap: "butt",
@@ -391,7 +391,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 id="path7624-3"
                 style={{
                   fill: "#2a569a",
-                  fillOpacity: state.i21 === 1 || state.i77 === 1 ? 1 : 0,
+                  fillOpacity: state.i10 === 1 || state.i13 === 1 ? 1 : 0,
                   stroke: "#000000",
                   strokeWidth: "0.529185",
                   strokeLinecap: "butt",
@@ -403,7 +403,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 id="path7624"
                 style={{
                   fill: "#2a569a",
-                  fillOpacity: state.i21 === 1 || state.i77 === 1 ? 1 : 0,
+                  fillOpacity: state.i10 === 1 || state.i13 === 1 ? 1 : 0,
                   stroke: "#000000",
                   strokeWidth: "0.529185",
                   strokeLinecap: "butt",
@@ -457,7 +457,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 <g
                   id="g87158-6-9-0"
                   transform="translate(-28.36668,-61.96896)"
-                  style={{ fill: "#ffffff", fillOpacity: state.i77 === 0 ? 1 : 0, }}
+                  style={{ fill: "#ffffff", fillOpacity: state.i13 === 0 ? 1 : 0, }}
                   inkscape:label="Левый"
                 >
                   <path
@@ -497,7 +497,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                   transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                   style={{
                     fill: "#ffffff",
-                    fillOpacity: state.i77 === 0 ? 1 : 0,
+                    fillOpacity: state.i13 === 0 ? 1 : 0,
                     strokeWidth: 2,
                     strokeDasharray: "none"
                   }}
@@ -542,14 +542,14 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                     strokeWidth: 0,
                     strokeLinecap: "round"
                   }}
-                  id="77"
+                  id="7"
                   className="Valve"
                   onClick={(e) => valvePopupOpen(true, e)}
                   width="7.11936"
                   height="9.9749613"
                   x="112.37252"
                   y="17.592012"
-                  inkscape:label="Маска клапана @77"
+                  inkscape:label="Маска клапана 13"
                   transform="matrix(0,-3.7795276,3.7795276,0,-15.912102,731.1244)"
                 />
               </g>
@@ -599,7 +599,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 <g
                   id="g87158-6-9-0-7"
                   transform="translate(-28.36668,-61.96896)"
-                  style={{ fill: "#ffffff", fillOpacity: state.i21 === 0 ? 1 : 0, }}
+                  style={{ fill: "#ffffff", fillOpacity: state.i10 === 0 ? 1 : 0, }}
                   inkscape:label="Левый"
                 >
                   <path
@@ -639,7 +639,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                   transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                   style={{
                     fill: "#ffffff",
-                    fillOpacity: state.i21 === 0 ? 1 : 0,
+                    fillOpacity: state.i10 === 0 ? 1 : 0,
                     strokeWidth: 2,
                     strokeDasharray: "none"
                   }}
@@ -684,14 +684,14 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                     strokeWidth: 0,
                     strokeLinecap: "round"
                   }}
-                  id="21"
+                  id="10"
                   className="Valve"
                   onClick={(e) => valvePopupOpen(true, e)}
                   width="7.4610658"
                   height="10.504127"
                   x="101.03525"
                   y="17.567619"
-                  inkscape:label="Маска клапана @21"
+                  inkscape:label="Маска клапана 10"
                   transform="matrix(0,-3.7795276,3.7795276,0,-15.912106,691.14773)"
                 />
               </g>
@@ -700,7 +700,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               transform="matrix(0.01259921,0,0,-0.01259921,77.863193,29.012467)"
               fill="#000000"
               stroke="none"
-              opacity={state.i37 === 0 ? 0 : 1}
+              opacity={state.i46 === 0 ? 0 : 1}
               shapeRendering="geometricPrecision"
               className="pulsator pulsator-on"
               id="g3803"
@@ -726,7 +726,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               transform="matrix(0.01261935,0,0,-0.01261935,77.862287,29.030392)"
               fill="#000000"
               stroke="none"
-              opacity={state.i37 === 0 ? 1 : 0}
+              opacity={state.i46 === 0 ? 1 : 0}
               shapeRendering="geometricPrecision"
               className="pulsator pulsator-off"
               id="402"
@@ -843,7 +843,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 style={{ fill: "#ed1c24", fillOpacity: 1 }}
               />
             </g>
-            <g id="g29855" className="arm-cup" inkscape:label="Стакан" opacity={state.i121 === 1 ? 0 : 1}>
+            <g id="g29855" className="arm-cup" inkscape:label="Стакан" opacity={state.i5 === 1 ? 0 : 1}>
               <rect
                 style={{
                   fill: "#ffffff",
@@ -1404,7 +1404,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-2"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#ffffff", fillOpacity: state.i149 === 0 ? 1 : 0, }}
+                style={{ fill: "#ffffff", fillOpacity: state.i33 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -1444,7 +1444,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: state.i149 === 0 ? 1 : 0,
+                  fillOpacity: state.i33 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -1490,14 +1490,14 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="149"
+                id="33"
                 className="Valve"
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="7.4610658"
                 height="9.9749603"
                 x="111.60357"
                 y="72.633949"
-                inkscape:label="Маска клапана @149"
+                inkscape:label="Маска клапана 33"
                 transform="matrix(0,-3.7795276,3.7795276,0,-224.03681,731.091)"
               />
             </g>
@@ -1547,7 +1547,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-8"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#ffffff", fillOpacity: state.i73 === 0 ? 1 : 0, }}
+                style={{ fill: "#ffffff", fillOpacity: state.i35 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -1587,7 +1587,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: state.i73 === 0 ? 1 : 0,
+                  fillOpacity: state.i35 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -1633,14 +1633,14 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="73"
+                id="35"
                 className="Valve"
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="7.4610658"
                 height="9.9754725"
                 x="101.02641"
                 y="72.633949"
-                inkscape:label="Маска клапана @73"
+                inkscape:label="Маска клапана 35"
                 transform="matrix(0,-3.7795276,3.7795276,0,-224.03681,691.11433)"
               />
             </g>
@@ -1690,7 +1690,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-1"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#000000", fillOpacity: state.i105 === 0 ? 1 : 0, }}
+                style={{ fill: "#000000", fillOpacity: state.i51 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -1730,7 +1730,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#000000",
-                  fillOpacity: state.i105 === 0 ? 1 : 0,
+                  fillOpacity: state.i51 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -1775,14 +1775,14 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="105"
+                id="51"
                 className="Valve"
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="7.4077535"
                 height="10.305434"
                 x="41.738602"
                 y="72.839874"
-                inkscape:label="Маска клапана @105"
+                inkscape:label="Маска клапана 51"
                 transform="matrix(0,-3.7795276,3.7795276,0,-224.81514,467.03441)"
               />
             </g>
@@ -1801,7 +1801,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-1-1"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#000000", fillOpacity: state.i137 === 0 ? 1 : 0, }}
+                style={{ fill: "#000000", fillOpacity: state.i32 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -1841,7 +1841,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#000000",
-                  fillOpacity: state.i137 === 0 ? 1 : 0,
+                  fillOpacity: state.i32 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -1887,14 +1887,14 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="137"
+                id="32"
                 className="Valve"
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="7.0677795"
                 height="10.504134"
                 x="22.499981"
                 y="86.069267"
-                inkscape:label="Маска клапана @137"
+                inkscape:label="Маска клапана 32"
                 transform="matrix(0,-3.7795276,3.7795276,0,-274.81597,394.32152)"
               />
             </g>
@@ -1944,7 +1944,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-6"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#000000", fillOpacity: state.i113 === 0 ? 1 : 0, }}
+                style={{ fill: "#000000", fillOpacity: state.i49 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -1984,7 +1984,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#000000",
-                  fillOpacity: state.i113 === 0 ? 1 : 0,
+                  fillOpacity: state.i49 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -2030,14 +2030,14 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="113"
+                id="49"
                 className="Valve"
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="7.4610658"
                 height="10.504128"
                 x="29.56776"
                 y="72.840103"
-                inkscape:label="Маска клапана @113"
+                inkscape:label="Маска клапана 49"
                 transform="matrix(0,-3.7795276,3.7795276,0,-224.81597,421.03439)"
               />
             </g>
@@ -2087,7 +2087,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-71"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#000000", fillOpacity: state.i117 === 0 ? 1 : 0, }}
+                style={{ fill: "#000000", fillOpacity: state.i48 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -2127,7 +2127,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#000000",
-                  fillOpacity: state.i117 === 0 ? 1 : 0,
+                  fillOpacity: state.i48 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -2173,14 +2173,14 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="117"
+                id="48"
                 className="Valve"
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="7.3416142"
                 height="10.305221"
                 x="17.396927"
                 y="72.840096"
-                inkscape:label="Маска клапана @117"
+                inkscape:label="Маска клапана 48"
                 transform="matrix(0,-3.7795276,3.7795276,0,-224.81595,375.03439)"
               />
             </g>
@@ -2230,7 +2230,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-4"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#000000", fillOpacity: state.i109 === 0 ? 1 : 0, }}
+                style={{ fill: "#000000", fillOpacity: state.i50 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -2270,7 +2270,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#000000",
-                  fillOpacity: state.i109 === 0 ? 1 : 0,
+                  fillOpacity: state.i50 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -2316,14 +2316,14 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="109"
+                id="50"
                 className="Valve"
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="7.4610658"
                 height="11.165787"
                 x="5.3227992"
                 y="72.839417"
-                inkscape:label="Маска клапана @109"
+                inkscape:label="Маска клапана 50"
                 transform="matrix(0,-3.7795276,3.7795276,0,-224.81341,329.39989)"
               />
             </g>
@@ -2373,7 +2373,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-29"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#ffffff", fillOpacity: state.i145 === 0 ? 1 : 0, }}
+                style={{ fill: "#ffffff", fillOpacity: state.i23 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -2413,7 +2413,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: state.i145 === 0 ? 1 : 0,
+                  fillOpacity: state.i23 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -2467,7 +2467,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-0"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#ffffff", fillOpacity: state.i145 === 0 ? 1 : 0, }}
+                style={{ fill: "#ffffff", fillOpacity: state.i23 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -2507,7 +2507,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: state.i145 === 0 ? 1 : 0,
+                  fillOpacity: state.i23 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -2561,7 +2561,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-65"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#ffffff", fillOpacity: state.i145 === 0 ? 1 : 0, }}
+                style={{ fill: "#ffffff", fillOpacity: state.i23 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -2601,7 +2601,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: state.i145 === 0 ? 1 : 0,
+                  fillOpacity: state.i23 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -2655,7 +2655,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               <g
                 id="g87158-6-9-0-5"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fill: "#ffffff", fillOpacity: state.i145 === 0 ? 1 : 0, }}
+                style={{ fill: "#ffffff", fillOpacity: state.i23 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -2695,7 +2695,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: state.i145 === 0 ? 1 : 0,
+                  fillOpacity: state.i23 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -2738,7 +2738,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               id="g29855-4"
               className="arm-cup"
               inkscape:label="Стакан"
-              opacity={state.i129 === 1 ? 0 : 1}
+              opacity={state.i3 === 1 ? 0 : 1}
               transform="translate(-12.170839,-7.9373322)"
             >
               <rect
@@ -2858,7 +2858,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               id="g29855-3"
               className="arm-cup"
               inkscape:label="Стакан"
-              opacity={state.i133 === 1 ? 0 : 1}
+              opacity={state.i2 === 1 ? 0 : 1}
               transform="translate(-24.34167,-7.9373341)"
             >
               <rect
@@ -2986,7 +2986,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               id="g29855-0"
               className="arm-cup"
               inkscape:label="Стакан"
-              opacity={state.i125 === 1 ? 0 : 1}
+              opacity={state.i4 === 1 ? 0 : 1}
               transform="translate(-36.415799,-4.5776367e-4)"
             >
               <rect
@@ -3086,7 +3086,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               id="g29855-1"
               className="arm-cup-up"
               inkscape:label="Стакан-поднятый"
-              opacity={state.i121 === 1 ? 1 : 0}
+              opacity={state.i5 === 1 ? 1 : 0}
               transform="translate(0,-7.4083538)"
             >
               <rect
@@ -3213,7 +3213,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
             <g
               id="g29855-1-4"
               className="arm-cup-up"
-              opacity={state.i129 === 1 ? 1 : 0}
+              opacity={state.i3 === 1 ? 1 : 0}
               inkscape:label="Стакан-поднятый"
               transform="translate(-12.170749,-15.345622)"
             >
@@ -3341,7 +3341,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
             <g
               id="g29855-1-1"
               className="arm-cup-up"
-              opacity={state.i133 === 1 ? 1 : 0}
+              opacity={state.i2 === 1 ? 1 : 0}
               inkscape:label="Стакан-поднятый"
               transform="translate(-24.341582,-15.345622)"
             >
@@ -3469,7 +3469,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
             <g
               id="g29855-1-6"
               className="arm-cup-up"
-              opacity={state.i125 === 1 ? 1 : 0}
+              opacity={state.i4 === 1 ? 1 : 0}
               inkscape:label="Стакан-поднятый"
               transform="translate(-36.41578,-7.4086393)"
             >
@@ -3600,7 +3600,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               className="brushes-clean brushes-clean-on"
               transform="matrix(0.89687834,0,0,0.89687834,40.662731,10.117997)"
               inkscape:label="Чистка"
-              opacity={state.i25 === 0 ? 0 : 1}
+              opacity={state.i11 === 0 ? 0 : 1}
             >
               <g
                 id="g2975-4-1-9-1-2-6-8-2-9-4"
@@ -3882,7 +3882,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               className="brushes brushes-open"
               shapeRendering="geometricPrecision"
               inkscape:label="Щетки выдвинуть"
-              opacity={state.i141 === 0 ? 0 : 1}
+              opacity={state.i12 === 0 ? 0 : 1}
             >
               <rect
                 style={{
@@ -4248,7 +4248,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               className="brushes brushes-close"
               shapeRendering="geometricPrecision"
               inkscape:label="Щетки задвинуть"
-              opacity={state.i141 === 0 ? 1 : 0}
+              opacity={state.i12 === 0 ? 1 : 0}
             >
               <rect
                 style={{
@@ -4546,7 +4546,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               shapeRendering="geometricPrecision"
               className="brushes-clean brushes-clean-off"
               inkscape:label="Чистка выключено"
-              opacity={state.i25 === 0 ? 1 : 0}
+              opacity={state.i11 === 0 ? 1 : 0}
             >
               <path
                 d="m 74.377193,42.957545 c 0.01553,2.828569 0.01553,2.854605 0.129223,3.058504 0.155063,0.286324 0.527196,0.603022 0.878661,0.750525 0.268766,0.112784 0.351465,0.125816 0.790795,0.125816 0.439329,0 0.522023,-0.01304 0.790788,-0.125816 0.351466,-0.147503 0.723604,-0.464201 0.878659,-0.750525 0.113694,-0.203899 0.113694,-0.229935 0.129197,-3.058504 l 0.01553,-2.850263 h -1.814167 -1.814175 z m 2.522266,0.342728 c 0,2.21687 -0.0047,2.290618 -0.103363,2.425108 -0.268763,0.368755 -0.971691,0.368755 -1.240456,0 -0.09822,-0.13449 -0.103363,-0.208238 -0.103363,-2.425108 v -2.281948 h 0.723601 0.723603 z"
@@ -4802,7 +4802,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 strokeLinecap: "round",
                 opacity: "0"
               }}
-              id="121"
+              id="5"
               className="Cups"
               onClick={(e) => valvePopupOpen(true, e)}
               width="6.396327"
@@ -4819,7 +4819,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="129"
+              id="3"
               className="Cups"
               onClick={(e) => valvePopupOpen(true, e)}
               width="6.3107233"
@@ -4836,7 +4836,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="133"
+              id="2"
               className="Cups"
               onClick={(e) => valvePopupOpen(true, e)}
               width="6.2212844"
@@ -4853,7 +4853,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="125"
+              id="4"
               className="Cups"
               onClick={(e) => valvePopupOpen(true, e)}
               width="6.4786711"
@@ -4870,7 +4870,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="145"
+              id="23"
               className="Valve"
               onClick={(e) => valvePopupOpen(true, e)}
               width="58.411156"
@@ -4887,7 +4887,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="25"
+              id="11"
               className="Brushes"
               onClick={(e) => valvePopupOpen(true, e)}
               width="11.935724"
@@ -4904,7 +4904,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="141"
+              id="12"
               className="Brushes-lever"
               onClick={(e) => valvePopupOpen(true, e)}
               width="16.734896"
@@ -4921,7 +4921,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="37"
+              id="46"
               className="Pulsator"
               onClick={(e) => valvePopupOpen(true, e)}
               width="12.727662"
@@ -4933,7 +4933,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
             <rect
               style={{
                 fill: "#2a569a",
-                fillOpacity: state.i137 ? 1 : 0,
+                fillOpacity: state.i32 ? 1 : 0,
                 stroke: "#000000",
                 strokeWidth: "0.529238",
                 strokeLinecap: "square",
@@ -4952,7 +4952,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
               id="g57269"
               transform="translate(-0.06135207,0.10519239)"
               inkscape:label="Струя йода"
-              style={{ display: state.i137 === 1 ? "" : "none" }}
+              style={{ display: state.i32 === 1 ? "" : "none" }}
             >
               <g id="g57308">
                 <path

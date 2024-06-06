@@ -16,20 +16,21 @@ export const CoolerMachine = createMachine(
   {
     id: "Cooler Machine",
     context: {
-      value93: 0,
-      value61: 0,
-      value97: 0,
-      value89: 0,
-      value69: 0,
-      value211: 0,
-      value215: 0,
-      value65: 0,
-      value157: 0,
-      value187: 0,
-      value191: 0,
-      value203: 0,
-      value161: 0,
-      value1003: 0,
+      value20: 0,
+      value16: 0,
+      value18: 0,
+      value15: 0,
+      value40: 0,
+      value58: 0,
+      value54: 0,
+      value19: 0,
+      value42: 0,
+      value43: 0,
+      value37: 0,
+      value14: 0,
+      value36: 0,
+      value41: 0,
+      value39: 0,
       fill609: 0,
       fill611: 0,
       fill625: 0,
@@ -529,21 +530,21 @@ export const CoolerMachine = createMachine(
   {
     actions: {
       "updateContext": assign({
-        value211: (context, event) => event.allState.i211,
-        value215: (context, event) => event.allState.i215,
-        value61: (context, event) => event.allState.i61,
-        value161: (context, event) => event.allState.i161,
-        value1003: (context, event) => event.allState.i598,
-        value89: (context, event) => event.allState.i89,
-        value93: (context, event) => event.allState.i173,
-        value65: (context, event) => event.allState.i65,
-        value157: (context, event) => event.allState.i157,
-        value187: (context, event) => event.allState.i187,
-        value191: (context, event) => event.allState.i191,
-        value203: (context, event) => event.allState.i203,
-        value33: (context, event) => event.allState.i33,
-        value97: (context, event) => event.allState.i97,
-        value69: (context, event) => event.allState.i69,
+        value58: (context, event) => event.allState.i58,
+        value19: (context, event) => event.allState.i19,
+        value16: (context, event) => event.allState.i16,
+        value41: (context, event) => event.allState.i41,
+        value39: (context, event) => event.allState.i39,
+        value15: (context, event) => event.allState.i15,
+        value20: (context, event) => event.allState.i20,
+        value42: (context, event) => event.allState.i42,
+        value43: (context, event) => event.allState.i43,
+        value37: (context, event) => event.allState.i37,
+        value14: (context, event) => event.allState.i14,
+        value36: (context, event) => event.allState.i36,
+        value54: (context, event) => event.allState.i54,
+        value18: (context, event) => event.allState.i18,
+        value40: (context, event) => event.allState.i40,
         conf904: (context, event) => event.configurator.i904,
         conf905: (context, event) => event.configurator.i905,
         conf906: (context, event) => event.configurator.i906,
@@ -551,64 +552,64 @@ export const CoolerMachine = createMachine(
     },
     services: {},
     guards: {
-      "FullCooler": context => context.value211 === 1,
+      "FullCooler": context => context.value58 === 1,
 
-      "EmptyCooler": context => context.value215 === 1 && context.value211 === 0,
+      "EmptyCooler": context => context.value19 === 1 && context.value58 === 0,
 
 
-      "609-1": context => context.value1003 === 1 && context.value61 === 1 && context.value69 === 0,
+      "609-1": context => context.value39 === 1 && context.value16 === 1 && context.value40 === 0,
 
-      "609-2": context => context.value61 === 0 && context.value161 === 1,
+      "609-2": context => context.value16 === 0 && context.value41 === 1,
 
-      "609-3": context => ((context.value161 === 0 && context.value97 === 0 && context.value69 === 0) && context.value61 === 0) || (context.value1003 === 1 && context.value61 === 1),
+      "609-3": context => ((context.value41 === 0 && context.value18 === 0 && context.value40 === 0) && context.value16 === 0) || (context.value39 === 1 && context.value16 === 1),
 
-      "609-4": context => context.value61 === 0 && context.value97 === 1,
+      "609-4": context => context.value16 === 0 && context.value18 === 1,
 
-      "609-5": context => (context.value61 === 1 && context.value1003 === 0),
+      "609-5": context => (context.value16 === 1 && context.value39 === 0),
 
-      "609-6": context => (context.value69 === 1),
+      "609-6": context => (context.value40 === 1),
 
-      "610-1": context => context.value1003 === 1 && context.value61 === 1,
+      "610-1": context => context.value39 === 1 && context.value16 === 1,
 
-      "610-2": context => context.value61 === 0 && context.value97 === 1,
+      "610-2": context => context.value16 === 0 && context.value18 === 1,
 
-      "610-3": context => context.value1003 === 1 && context.value61 === 1,
+      "610-3": context => context.value39 === 1 && context.value16 === 1,
 
-      "610-4": context => context.value61 === 0 && context.value97 === 1,
+      "610-4": context => context.value16 === 0 && context.value18 === 1,
 
-      "611-1": context => context.fill609 === 1 && context.value161 === 1 && context.value89 === 1,
+      "611-1": context => context.fill609 === 1 && context.value41 === 1 && context.value15 === 1,
 
-      "611-2": context => context.value161 === 0 || context.value89 === 0,
+      "611-2": context => context.value41 === 0 || context.value15 === 0,
 
       "SanTrap": context => context.fill611 === 1,
 
       "SlowSanTrap": context => context.fill611 === 0,
 
-      "SatTrap-2": context => context.fill611 === 0 && context.value93 === 1,
+      "SatTrap-2": context => context.fill611 === 0 && context.value20 === 1,
 
-      "614-1": context => context.fill625 === 1 && context.value65 === 0 && context.conf904 === 0 && context.value161 === 1,
+      "614-1": context => context.fill625 === 1 && context.value42 === 0 && context.conf904 === 0 && context.value41 === 1,
 
-      "614-2": context => context.fill625 === 0 || context.value65 === 1 || context.conf904 === 1 || context.value161 === 0,
+      "614-2": context => context.fill625 === 0 || context.value42 === 1 || context.conf904 === 1 || context.value41 === 0,
 
-      "618-1": context => context.fill614 === 1 && context.value157 === 1,
+      "618-1": context => context.fill614 === 1 && context.value43 === 1,
 
-      "618-2": context => context.fill614 === 0 || context.value157 === 0,
+      "618-2": context => context.fill614 === 0 || context.value43 === 0,
 
-      "619-1": context => (context.fill618 === 1 || context.fill627 === 1) && context.value187 === 0 && context.conf906 === 1,
+      "619-1": context => (context.fill618 === 1 || context.fill627 === 1) && context.value37 === 0 && context.conf906 === 1,
 
-      "619-2": context => (context.fill618 === 0 && context.fill627 === 0) || context.value187 === 1 || context.conf906 === 0,
+      "619-2": context => (context.fill618 === 0 && context.fill627 === 0) || context.value37 === 1 || context.conf906 === 0,
 
-      "620-1": context => (context.fill618 === 1 || context.fill627 === 1) && context.value187 === 1 && context.conf906 === 1,
+      "620-1": context => (context.fill618 === 1 || context.fill627 === 1) && context.value37 === 1 && context.conf906 === 1,
 
-      "620-2": context => (context.fill618 === 0 && context.fill627 === 0) || context.value187 === 0 || context.conf906 === 0,
+      "620-2": context => (context.fill618 === 0 && context.fill627 === 0) || context.value37 === 0 || context.conf906 === 0,
 
-      "621-1": context => (context.fill619 === 1 || context.fill620 === 1 || context.fill628 === 1) && context.value191 === 0 && context.conf905 === 1,
+      "621-1": context => (context.fill619 === 1 || context.fill620 === 1 || context.fill628 === 1) && context.value14 === 0 && context.conf905 === 1,
 
-      "621-2": context => (context.fill619 === 0 && context.fill620 === 0 && context.fill628 === 0) || context.value191 === 1 || context.conf905 === 0,
+      "621-2": context => (context.fill619 === 0 && context.fill620 === 0 && context.fill628 === 0) || context.value14 === 1 || context.conf905 === 0,
 
-      "627-1": context => context.fill625 === 1 && context.value65 === 0 && context.conf904 === 1 && context.value161 === 1,
+      "627-1": context => context.fill625 === 1 && context.value42 === 0 && context.conf904 === 1 && context.value41 === 1,
 
-      "627-2": context => context.fill625 === 0 || context.value65 === 1 || context.conf904 === 0 || context.value161 === 0,
+      "627-2": context => context.fill625 === 0 || context.value42 === 1 || context.conf904 === 0 || context.value41 === 0,
 
       "628-1": context => (context.fill618 === 1 || context.fill627 === 1) && context.conf906 === 0,
 
@@ -618,13 +619,13 @@ export const CoolerMachine = createMachine(
 
       "629-2": context => (context.fill619 === 0 && context.fill628 === 0 && context.fill620 === 0) || context.conf905 === 1,
 
-      "623-1": context => (context.fill621 === 1 || context.fill629 === 1) && context.value203 === 1,
+      "623-1": context => (context.fill621 === 1 || context.fill629 === 1) && context.value36 === 1,
 
-      "623-2": context => (context.value33 === 1),
+      "623-2": context => (context.value54 === 1),
 
-      "624-1": context => (context.fill619 === 1 || context.fill620 === 1 || context.fill628 === 1) && context.value191 === 1,
+      "624-1": context => (context.fill619 === 1 || context.fill620 === 1 || context.fill628 === 1) && context.value14 === 1,
 
-      "624-2": context => (context.value33 === 1),
+      "624-2": context => (context.value54 === 1),
 
     },
     delays: {},
@@ -747,7 +748,7 @@ const Sheme = () => {
           <rect
             style={{
               fill: "#2a569a",
-              fillOpacity: !fill625 && allState.i65 === 1 && allState.i161 === 1 ? 1 : 0,
+              fillOpacity: !fill625 && allState.i42 === 1 && allState.i41 === 1 ? 1 : 0,
               stroke: "none",
               strokeWidth: "1.92214",
               strokeLinecap: "square",
@@ -825,7 +826,7 @@ const Sheme = () => {
           <rect
             style={{
               fill: "#2a569a",
-              fillOpacity: (fill621 || fill629) && allState.i203 === 0 ? 1 : 0,
+              fillOpacity: (fill621 || fill629) && allState.i36 === 0 ? 1 : 0,
               opacity: 1,
               stroke: "none",
               strokeWidth: "2.0976",
@@ -849,7 +850,7 @@ const Sheme = () => {
               strokeLinecap: "butt",
               strokeDasharray: "none",
               strokeOpacity: 1,
-              opacity: ((allState.i17 && configurator.i913) || allState.i9 || allState.i13 || allState.i81 || allState.i85 === 1) && allState.i153 === 0 ? 1 : 0,
+              opacity: ((allState.i44 && configurator.i913) || allState.i1 || allState.i7 || allState.i56 || allState.i57 === 1) && allState.i45 === 0 ? 1 : 0,
             }}
             d="M 206.62379 20.416849 L 206.62379 20.432474 L 199.22731 20.432474 L 199.22731 110.60435 L 177.48317 110.60435 L 177.48317 103.51646 L 167.67262 103.51646 L 167.67262 110.60435 L 129.31129 110.60435 L 129.31129 103.25279 L 119.58863 103.25279 L 119.58863 110.58872 L 81.405041 110.58872 L 81.405041 103.51646 L 71.328869 103.51646 L 71.328869 110.58872 L 71.328869 119.95786 L 71.436291 119.95786 L 71.436291 154.35435 L 42.936291 154.35435 L 42.936291 160.35435 L 43.061291 160.35435 L 43.061291 163.97935 L 49.186291 163.97935 L 49.186291 160.35435 L 63.061291 160.35435 L 63.061291 163.60435 L 69.436291 163.60435 L 69.436291 160.35435 L 83.811291 160.35435 L 83.811291 163.47935 L 89.186291 163.47935 L 89.186291 160.35435 L 104.43629 160.35435 L 104.43629 163.35435 L 109.68629 163.35435 L 109.68629 160.35435 L 110.18629 160.35435 L 110.18629 154.35435 L 81.123791 154.35435 L 81.123791 119.95786 L 129.18629 119.95786 L 129.18629 119.97935 L 200.06129 119.97935 L 200.06129 119.95786 L 207.43629 119.95786 L 207.43629 119.97935 L 215.31129 119.97935 L 215.31129 110.85435 L 208.24293 110.85435 L 208.24293 72.354349 L 215.06129 72.354349 L 215.06129 62.729349 L 208.24293 62.729349 L 208.24293 29.291849 L 214.74879 29.291849 L 214.74879 20.416849 L 206.62379 20.416849 z "
             inkscape:label="Заполнитель трубы перед рукой"
@@ -919,7 +920,7 @@ const Sheme = () => {
           <rect
             style={{
               fill: "#2a569a",
-              fillOpacity: fill614 && allState.i157 === 0 ? 1 : 0,
+              fillOpacity: fill614 && allState.i43 === 0 ? 1 : 0,
               opacity: 1,
               stroke: "none",
               strokeWidth: "2.01186",
@@ -972,7 +973,7 @@ const Sheme = () => {
           <rect
             style={{
               fill: "#2a569a",
-              fillOpacity: !fillCooler && allState.i215 === 1 ? 1 : 0,
+              fillOpacity: !fillCooler && allState.i19 === 1 ? 1 : 0,
               opacity: 1,
               stroke: "none",
               strokeWidth: "2.0976",
@@ -1077,7 +1078,7 @@ const Sheme = () => {
             id="rect15297"
             style={{
               fill: "#2a569a",
-              fillOpacity: (fill619 || fill620 || fill628) && allState.i191 === 1 ? 1 : 0,
+              fillOpacity: (fill619 || fill620 || fill628) && allState.i14 === 1 ? 1 : 0,
               opacity: 1,
               stroke: "none",
               strokeWidth: 2,
@@ -1145,14 +1146,14 @@ const Sheme = () => {
             id="rect14484"
             style={{
               fill: "#2a569a",
-              fillOpacity: allState.i598 === 1 || allState.i599 === 1 ? 1 : 0,
+              fillOpacity: allState.i39 === 1 || allState.i38 === 1 ? 1 : 0,
               opacity: 1,
               stroke: "none",
               strokeWidth: "2.08274",
               strokeLinecap: "butt",
               strokeDasharray: "none",
               strokeOpacity: 1,
-              opacity: allState.i598 || allState.i599 === 1 ? 1 : 0,
+              opacity: allState.i39 || allState.i38 === 1 ? 1 : 0,
             }}
             d="M 129.97926 354.23326 L 129.97926 372.8563 L 107.75856 372.8563 L 107.75856 378.85826 L 129.97926 378.85826 L 129.97926 388.85826 L 134.17262 388.85826 L 139.90699 388.85826 L 146.98121 388.85826 L 146.98121 378.85826 L 139.90699 378.85826 L 139.90699 354.23326 L 129.97926 354.23326 z "
             inkscape:label="Заливка трубы от молокосборника"
@@ -1162,7 +1163,7 @@ const Sheme = () => {
             style={{
               fill: "#2a569a",
               fillOpacity: 1,
-              opacity: allState.i598 === 1 && allState.i101 === 1 ? 1 : 0,
+              opacity: allState.i39 === 1 && allState.i47 === 1 ? 1 : 0,
               stroke: "none",
               strokeWidth: 2,
               strokeLinecap: "butt",
@@ -1260,7 +1261,7 @@ const Sheme = () => {
             id="rect14405"
             style={{
               fill: "#2a569a",
-              fillOpacity: (cupState.i911 === 1 || cupState.i911 === 2) && allState.i109 === 1 ? 1 : 0,
+              fillOpacity: (cupState.i911 === 1 || cupState.i911 === 2) && allState.i50 === 1 ? 1 : 0,
               opacity: 1,
               stroke: "none",
               strokeWidth: 2,
@@ -1275,7 +1276,7 @@ const Sheme = () => {
             id="rect14407"
             style={{
               fill: "#2a569a",
-              fillOpacity: (cupState.i912 === 1 || cupState.i912 === 2) && allState.i117 === 1 ? 1 : 0,
+              fillOpacity: (cupState.i912 === 1 || cupState.i912 === 2) && allState.i48 === 1 ? 1 : 0,
               opacity: 1,
               stroke: "none",
               strokeWidth: 2,
@@ -1290,7 +1291,7 @@ const Sheme = () => {
             id="rect14411-3"
             style={{
               fill: "#2a569a",
-              fillOpacity: (cupState.i914 === 1 || cupState.i914 === 2) && allState.i105 === 1 ? 1 : 0,
+              fillOpacity: (cupState.i914 === 1 || cupState.i914 === 2) && allState.i51 === 1 ? 1 : 0,
               stroke: "none",
               strokeWidth: 2,
               strokeLinecap: "butt",
@@ -1305,7 +1306,7 @@ const Sheme = () => {
             id="rect14411-30"
             style={{
               fill: "#2a569a",
-              fillOpacity: (cupState.i913 === 1 || cupState.i913 === 2) && allState.i113 === 1 ? 1 : 0,
+              fillOpacity: (cupState.i913 === 1 || cupState.i913 === 2) && allState.i49 === 1 ? 1 : 0,
               stroke: "none",
               strokeWidth: 2,
               strokeLinecap: "butt",
@@ -1411,7 +1412,7 @@ const Sheme = () => {
           <path
             id="path2817-2"
             style={{
-              fill: allState.i599 === 0 ? "none" : "#2a569a",
+              fill: allState.i38 === 0 ? "none" : "#2a569a",
               fillOpacity: 1,
               stroke: "none",
               strokeWidth: 2,
@@ -1426,7 +1427,7 @@ const Sheme = () => {
           <path
             id="path115149"
             style={{
-              fill: allState.i598 === 0 ? "none" : "#2a569a",
+              fill: allState.i39 === 0 ? "none" : "#2a569a",
               fillOpacity: 1,
               stroke: "none",
               strokeWidth: 2,
@@ -1457,7 +1458,7 @@ const Sheme = () => {
           <g
             id="g37447-0-4-3-4-6"
             inkscape:label="створка открытая"
-            style={{ opacity: allState.i53 === 0 ? 0 : 1, }}
+            style={{ opacity: allState.i31 === 0 ? 0 : 1, }}
             transform="rotate(45,722.16526,361)"
           >
             <rect
@@ -1531,7 +1532,7 @@ const Sheme = () => {
           <g
             id="g37447-0-4-3-4-6-9"
             inkscape:label="створка открытая"
-            style={{ opacity: allState.i45 === 0 ? 0 : 1, fill: "none", fillOpacity: 1 }}
+            style={{ opacity: allState.i29 === 0 ? 0 : 1, fill: "none", fillOpacity: 1 }}
             transform="rotate(-45,399.24348,36.557294)"
             shapeRendering="geometricPrecision"
           >
@@ -1599,7 +1600,7 @@ const Sheme = () => {
               id="rect947-6-2-1-2-3"
               style={{
                 fill: "#2a569a",
-                fillOpacity: allState.i598 === 1 && allState.i101 === 1 ? 1 : 0,
+                fillOpacity: allState.i39 === 1 && allState.i47 === 1 ? 1 : 0,
                 stroke: "#000000",
                 strokeWidth: 1,
                 strokeDasharray: "none",
@@ -2007,7 +2008,7 @@ const Sheme = () => {
           />
           <ellipse
             style={{
-              fill: allState.i167 === 0 ? "#ffffff" : "#25be2c",
+              fill: allState.i53 === 0 ? "#ffffff" : "#25be2c",
               fillOpacity: 1,
               stroke: "#000000",
               strokeWidth: "1.99982",
@@ -2085,7 +2086,7 @@ const Sheme = () => {
             <g
 
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i29 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i55 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -2125,7 +2126,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i29 === 0 ? 1 : 0,
+                fillOpacity: allState.i55 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -2173,13 +2174,13 @@ const Sheme = () => {
                 strokeLinecap: "round",
                 strokeDasharray: "none"
               }}
-              id={29}
+              id="55"
               className="Valve"
               width="45.904297"
               height="35.953293"
               x="277.43396"
               y="153.95732"
-              inkscape:label="Маска клапана 29"
+              inkscape:label="Маска клапана 55"
               onClick={(e) => valvePopupOpen(true, e)}
               transform="translate(-230.5468,125.39605)"
             ></rect>
@@ -2226,7 +2227,7 @@ const Sheme = () => {
             >
               <rect
                 style={{
-                  fill: allState.i121 === 0 ? "#000000" : "none",
+                  fill: allState.i5 === 0 ? "#000000" : "none",
                   stroke: "#000000",
                   strokeWidth: "2.00027",
                   strokeDasharray: "none",
@@ -2267,7 +2268,7 @@ const Sheme = () => {
             >
               <rect
                 style={{
-                  fill: allState.i129 === 0 ? "#000000" : "none",
+                  fill: allState.i3 === 0 ? "#000000" : "none",
                   stroke: "#000000",
                   strokeWidth: "2.00027",
                   strokeDasharray: "none",
@@ -2308,7 +2309,7 @@ const Sheme = () => {
             >
               <rect
                 style={{
-                  fill: allState.i133 === 0 ? "#000000" : "none",
+                  fill: allState.i2 === 0 ? "#000000" : "none",
                   stroke: "#000000",
                   strokeWidth: "2.00027",
                   strokeDasharray: "none",
@@ -2350,7 +2351,7 @@ const Sheme = () => {
             >
               <rect
                 style={{
-                  fill: allState.i125 === 0 ? "#000000" : "none",
+                  fill: allState.i4 === 0 ? "#000000" : "none",
                   stroke: "#000000",
                   strokeWidth: "2.00027",
                   strokeDasharray: "none",
@@ -2427,7 +2428,7 @@ const Sheme = () => {
               shapeRendering="geometricPrecision"
               style={{
                 fill: "#25be2c",
-                fillOpacity: allState.i33 === 0 ? 0 : 1,
+                fillOpacity: allState.i54 === 0 ? 0 : 1,
                 stroke: "#000000",
                 strokeWidth: 2,
                 strokeLinecap: "butt",
@@ -2457,14 +2458,14 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="33"
+              id="54"
               className='Pump'
               width="40.093037"
               height="40.093037"
               x="328.61124"
               y="153.95732"
               transform="translate(-138.65033,209.49644)"
-              inkscape:label="Маска насоса 33"
+              inkscape:label="Маска насоса 54"
               onClick={(e) => valvePopupOpen(true, e)}
             ></rect>
           </g>
@@ -2512,7 +2513,7 @@ const Sheme = () => {
               shapeRendering="geometricPrecision"
               style={{
                 fill: "#25be2c",
-                fillOpacity: allState.i161 === 0 ? 0 : 1,
+                fillOpacity: allState.i41 === 0 ? 0 : 1,
                 stroke: "#000000",
                 strokeWidth: 2,
                 strokeLinecap: "butt",
@@ -2542,14 +2543,14 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="161"
+              id="41"
               className='Pump'
               width="40.093037"
               height="40.093037"
               x="200.56966"
               y="363.81769"
               transform="translate(-10.608742,-0.36393166)"
-              inkscape:label="Маска насоса 161"
+              inkscape:label="Маска насоса 41"
               onClick={(e) => valvePopupOpen(true, e)}
             ></rect>
 
@@ -2585,7 +2586,7 @@ const Sheme = () => {
               shapeRendering="geometricPrecision"
               style={{
                 fill: "#25be2c",
-                fillOpacity: allState.i17 === 0 ? 0 : 1,
+                fillOpacity: allState.i44 === 0 ? 0 : 1,
                 stroke: "#000000",
                 strokeWidth: 2,
                 strokeLinecap: "butt",
@@ -2615,14 +2616,14 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="17"
+              id="44"
               className='Pump'
               width="40.093037"
               height="40.093037"
               x="56.353039"
               y="64.351166"
               transform="rotate(-89.962941,292.85155,167.10182)"
-              inkscape:label="Маска насоса 17"
+              inkscape:label="Маска насоса 44"
               onClick={(e) => valvePopupOpen(true, e)}
             ></rect>
           </g>
@@ -2657,7 +2658,7 @@ const Sheme = () => {
               shapeRendering="geometricPrecision"
               style={{
                 fill: "#25be2c",
-                fillOpacity: allState.i9 === 0 ? 0 : 1,
+                fillOpacity: allState.i1 === 0 ? 0 : 1,
                 stroke: "#000000",
                 strokeWidth: 2,
                 strokeLinecap: "butt",
@@ -2687,7 +2688,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="9"
+              id="1"
               className='Pump'
               width="40.093037"
               height="40.093037"
@@ -2695,7 +2696,7 @@ const Sheme = () => {
               y="64.351158"
               onClick={(e) => valvePopupOpen(true, e)}
               transform="rotate(-89.962941,316.8706,191.1364)"
-              inkscape:label="Маска насоса 9"
+              inkscape:label="Маска насоса 1"
             ></rect>
           </g>
           <g
@@ -2729,7 +2730,7 @@ const Sheme = () => {
               shapeRendering="geometricPrecision"
               style={{
                 fill: "#25be2c",
-                fillOpacity: allState.i13 === 0 ? 0 : 1,
+                fillOpacity: allState.i7 === 0 ? 0 : 1,
                 stroke: "#000000",
                 strokeWidth: 2,
                 strokeLinecap: "butt",
@@ -2759,7 +2760,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="13"
+              id="7"
               className='Pump'
               width="40.093037"
               height="40.093037"
@@ -2767,7 +2768,7 @@ const Sheme = () => {
               x="152.39085"
               y="64.351158"
               transform="rotate(-89.973848,340.84198,215.15537)"
-              inkscape:label="Маска насоса 13"
+              inkscape:label="Маска насоса 7"
             ></rect>
           </g>
           <g
@@ -2802,7 +2803,7 @@ const Sheme = () => {
               style={{
                 stroke: "#000000",
                 fill: "#25be2c",
-                fillOpacity: allState.i201 === 0 ? 0 : 1,
+                fillOpacity: 1,
                 strokeWidth: 2,
                 strokeLinecap: "butt",
                 strokeLinejoin: "miter",
@@ -2849,7 +2850,7 @@ const Sheme = () => {
             <g
               id="g37447"
               inkscape:label="створка"
-              style={{ opacity: allState.i41 === 0 ? 1 : 0, strokeWidth: 2, strokeDasharray: "none" }}
+              style={{ opacity: allState.i28 === 0 ? 1 : 0, strokeWidth: 2, strokeDasharray: "none" }}
             >
               <rect
                 style={{
@@ -2886,7 +2887,7 @@ const Sheme = () => {
             </g>
             <ellipse
               style={{
-                fill: allState.i1001 === 0 ? "#ffffff" : "#25be2c",
+                fill: allState.i8 === 0 ? "#ffffff" : "#25be2c",
                 fillOpacity: 1,
                 stroke: "#000000",
                 strokeWidth: "1.99982",
@@ -2905,7 +2906,7 @@ const Sheme = () => {
             <ellipse
               style={{
                 display: configurator.i907 === 1 && configurator.i908 === 1 ? "" : "none",
-                fill: allState.i1000 === 0 ? "#ffffff" : "#25be2c",
+                fill: allState.i17 === 0 ? "#ffffff" : "#25be2c",
                 fillOpacity: 1,
                 stroke: "#000000",
                 strokeWidth: "1.99982",
@@ -2923,7 +2924,7 @@ const Sheme = () => {
             />
             <ellipse
               style={{
-                fill: allState.i1002 === 0 ? "#ffffff" : "#25be2c",
+                fill: allState.i9 === 0 ? "#ffffff" : "#25be2c",
                 fillOpacity: 1,
                 stroke: "#000000",
                 strokeWidth: "1.99982",
@@ -2944,7 +2945,7 @@ const Sheme = () => {
               inkscape:label="створка"
               style={{
                 fill: "none",
-                opacity: allState.i45 === 0 ? 1 : 0,
+                opacity: allState.i29 === 0 ? 1 : 0,
                 fillOpacity: 1,
                 stroke: "#000000",
                 strokeOpacity: 1
@@ -2987,7 +2988,7 @@ const Sheme = () => {
             <g
               id="g37447-0-4-3-4"
               inkscape:label="створка"
-              style={{ opacity: allState.i53 === 0 ? 1 : 0, fill: "none", fillOpacity: 1 }}
+              style={{ opacity: allState.i31 === 0 ? 1 : 0, fill: "none", fillOpacity: 1 }}
               transform="rotate(90,618.23413,254.5533)"
             >
               <rect
@@ -3027,7 +3028,7 @@ const Sheme = () => {
               id="g37447-1-7-5"
               inkscape:label="створка"
               style={{
-                opacity: allState.i49 === 0 ? 1 : 0,
+                opacity: allState.i30 === 0 ? 1 : 0,
                 fill: "none",
                 fillOpacity: 1,
                 strokeWidth: 2,
@@ -3077,22 +3078,22 @@ const Sheme = () => {
               <path
                 d="m 556.85631,201.10233 c -0.42087,-1.462 -1.5949,-2.89075 -2.95719,-3.5996 -0.99682,-0.52055 -1.39556,-0.6313 -2.43666,-0.731 l -0.86391,-0.0775 -0.12183,-0.57593 c -0.43195,-1.92717 -2.01577,-3.6439 -3.97618,-4.3306 -0.94143,-0.33227 -2.5474,-0.39872 -3.44453,-0.14397 -2.18192,0.62023 -3.96509,2.41449 -4.43028,4.47457 l -0.12182,0.57593 -0.77531,0.0664 c -1.04112,0.0997 -1.62813,0.26582 -2.51418,0.731 -1.27371,0.67561 -2.4145,2.00471 -2.90184,3.41131 -0.25473,0.71992 -0.34334,2.44773 -0.16613,3.25626 0.45411,2.11546 2.14869,3.90972 4.24199,4.51887 1.63921,0.47626 2.51418,0.2769 2.51418,-0.56486 0,-0.54271 -0.31012,-0.76421 -1.22939,-0.85282 -1.57276,-0.1772 -2.91292,-1.11865 -3.57745,-2.53633 -0.32121,-0.66455 -0.34336,-0.80852 -0.34336,-1.88286 0,-1.07435 0.0221,-1.21834 0.34336,-1.88288 0.43195,-0.90821 1.21831,-1.6835 2.14868,-2.1376 0.6867,-0.34336 0.7753,-0.35444 2.07116,-0.35444 1.67243,0 1.70565,-0.0332 1.81641,-1.21831 0.19936,-2.11547 1.63921,-3.67714 3.72142,-4.06479 1.61706,-0.29904 3.40024,0.47625 4.36382,1.8718 0.43197,0.63131 0.76423,1.65028 0.76423,2.35912 0,0.35442 0.0665,0.60916 0.21044,0.78637 0.19936,0.25475 0.27689,0.26581 1.58383,0.26581 1.318,0 1.39552,0.0111 2.10437,0.3655 2.25944,1.10757 3.16765,3.65499 2.11547,5.9255 -0.65348,1.37339 -2.01579,2.33697 -3.57747,2.50311 -0.64237,0.0664 -0.85281,0.13291 -1.00787,0.33227 -0.28797,0.35442 -0.26582,0.83067 0.0443,1.12972 0.22152,0.21043 0.33227,0.22151 1.07435,0.1772 2.49203,-0.16613 4.71824,-2.03792 5.37171,-4.51887 0.22151,-0.8196 0.19936,-2.42559 -0.0444,-3.2784 z"
                 id="path1401"
-                style={{ fill: allState.i1 === 0 ? "#000000" : "#25be2c", fillOpacity: 1, strokeWidth: "0.0110756" }}
+                style={{ fill: allState.i21 === 0 ? "#000000" : "#25be2c", fillOpacity: 1, strokeWidth: "0.0110756" }}
               />
               <path
                 d="m 551.75042,202.3428 c -0.16613,-0.43194 -0.39871,-0.53162 -1.12971,-0.47625 -1.39555,0.0886 -2.68032,0.97466 -3.33379,2.29267 l -0.35441,0.731 -0.0331,10.15641 c -0.0221,10.05673 -0.0221,10.16748 0.19935,10.389 0.29905,0.29904 0.89713,0.28796 1.17402,-0.0111 0.19937,-0.22152 0.21044,-0.59809 0.26582,-10.27824 l 0.0554,-10.04565 0.31011,-0.46518 c 0.40981,-0.62024 1.01898,-1.00788 1.80534,-1.12973 0.48734,-0.0775 0.71992,-0.1772 0.90822,-0.38764 0.2658,-0.31012 0.27689,-0.42088 0.1329,-0.7753 z"
                 id="path1405"
-                style={{ fill: allState.i1 === 0 ? "#000000" : "#25be2c", fillOpacity: 1, strokeWidth: "0.0110756" }}
+                style={{ fill: allState.i21 === 0 ? "#000000" : "#25be2c", fillOpacity: 1, strokeWidth: "0.0110756" }}
               />
               <path
                 d="m 545.34867,202.43141 c -0.0775,-0.5427 -0.94142,-0.77529 -1.35124,-0.36549 -0.2215,0.22151 -0.2215,0.36549 -0.2215,13.39051 v 13.18006 l 0.28797,0.22152 c 0.37657,0.29905 0.63131,0.28798 0.98573,-0.0111 l 0.28797,-0.25473 0.0221,-12.95856 c 0.0111,-7.12167 0.0111,-13.06932 -0.0111,-13.20223 z"
                 id="path1407"
-                style={{ fill: allState.i1 === 0 ? "#000000" : "#25be2c", fillOpacity: 1, strokeWidth: "0.0110756" }}
+                style={{ fill: allState.i21 === 0 ? "#000000" : "#25be2c", fillOpacity: 1, strokeWidth: "0.0110756" }}
               />
               <path
                 d="m 541.94844,204.45827 c -0.64239,-1.57276 -2.10438,-2.61387 -3.67713,-2.61387 -0.65346,0 -0.9525,0.25475 -0.9525,0.78638 0,0.44302 0.3101,0.74207 0.86389,0.81961 0.74208,0.11075 1.16295,0.28796 1.56168,0.64238 0.8196,0.70885 0.75315,-0.0775 0.8196,10.7988 l 0.0554,9.7909 0.32119,0.27691 c 0.34335,0.29903 0.731,0.27687 1.0965,-0.0444 0.17721,-0.16614 0.18827,-0.78639 0.18827,-9.99027 v -9.81306 z"
                 id="path1409"
-                style={{ fill: allState.i1 === 0 ? "#000000" : "#25be2c", fillOpacity: 1, strokeWidth: "0.0110756" }}
+                style={{ fill: allState.i21 === 0 ? "#000000" : "#25be2c", fillOpacity: 1, strokeWidth: "0.0110756" }}
               />
             </g>
           </g >
@@ -3266,7 +3267,7 @@ const Sheme = () => {
           <rect
             style={{
               fill: "#2a569a",
-              fillOpacity: !fill625 && allState.i177 === 1 ? 1 : 0,
+              fillOpacity: !fill625 && allState.i18 === 1 ? 1 : 0,
               stroke: "none",
               strokeWidth: "2.05929",
               strokeLinecap: "square",
@@ -3283,7 +3284,7 @@ const Sheme = () => {
           <rect
             style={{
               fill: "#2a569a",
-              fillOpacity: !fill625 && allState.i65 === 1 && allState.i177 === 1 ? 1 : 0,
+              fillOpacity: !fill625 && allState.i42 === 1 && allState.i18 === 1 ? 1 : 0,
               stroke: "none",
               strokeWidth: "2.05929",
               strokeLinecap: "square",
@@ -3906,7 +3907,7 @@ const Sheme = () => {
             id="g37447-1"
             inkscape:label="створка-вход-прямо-октрыто"
             style={{
-              opacity: allState.i41 === 0 ? 0 : 1,
+              opacity: allState.i28 === 0 ? 0 : 1,
               fill: "none",
               fillOpacity: 1,
               strokeWidth: 2,
@@ -3951,7 +3952,7 @@ const Sheme = () => {
             id="g37447-1-7"
             inkscape:label="Створка-выход-прямо-открыто"
             style={{
-              opacity: allState.i49 === 0 ? 0 : 1,
+              opacity: allState.i30 === 0 ? 0 : 1,
               fill: "none",
               fillOpacity: 1,
               strokeWidth: 2,
@@ -4000,7 +4001,7 @@ const Sheme = () => {
           >
             <path
               style={{
-                opacity: allState.i57 === 0 ? 1 : 0,
+                opacity: allState.i22 === 0 ? 1 : 0,
                 fill: "#ffffff",
                 fillOpacity: 1,
                 stroke: "#000000",
@@ -4013,7 +4014,7 @@ const Sheme = () => {
             />
             <path
               style={{
-                opacity: allState.i57 === 0 ? 1 : 0,
+                opacity: allState.i22 === 0 ? 1 : 0,
                 fill: "#000000",
                 fillOpacity: 1,
                 stroke: "#000000",
@@ -4035,7 +4036,7 @@ const Sheme = () => {
           >
             <path
               style={{
-                opacity: allState.i57 === 0 ? 0 : 1,
+                opacity: allState.i22 === 0 ? 0 : 1,
                 fill: "#ffffff",
                 fillOpacity: 1,
                 stroke: "#000000",
@@ -4049,7 +4050,7 @@ const Sheme = () => {
             </path>
             <path
               style={{
-                opacity: allState.i57 === 0 ? 0 : 1,
+                opacity: allState.i22 === 0 ? 0 : 1,
                 fill: "#000000",
                 fillOpacity: 1,
                 stroke: "#000000",
@@ -4301,7 +4302,7 @@ const Sheme = () => {
             <g
               id="g87158-9"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fillOpacity: allState.i81 === 0 ? 1 : 0 }}
+              style={{ fillOpacity: allState.i56 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -4341,7 +4342,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i81 === 0 ? 1 : 0,
+                fillOpacity: allState.i56 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -4387,7 +4388,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="81"
+              id="56"
               className='Valve'
               width="44.418091"
               height="26.416264"
@@ -4395,7 +4396,7 @@ const Sheme = () => {
               y="9.3094597"
               onClick={(e) => valvePopupOpen(true, e)}
               transform="translate(-164.95249,274.56536)"
-              inkscape:label="Маска клапана 81"
+              inkscape:label="Маска клапана 56"
             ></rect>
           </g >
           <g
@@ -4444,7 +4445,7 @@ const Sheme = () => {
             <g
               id="g87158-4"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i85 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i57 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -4484,7 +4485,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i85 === 0 ? 1 : 0,
+                fillOpacity: allState.i57 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -4530,7 +4531,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="85"
+              id="57"
               className='Valve'
               width="40.700638"
               height="29.298517"
@@ -4538,7 +4539,7 @@ const Sheme = () => {
               y="49.358875"
               onClick={(e) => valvePopupOpen(true, e)}
               transform="translate(-164.95249,231.72404)"
-              inkscape:label="Маска клапана 85"
+              inkscape:label="Маска клапана 57"
             ></rect>
           </g >
           <g
@@ -4587,7 +4588,7 @@ const Sheme = () => {
             <g
               id="g87158-2"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i153 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i45 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -4627,7 +4628,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i153 === 0 ? 1 : 0,
+                fillOpacity: allState.i45 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -4673,7 +4674,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="153"
+              id="45"
               className='Valve'
               onClick={(e) => valvePopupOpen(true, e)}
               width="41.235229"
@@ -4681,7 +4682,7 @@ const Sheme = () => {
               x="213.8867"
               y="99.678841"
               transform="translate(-164.9361,184.19598)"
-              inkscape:label="Маска клапана 153"
+              inkscape:label="Маска клапана 45"
             ></rect>
           </g >
           <g
@@ -4730,7 +4731,7 @@ const Sheme = () => {
             <g
               id="g87158-3"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i101 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i47 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -4770,7 +4771,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i101 === 0 ? 1 : 0,
+                fillOpacity: allState.i47 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -4817,7 +4818,7 @@ const Sheme = () => {
                 stroke: "#729fcf",
                 strokeLinecap: "round"
               }}
-              id="101"
+              id="47"
               className='Valve'
               onClick={(e) => valvePopupOpen(true, e)}
               width="42.99926"
@@ -4825,7 +4826,7 @@ const Sheme = () => {
               x="66.811295"
               y="363.53723"
               transform="translate(-18.574921,-76.459165)"
-              inkscape:label="Маска клапана 101"
+              inkscape:label="Маска клапана 47"
             ></rect>
           </g >
           <g
@@ -4874,7 +4875,7 @@ const Sheme = () => {
             <g
               id="g87158-0"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i61 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i16 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -4914,7 +4915,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i61 === 0 ? 1 : 0,
+                fillOpacity: allState.i16 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -4960,7 +4961,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="61"
+              id="16"
               className='Valve'
               width="42.5"
               onClick={(e) => valvePopupOpen(true, e)}
@@ -4968,7 +4969,7 @@ const Sheme = () => {
               x="145.31129"
               y="370.12357"
               transform="translate(-96.49602,-84.46724)"
-              inkscape:label="Маска клапана 61"
+              inkscape:label="Маска клапана 16"
             ></rect>
           </g >
           <g
@@ -5017,7 +5018,7 @@ const Sheme = () => {
             <g
               id="g87158-20-0"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fillOpacity: allState.i97 === 0 ? 1 : 0 }}
+              style={{ fillOpacity: allState.i18 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -5057,7 +5058,7 @@ const Sheme = () => {
               id="g87158-7-1-4"
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
-                fillOpacity: allState.i97 === 0 ? 1 : 0,
+                fillOpacity: allState.i18 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -5104,7 +5105,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="97"
+              id="18"
               className='Valve'
               onClick={(e) => valvePopupOpen(true, e)}
               width="31.75"
@@ -5112,7 +5113,7 @@ const Sheme = () => {
               x="241.68629"
               y="431.10434"
               transform="rotate(-90,85.34389,467.74982)"
-              inkscape:label="Маска клапана 97"
+              inkscape:label="Маска клапана 18"
             />
           </g >
 
@@ -5163,7 +5164,7 @@ const Sheme = () => {
             <g
               id="g87158-20"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fillOpacity: allState.i97 === 0 ? 1 : 0, }}
+              style={{ fillOpacity: allState.i18 === 0 ? 1 : 0, }}
               inkscape:label="Левый"
             >
               <path
@@ -5207,7 +5208,7 @@ const Sheme = () => {
                 fillOpacity: 1,
                 strokeWidth: 2,
                 strokeDasharray: "none",
-                fillOpacity: allState.i97 === 0 ? 1 : 0,
+                fillOpacity: allState.i18 === 0 ? 1 : 0,
               }}
               inkscape:label="Правый"
             >
@@ -5253,7 +5254,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="97"
+              id="18"
               className='Valve'
               onClick={(e) => valvePopupOpen(true, e)}
               width="31.75"
@@ -5261,7 +5262,7 @@ const Sheme = () => {
               x="241.68629"
               y="431.10434"
               transform="rotate(-90,85.34389,467.74982)"
-              inkscape:label="Маска клапана 97"
+              inkscape:label="Маска клапана 18"
             />
           </g >
 
@@ -5313,7 +5314,7 @@ const Sheme = () => {
             <g
               id="g87158-6"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i69 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i40 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -5353,7 +5354,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i69 === 0 ? 1 : 0,
+                fillOpacity: allState.i40 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -5399,7 +5400,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="69"
+              id="40"
               className='Valve'
               onClick={(e) => valvePopupOpen(true, e)}
               width="24.375"
@@ -5407,7 +5408,7 @@ const Sheme = () => {
               x="256.81128"
               y="309.20612"
               transform="rotate(-90,154.41348,414.1344)"
-              inkscape:label="Маска клапана 69"
+              inkscape:label="Маска клапана 40"
             ></rect>
           </g >
           <g
@@ -5456,7 +5457,7 @@ const Sheme = () => {
             <g
               id="g87158-30"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i89 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i15 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -5496,7 +5497,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i89 === 0 ? 1 : 0,
+                fillOpacity: allState.i15 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -5542,7 +5543,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="89"
+              id="15"
               className='Valve'
               onClick={(e) => valvePopupOpen(true, e)}
               width="28.199305"
@@ -5550,7 +5551,7 @@ const Sheme = () => {
               x="202.30682"
               y="308.78598"
               transform="rotate(90,160.09786,238.87396)"
-              inkscape:label="Маска клапана 89"
+              inkscape:label="Маска клапана 15"
             ></rect>
           </g >
           <g
@@ -5600,7 +5601,7 @@ const Sheme = () => {
             <g
               id="g87158-64"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i211 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i58 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -5640,7 +5641,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i211 === 0 ? 1 : 0,
+                fillOpacity: allState.i58 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -5686,7 +5687,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="211"
+              id="58"
               className='Valve'
               onClick={(e) => valvePopupOpen(true, e)}
               width="28.199305"
@@ -5694,7 +5695,7 @@ const Sheme = () => {
               x="397.98938"
               y="167.65799"
               transform="rotate(-90,295.04941,412.22221)"
-              inkscape:label="Маска клапана 211"
+              inkscape:label="Маска клапана 58"
             ></rect>
           </g >
 
@@ -5782,7 +5783,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i5 === 0 ? 1 : 0 }}
+                style={{ fillOpacity: allState.i24 === 0 ? 1 : 0 }}
                 inkscape:label="Левый"
               >
                 <path
@@ -5822,7 +5823,7 @@ const Sheme = () => {
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: allState.i5 === 0 ? 1 : 0,
+                  fillOpacity: allState.i24 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -5868,7 +5869,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="5"
+                id="24"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -5876,7 +5877,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 5"
+                inkscape:label="Маска клапана 24"
               ></rect>
             </g >
 
@@ -5962,7 +5963,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4-7"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i5 === 0 ? 1 : 0 }}
+                style={{ fillOpacity: allState.i24 === 0 ? 1 : 0 }}
                 inkscape:label="Левый"
               >
                 <path
@@ -6002,7 +6003,7 @@ const Sheme = () => {
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: allState.i5 === 0 ? 1 : 0,
+                  fillOpacity: allState.i24 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -6050,7 +6051,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="5"
+                id="24"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -6058,7 +6059,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 5"
+                inkscape:label="Маска клапана 24"
               />
             </g>
 
@@ -6108,7 +6109,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4-8"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i171 === 0 ? 1 : 0, }}
+                style={{ fillOpacity: allState.i25 === 0 ? 1 : 0, }}
                 inkscape:label="Левый"
               >
                 <path
@@ -6156,7 +6157,7 @@ const Sheme = () => {
               >
                 <path
                   style={{
-                    fillOpacity: allState.i171 === 0 ? 1 : 0,
+                    fillOpacity: allState.i25 === 0 ? 1 : 0,
                     stroke: "#000000",
                     strokeWidth: 2,
                     strokeLinecap: "round",
@@ -6196,7 +6197,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="171"
+                id="25"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -6204,7 +6205,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 171"
+                inkscape:label="Маска клапана 25"
               />
             </g>
 
@@ -6293,7 +6294,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4-7-2"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i171 === 0 ? 1 : 0 }}
+                style={{ fillOpacity: allState.i25 === 0 ? 1 : 0 }}
                 inkscape:label="Левый"
               >
                 <path
@@ -6333,7 +6334,7 @@ const Sheme = () => {
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: allState.i171 === 0 ? 1 : 0,
+                  fillOpacity: allState.i25 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -6381,7 +6382,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="171"
+                id="25"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -6389,7 +6390,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 171"
+                inkscape:label="Маска клапана 25"
               />
             </g>
 
@@ -6438,7 +6439,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4-7-2-5"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i175 === 0 ? 1 : 0 }}
+                style={{ fillOpacity: allState.i27 === 0 ? 1 : 0 }}
                 inkscape:label="Левый"
               >
                 <path
@@ -6478,7 +6479,7 @@ const Sheme = () => {
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: allState.i175 === 0 ? 1 : 0,
+                  fillOpacity: allState.i27 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -6526,7 +6527,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="175"
+                id="27"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -6534,7 +6535,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 175"
+                inkscape:label="Маска клапана 27"
               />
             </g>
 
@@ -6583,7 +6584,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4-7-2-9"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i5 === 0 ? 1 : 0 }}
+                style={{ fillOpacity: allState.i24 === 0 ? 1 : 0 }}
                 inkscape:label="Левый"
               >
                 <path
@@ -6624,7 +6625,7 @@ const Sheme = () => {
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: allState.i5 === 0 ? 1 : 0,
+                  fillOpacity: allState.i24 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -6672,7 +6673,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="5"
+                id="24"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -6680,7 +6681,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 5"
+                inkscape:label="Маска клапана 24"
               />
             </g>
 
@@ -6772,7 +6773,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4-7-2-9-3"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i5 === 0 ? 1 : 0 }}
+                style={{ fillOpacity: allState.i24 === 0 ? 1 : 0 }}
                 inkscape:label="Левый"
               >
                 <path
@@ -6813,7 +6814,7 @@ const Sheme = () => {
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: allState.i5 === 0 ? 1 : 0,
+                  fillOpacity: allState.i24 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -6861,7 +6862,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="5"
+                id="24"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -6869,7 +6870,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 5"
+                inkscape:label="Маска клапана 24"
               />
             </g>
 
@@ -6918,7 +6919,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4-7-2-9-3-5"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i179 === 0 ? 1 : 0 }}
+                style={{ fillOpacity: allState.i26 === 0 ? 1 : 0 }}
                 inkscape:label="Левый"
               >
                 <path
@@ -6958,7 +6959,7 @@ const Sheme = () => {
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: allState.i179 === 0 ? 1 : 0,
+                  fillOpacity: allState.i26 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -7006,7 +7007,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="179"
+                id="26"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -7014,7 +7015,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 179"
+                inkscape:label="Маска клапана 26"
               />
             </g>
 
@@ -7063,7 +7064,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4-7-2-9-3-2"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i175 === 0 ? 1 : 0 }}
+                style={{ fillOpacity: allState.i27 === 0 ? 1 : 0 }}
                 inkscape:label="Левый"
               >
                 <path
@@ -7104,7 +7105,7 @@ const Sheme = () => {
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: allState.i175 === 0 ? 1 : 0,
+                  fillOpacity: allState.i27 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -7152,7 +7153,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="175"
+                id="27"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -7160,7 +7161,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 175"
+                inkscape:label="Маска клапана 27"
               />
             </g>
 
@@ -7210,7 +7211,7 @@ const Sheme = () => {
               <g
                 id="g87158-64-4-7-2-9-3-4"
                 transform="translate(-28.36668,-61.96896)"
-                style={{ fillOpacity: allState.i171 === 0 ? 1 : 0 }}
+                style={{ fillOpacity: allState.i25 === 0 ? 1 : 0 }}
                 inkscape:label="Левый"
               >
                 <path
@@ -7251,7 +7252,7 @@ const Sheme = () => {
                 transform="matrix(-1,0,0,1,168.0377,-61.960097)"
                 style={{
                   fill: "#ffffff",
-                  fillOpacity: allState.i171 === 0 ? 1 : 0,
+                  fillOpacity: allState.i25 === 0 ? 1 : 0,
                   strokeWidth: 2,
                   strokeDasharray: "none"
                 }}
@@ -7299,7 +7300,7 @@ const Sheme = () => {
                   strokeWidth: 0,
                   strokeLinecap: "round"
                 }}
-                id="171"
+                id="25"
                 className='Valve'
                 onClick={(e) => valvePopupOpen(true, e)}
                 width="28.199305"
@@ -7307,7 +7308,7 @@ const Sheme = () => {
                 x="619.38141"
                 y="7.32162"
                 transform="rotate(-90,485.91361,442.75004)"
-                inkscape:label="Маска клапана 113"
+                inkscape:label="Маска клапана 25"
               />
 
             </g>
@@ -7361,7 +7362,7 @@ const Sheme = () => {
             <g
               id="g87158-5"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i93 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i20 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -7401,7 +7402,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i93 === 0 ? 1 : 0,
+                fillOpacity: allState.i20 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -7447,7 +7448,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="93"
+              id="20"
               className='Valve'
               onClick={(e) => valvePopupOpen(true, e)}
               width="24.788681"
@@ -7455,14 +7456,14 @@ const Sheme = () => {
               x="122.55379"
               y="231.96568"
               transform="rotate(90,78.851774,243.29974)"
-              inkscape:label="Маска клапана 93"
+              inkscape:label="Маска клапана 20"
             ></rect>
           </g >
           <path
             id="rect37445"
             style={{
               fill: "#2a569a",
-              fillOpacity: !fill625 && allState.i65 === 1 ? 1 : 0,
+              fillOpacity: !fill625 && allState.i42 === 1 ? 1 : 0,
               stroke: "#000000",
               strokeWidth: "2.004",
               strokeLinecap: "square",
@@ -7558,7 +7559,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i203 === 0 ? 1 : 0,
+                fillOpacity: allState.i36 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -7601,7 +7602,7 @@ const Sheme = () => {
               transform="matrix(0,-1,-1,0,431.31232,396.86688)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i203 === 0 ? 0 : 1,
+                fillOpacity: allState.i36 === 0 ? 0 : 1,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -7647,7 +7648,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="203"
+              id="36"
               className='Valve-3'
               onClick={(e) => valvePopupOpen(true, e)}
               width="40.70063"
@@ -7655,7 +7656,7 @@ const Sheme = () => {
               x="563.76819"
               y="310.81232"
               transform="translate(-514.28303,-29.729415)"
-              inkscape:label="Маска клапана 203"
+              inkscape:label="Маска клапана 36"
             ></rect>
           </g >
           <g
@@ -7744,7 +7745,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i187 === 0 ? 1 : 0,
+                fillOpacity: allState.i37 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -7787,7 +7788,7 @@ const Sheme = () => {
               transform="matrix(0,-1,-1,0,431.31232,396.86688)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i187 === 0 ? 0 : 1,
+                fillOpacity: allState.i37 === 0 ? 0 : 1,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -7833,7 +7834,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="187"
+              id="37"
               className='Valve-3'
               onClick={(e) => valvePopupOpen(true, e)}
               width="40.70063"
@@ -7841,7 +7842,7 @@ const Sheme = () => {
               x="445.9505"
               y="237.15771"
               transform="translate(-396.46531,43.925213)"
-              inkscape:label="Маска клапана 187"
+              inkscape:label="Маска клапана 37"
             ></rect>
           </g >
           <g
@@ -7930,7 +7931,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i157 === 0 ? 1 : 0,
+                fillOpacity: allState.i43 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -7973,7 +7974,7 @@ const Sheme = () => {
               transform="matrix(0,-1,-1,0,431.31232,396.86688)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i157 === 0 ? 0 : 1,
+                fillOpacity: allState.i43 === 0 ? 0 : 1,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -8019,7 +8020,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="157"
+              id="43"
               className='Valve-3'
               onClick={(e) => valvePopupOpen(true, e)}
               width="40.70063"
@@ -8027,7 +8028,7 @@ const Sheme = () => {
               x="329.0423"
               y="237.14578"
               transform="translate(-279.5571,43.937138)"
-              inkscape:label="Маска клапана 157"
+              inkscape:label="Маска клапана 43"
             ></rect>
           </g >
 
@@ -8076,7 +8077,7 @@ const Sheme = () => {
             <g
               id="g87158-42-7"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i65 === 0 ? 0 : 1 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i42 === 0 ? 0 : 1 }}
               inkscape:label="Левый"
             >
               <path
@@ -8124,7 +8125,7 @@ const Sheme = () => {
             >
               <path
                 style={{
-                  fill: allState.i65 === 1 ? "#ffffff" : "#000000",
+                  fill: allState.i42 === 1 ? "#ffffff" : "#000000",
                   stroke: "#000000",
                   strokeWidth: 2,
                   strokeLinecap: "round",
@@ -8206,7 +8207,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="65"
+              id="42"
               className='Valve-3-Left'
               onClick={(e) => valvePopupOpen(true, e)}
               width="37.932091"
@@ -8214,7 +8215,7 @@ const Sheme = () => {
               x="284.82877"
               y="363.38477"
               transform="rotate(-90,144.9721,458.87168)"
-              inkscape:label="Маска клапана 65"
+              inkscape:label="Маска клапана 42"
             ></rect>
           </g >
           <g
@@ -8263,7 +8264,7 @@ const Sheme = () => {
             <g
               id="g87158-42-3"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i191 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i14 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -8346,7 +8347,7 @@ const Sheme = () => {
               transform="matrix(0,-1,-1,0,431.31232,396.86688)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i191 === 0 ? 0 : 1,
+                fillOpacity: allState.i14 === 0 ? 0 : 1,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -8392,7 +8393,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="191"
+              id="14"
               className='Valve-3-Right'
               onClick={(e) => valvePopupOpen(true, e)}
               width="37.932095"
@@ -8400,7 +8401,7 @@ const Sheme = () => {
               x="470.00604"
               y="431.65033"
               transform="rotate(90,355.37965,166.45652)"
-              inkscape:label="Маска клапана 191"
+              inkscape:label="Маска клапана 14"
             ></rect>
           </g >
           <g
@@ -8450,7 +8451,7 @@ const Sheme = () => {
             <g
               id="g87158-73"
               transform="translate(-28.36668,-61.96896)"
-              style={{ fill: "#ffffff", fillOpacity: allState.i215 === 0 ? 1 : 0 }}
+              style={{ fill: "#ffffff", fillOpacity: allState.i19 === 0 ? 1 : 0 }}
               inkscape:label="Левый"
             >
               <path
@@ -8490,7 +8491,7 @@ const Sheme = () => {
               transform="matrix(-1,0,0,1,168.0377,-61.960097)"
               style={{
                 fill: "#ffffff",
-                fillOpacity: allState.i215 === 0 ? 1 : 0,
+                fillOpacity: allState.i19 === 0 ? 1 : 0,
                 strokeWidth: 2,
                 strokeDasharray: "none"
               }}
@@ -8536,7 +8537,7 @@ const Sheme = () => {
                 strokeWidth: 0,
                 strokeLinecap: "round"
               }}
-              id="215"
+              id="19"
               className='Valve'
               onClick={(e) => valvePopupOpen(true, e)}
               width="28.199305"
@@ -8544,7 +8545,7 @@ const Sheme = () => {
               x="397.98062"
               y="309.78598"
               transform="rotate(-90,223.98103,483.28183)"
-              inkscape:label="Маска клапана 215"
+              inkscape:label="Маска клапана 19"
             ></rect>
           </g >
           <path
@@ -9361,7 +9362,7 @@ const Sheme = () => {
             />
             <ellipse
               style={{
-                fill: allState.i166 === 0 ? "#ffffff" : "#25be2c",
+                fill: allState.i52 === 0 ? "#ffffff" : "#25be2c",
                 fillOpacity: 1,
                 stroke: "#000000",
                 strokeWidth: "1.99982",
@@ -9380,7 +9381,7 @@ const Sheme = () => {
             />
             <ellipse
               style={{
-                fill: allState.i166 === 0 ? "#ffffff" : "#25be2c",
+                fill: allState.i52 === 0 ? "#ffffff" : "#25be2c",
                 fillOpacity: 1,
                 stroke: "#000000",
                 strokeWidth: "1.99982",
@@ -9399,7 +9400,7 @@ const Sheme = () => {
             />
             <ellipse
               style={{
-                fill: allState.i166 === 0 ? "#ffffff" : "#25be2c",
+                fill: allState.i52 === 0 ? "#ffffff" : "#25be2c",
                 fillOpacity: 1,
                 stroke: "#000000",
                 strokeWidth: "1.99982",
@@ -9962,7 +9963,7 @@ const Sheme = () => {
               display: configurator.i908 === 1 ? "" : "none",
               strokeLinecap: "round"
             }}
-            id="45"
+            id="29"
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
             inkscape:flatsided="true"
@@ -9979,7 +9980,7 @@ const Sheme = () => {
             transform="matrix(-0.48217094,0.87459991,-1.1117311,-0.61182118,850.08467,-327.73395)"
             inkscape:transform-center-x="-7.7685527"
             inkscape:transform-center-y="-14.637777"
-            inkscape:label="Маска створки 45"
+            inkscape:label="Маска створки 29"
           ></path>
           <path
             sodipodi:type="star"
@@ -9991,7 +9992,7 @@ const Sheme = () => {
               display: configurator.i909 === 1 ? "" : "none",
               strokeLinecap: "round"
             }}
-            id="53"
+            id="31"
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
             inkscape:flatsided="true"
@@ -10008,7 +10009,7 @@ const Sheme = () => {
             transform="matrix(0.48217094,0.87459991,1.1117311,-0.61182118,405.07883,-329.12157)"
             inkscape:transform-center-x="7.7685528"
             inkscape:transform-center-y="-14.637777"
-            inkscape:label="Маска створки 53"
+            inkscape:label="Маска створки 31"
           ></path><rect
             style={{
               opacity: 0,
@@ -10018,14 +10019,14 @@ const Sheme = () => {
               display: configurator.i907 === 1 ? "" : "none",
               strokeLinecap: "round"
             }}
-            id="41"
+            id="28"
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
             width="14.259958"
             height="72.522728"
             x="507.42413"
             y="133.22946"
-            inkscape:label="Маска створки 41"
+            inkscape:label="Маска створки 28"
           ></rect>
           <rect
             style={{
@@ -10036,14 +10037,14 @@ const Sheme = () => {
               display: configurator.i910 === 1 ? "" : "none",
               strokeLinecap: "round"
             }}
-            id="49"
+            id="30"
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
             width="13.507251"
             height="71.998993"
             x="736.63757"
             y="133.09158"
-            inkscape:label="Маска створки 49"
+            inkscape:label="Маска створки 30"
           ></rect>
           <rect
             style={{
@@ -10054,7 +10055,7 @@ const Sheme = () => {
               strokeWidth: 0,
               strokeLinecap: "round"
             }}
-            id="1"
+            id="21"
             className='Air'
             onClick={(e) => valvePopupOpen(true, e)}
             width="63.989098"
@@ -10072,7 +10073,7 @@ const Sheme = () => {
               strokeWidth: 0,
               strokeLinecap: "round"
             }}
-            id="57"
+            id="22"
             className='Food'
             onClick={(e) => valvePopupOpen(true, e)}
             width="46.859032"
