@@ -23,7 +23,7 @@ const CameraCalibration = ({ cameraPopup, cameraPopupClose }) => {
           <div className="camera-popup-content-main">
             <CanvasImage digits={cameraMap} />
           </div>
-          <div className="button popup-contetn-close" onClick={() => { cameraPopupClose(); TcpConnection.cancelCameraConnection(); TcpConnection.sendTcpDataCamera("stop") }}></div>
+          <div className="button popup-contetn-close" onClick={() => { TcpConnection.sendTcpDataCamera("stop"); cameraPopupClose(); }}></div>
         </div>
       </DialogContent>
     </Dialog>

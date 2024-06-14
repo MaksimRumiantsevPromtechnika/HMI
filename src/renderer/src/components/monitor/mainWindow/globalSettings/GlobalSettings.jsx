@@ -14,7 +14,9 @@ const GlobalSettings = () => {
   const handleClose = () => {
     setOpenPopup(false);
   };
-
+  const toggleSpeed = (data) => {
+    TcpConnecion.sendTcpData(`set_arm_speed(${data})`)
+  }
   const [currentSett, setCurrentSett] = useState()
 
   const handleOpen = (value, e) => {
@@ -26,11 +28,13 @@ const GlobalSettings = () => {
 
 
   const globalSettings = useSelector(state => state.globalSettings)
-  useEffect(() => {
-    const jsonString = JSON.stringify(globalSettings.udrGlobalSettings);
-    TcpConnecion.sendTcpData(`set_globalsettings(${jsonString})`)
-    setTimeout(TcpConnecion.sendTcpData(`get_globalsettings()`), 200)
-  }, [globalSettings.udrGlobalSettings])
+  const mode = useSelector(state => state.mode)
+  // useEffect(() => {
+  //   const jsonString = JSON.stringify(globalSettings.udrGlobalSettings);
+  //   TcpConnecion.sendTcpData(`set_globalsettings(${jsonString})`)
+  //   setTimeout(TcpConnecion.sendTcpData(`get_globalsettings()`), 200)
+  //   console.log(jsonString);
+  // }, [globalSettings.udrGlobalSettings])
 
   useEffect(() => {
 
@@ -97,7 +101,7 @@ const GlobalSettings = () => {
                 onTouchEnd={() => stoptMove('move_stopz')}
                 onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopz') : ""}></button>
               <div className="speed-setting">
-                <button className={globalSettings.realSettings.armSlowSpeed ? "arm-setting-speed-active arm-button sidetouch side-arm-button arm-slow" : "arm-button sidetouch side-arm-button arm-fast arm-setting-speed-active"} onClick={() => { dispatch(toggleSpeed()) }}></button>
+                <button className={mode.armSlowSpeed ? "arm-setting-speed-active arm-button sidetouch side-arm-button arm-slow" : "arm-button sidetouch side-arm-button arm-fast arm-setting-speed-active"} onClick={() => toggleSpeed(!mode.armSlowSpeed)}></button>
               </div>
             </div>
             <div className="cross-setting-arm-bar">

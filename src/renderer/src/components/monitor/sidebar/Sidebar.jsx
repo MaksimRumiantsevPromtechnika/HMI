@@ -22,19 +22,22 @@ const Sidebar = ({ toggleTab, toggleTabInfo, setMode, handleModeChange, connecti
     console.log(newValue);
     TcpConnection.sendTcpData(`separate_cow(${newValue.toString()})`)
   };
-
+  const separate = useSelector(state => state.mode.cowSeparate)
   const mode = useSelector(state => state.mode.mode)
   const dispatch = useDispatch()
   const changeMode = (value) => {
     TcpConnection.sendTcpData(`set_mode_${value.toString()}()`)
   }
-
+  const toggleSeparate = (data) => {
+    TcpConnection.sendTcpData(`set_cow_separate(${data})`)
+    console.log(data);
+  }
   const modeList = {
     1: "play",
     2: "pause",
     3: "stop"
   }
-
+  console.log(separate)
   const changeDestination = (value) => {
     TcpConnection.sendTcpData(`set_milkdestination(${value})`)
     // setTimeout(TcpConnection.sendTcpData(`get_cowparameters()`, 250))
@@ -87,7 +90,7 @@ const Sidebar = ({ toggleTab, toggleTabInfo, setMode, handleModeChange, connecti
           onTouchStart={(e) => TcpConnection.sendTcpData("set_on(0)")}
           onTouchEnd={() => TcpConnection.sendTcpData("set_off(0)")}>
         </button>
-        <button className={separateMode === 0 ? "side-bar-button sidetouch button-separate" : "separeate side-bar-button sidetouch button-separate"} onClick={toggleSeparateStatus}></button>
+        <button className={separate ? "separeate side-bar-button sidetouch button-separate" : "side-bar-button sidetouch button-separate"} onClick={() => toggleSeparate(!separate)}></button>
         <button className="side-bar-button sidetouch button-milk-action-select" onClick={() => handleModeMilkOpen(true)}></button>
         <button className="side-bar-button sidetouch button-open-cell" onClick={() => TcpConnection.sendTcpData("get_bucket_info()")}></button>
       </div>

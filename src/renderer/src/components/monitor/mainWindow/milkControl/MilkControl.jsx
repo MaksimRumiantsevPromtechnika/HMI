@@ -13,13 +13,15 @@ const MilkControl = () => {
     TcpConnecion.sendTcpData(`${movedElement}()`);
     console.log(`${movedElement}()`);
   }
-
   const stoptMove = (movedElement) => {
     setIsMoved(false)
     TcpConnecion.sendTcpData(`${movedElement}()`);
     console.log(`${movedElement}()`);
   }
-
+  const toggleSpeed = (data) => {
+    TcpConnecion.sendTcpData(`set_arm_speed(${data})`)
+  }
+  const mode = useSelector(state => state.mode)
   const [manualAttachmentPopup, setmManualAttachmentPopup] = useState(false);
   const manualAttachmentPopupClose = () => {
     setmManualAttachmentPopup(false)
@@ -144,7 +146,7 @@ const MilkControl = () => {
                 onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopz') : ""}
               ></button>
               <div className="speed">
-                <button className={globalSettings.armSlowSpeed ? "arm-setting-speed-active arm-button sidetouch side-arm-button arm-slow" : "arm-button sidetouch side-arm-button arm-fast arm-setting-speed-active"} onClick={() => { dispatch(toggleSpeed()) }}></button>
+                <button className={mode.armSlowSpeed ? "arm-setting-speed-active arm-button sidetouch side-arm-button arm-slow" : "arm-button sidetouch side-arm-button arm-fast arm-setting-speed-active"} onClick={() => toggleSpeed(!mode.armSlowSpeed)}></button>
               </div>
             </div>
             <div className="cross-arm-bar">

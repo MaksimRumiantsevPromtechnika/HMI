@@ -1,7 +1,7 @@
 const defaultState = {
   udrGlobalSettings: {
     configurateParams: {
-      detachmentDelay: "3",
+    detachmentDelay: "3",
     xOffset: "8",
     zOffset: "9",
     yOffset: "2",
@@ -30,9 +30,9 @@ export const mainSettingsReduser = (state = defaultState, action) => {
   switch (action.type) {
     case CHANGE_VALUE:
       return { ...state, udrGlobalSettings: action.payload }
-    case TOGGLE_SPEED: 
-      return {...state, udrGlobalSettings: {...state.realSettings,
-        armSlowSpeed: !state.realSettings.armSlowSpeed}}
+    // case TOGGLE_SPEED: 
+    //   return {...state, udrGlobalSettings: {...state.realSettings,
+    //     armSlowSpeed: !state.realSettings.armSlowSpeed}}
     case UPDATE_VALUE: 
       return { ...state, realSettings: action.payload } 
     default:

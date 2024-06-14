@@ -39,9 +39,15 @@ const Milking = () => {
             <div className="graphics-tanker-value">{milkingInfo.length == 0 ? "0,0" : (((milkingInfo[milkingInfo.length - 1].milk).toFixed(1) / 30).toFixed(1)).replace(".", ",")}</div>
           </div>
           <div className="graphics-cow-container">
-            <div className="gaphics-cow-left-buttons">
-              <button id={4} className={`graphics-cup-button sidetouch graphics-cow-left-top-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat4]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
-              <button id={2} className={`graphics-cup-button sidetouch graphics-cow-left-bottom-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat2]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+            <div className="gaphics-cow-left-buttons" style={{ backgroundColor: "red", marginBottom: "120px" }}>
+              <div>
+                <div><p>0:00</p></div>
+                <button id={4} className={`graphics-cup-button sidetouch graphics-cow-left-top-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat4]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+              </div>
+              <div>
+                <button id={2} className={`graphics-cup-button sidetouch graphics-cow-left-bottom-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat2]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+                <div><p>0:00</p></div>
+              </div>
             </div>
             <div className="graphics-cow-icon" />
             <div className="graphics-cow-right-buttons">

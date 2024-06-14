@@ -13,10 +13,10 @@ function App() {
   }
   const dispatch = useDispatch()
 
-  const TcpConnecion = useTcpConnection()
+  const TcpConnection = useTcpConnection()
   useEffect(() => {
-    TcpConnecion.connectionToTcpServer();
-
+    TcpConnection.connectionToTcpServer();
+    setTimeout(TcpConnection.connectionToCamera(), 5000)
   }, [])
 
 

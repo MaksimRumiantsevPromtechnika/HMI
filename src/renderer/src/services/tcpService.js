@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addDisconnectAlarm, addHistoryAlarm, addNewAlarm, addNewHistory, deletaAlarm } from '../store/alarm';
 import { changeCameraConnectionAction, changeConnectionAction } from '../store/connectionReducer';
 import { updateTeatValueAction } from '../store/cupsInfoReducer';
-import { changeConnectionStatusAction, changeMainAction, changeModeAction } from '../store/hmiMode';
+import { changeConnectionStatusAction, changeMainAction, changeModeAction, toggleSeparate, toggleSpeed } from '../store/hmiMode';
 import { updateShemeValueAction } from '../store/schemeInfoReducer';
 import { updateVacValueAction } from '../store/vacCalibration';
 import { changeWashHistory, changeWashInfo, changeWashStage } from '../store/washInfo';
@@ -43,7 +43,7 @@ const useTcpConnection = () => {
 };
 
   const connectionToTcpServer = async () => {
-    client.connect(12000, '11.5.130.250', () => {
+    client.connect(12000, '10.5.130.250', () => {
     })
   }
 
@@ -364,8 +364,12 @@ const useTcpConnection = () => {
       let newData = {
         ...parsedData.udrGlobalSettings
       }
-      
       dispatch(updateSettings(newData))
+    } else if (parsedData.hasOwnProperty("armSlowSpeed")) {
+      dispatch(toggleSpeed(parsedData.armSlowSpeed))
+    } else if (parsedData.hasOwnProperty("cowSeparate")) {
+      dispatch(toggleSeparate(parsedData.cowSeparate))
+      console.log(parsedData.cowSeparate);
     }
   }
 
@@ -404,12 +408,13 @@ const useTcpConnection = () => {
   client.on('error', async () => {
     console.error('TCP connection ERROR', "Check Connection");
     dispatch(changeConnectionStatusAction(false))
-    setIsConnected(false);
-    client.end();
+    // setIsConnected(false);
+    // client.end();
   })
 
   client.on('connect', async () => {
     // dispatch(deletaAlarm(0))
+    console.log("kek");
     dispatch(changeConnectionAction(client))
     client.write("auto_status_on()");
     setTimeout(getCurState, 500)
@@ -426,18 +431,18 @@ const useTcpConnection = () => {
   client.on('close', async() => {
     console.log('Connection closed');
     const netuti = currentModeVal
-    setTimeout(connectionToTcpServer, 10000);
+    setTimeout(connectionToTcpServer, 500);
     dispatch(changeConnectionStatusAction(false))
-    setIsConnected(false)
-    console.log(netuti);
-      const time = new Date()
-      const mm = time.getMinutes().toString().padStart(2, '0');
-      const hh = time.getHours().toString().padStart(2, '0');
-      const formattedTime = `${hh}:${mm}`;
-      console.log(formattedTime);
-      console.log(currentMode);
-      dispatch(addDisconnectAlarm({nameID: 666, dateTime: Moment().format('HH:mm D MMM'), msgType: "Авария", msgDecription: "666 Нет связи с КСПВ"}))
-      dispatch(changeMainAction(10))
+    // setIsConnected(false)
+    // console.log(netuti);
+    //   const time = new Date()
+    //   const mm = time.getMinutes().toString().padStart(2, '0');
+    //   const hh = time.getHours().toString().padStart(2, '0');
+    //   const formattedTime = `${hh}:${mm}`;
+    //   console.log(formattedTime);
+    //   console.log(currentMode);
+    //   dispatch(addDisconnectAlarm({nameID: 666, dateTime: Moment().format('HH:mm D MMM'), msgType: "Авария", msgDecription: "666 Нет связи с КСПВ"}))
+    //   dispatch(changeMainAction(10))
   })
 
   client.on('data', async (data) => {
@@ -494,17 +499,17 @@ const useTcpConnection = () => {
 
   client2.on('close', async() => {
     console.log('Connection closed');
-    
+    setTimeout(connectionToCamera, 15000);
   })
 
   client2.on('connect', async () => {
     console.log("Состыковались");
-    client2.write("start")
+    // setTimeout(client2.write("start"), 1000)
     dispatch(changeCameraConnectionAction(client2))
   });
 
   const cancelCameraConnection = () => {
-    setTimeout(client2.end(), 2000)
+    setTimeout(client2.end(), 1000)
     console.log("end");}
 
   const sendTcpDataCamera = async (data) => {
@@ -519,7 +524,7 @@ const useTcpConnection = () => {
   const startTimeout = async () => {
     timeout = setTimeout(() => {
       
-      client.end()
+      client.end
     }, 15000);
   };
 

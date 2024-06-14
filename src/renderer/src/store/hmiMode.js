@@ -1,9 +1,11 @@
 const defaultState = {
   mode: "2",
-  main: "3",
+  main: "8",
   milking: false,
   accessRights: 0, 
   connectionStatus: false,
+  armSlowSpeed: false,
+  cowSeparate: false,
 }
 
 const CHANGE_MODE = "CHANGE_MODE"
@@ -11,6 +13,8 @@ const CHANGE_MAIN = "CHANGE_MAIN"
 const CHANGE_CONNECTION_STATUS = "CHANGE_CONNECTION_STATUS"
 const CHANGE_ACCESS_RIGHTS = "CHANGE_ACCESS_RIGHTS"
 const TOGGLE_MILKING = "TOGGLE_MILKING"
+const TOGGLE_SPEED = "TOGGLE_SPEED"
+const TOGGLE_SEPARATE = "TOGGLE_SEPARATE"
 
 export const hmiModeReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -25,6 +29,11 @@ export const hmiModeReducer = (state = defaultState, action) => {
       return {...state, accessRights: action.payload}
     case TOGGLE_MILKING : 
       return {...state, milking: !state.milking}
+    case TOGGLE_SPEED :
+      return {...state, armSlowSpeed: action.payload}
+    case TOGGLE_SEPARATE :
+      console.log(action.payload);
+      return {...state, cowSeparate: action.payload}
     default:
       return state
   }
@@ -35,3 +44,5 @@ export const changeMainAction = (payload) => ({ type: CHANGE_MAIN, payload })
 export const changeConnectionStatusAction = (payload) => ({ type: CHANGE_CONNECTION_STATUS, payload })
 export const changeAccessRights = (payload) => ({ type: CHANGE_ACCESS_RIGHTS, payload })
 export const toggleMilking = () => ({type: TOGGLE_MILKING})
+export const toggleSpeed = (payload) => ({type: TOGGLE_SPEED, payload})
+export const toggleSeparate = (payload) => ({type: TOGGLE_SEPARATE, payload})
