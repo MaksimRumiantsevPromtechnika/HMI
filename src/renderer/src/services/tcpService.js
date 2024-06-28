@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addDisconnectAlarm, addHistoryAlarm, addNewAlarm, addNewHistory, deletaAlarm } from '../store/alarm';
 import { changeCameraConnectionAction, changeConnectionAction } from '../store/connectionReducer';
 import { updateTeatValueAction } from '../store/cupsInfoReducer';
-import { changeConnectionStatusAction, changeMainAction, changeModeAction, toggleSeparate, toggleSpeed } from '../store/hmiMode';
+import { changeConnectionStatusAction, changeMainAction, changeModeAction, toggleSeparate, toggleSpeed, toggleTeatCalibration } from '../store/hmiMode';
 import { updateShemeValueAction } from '../store/schemeInfoReducer';
 import { updateVacValueAction } from '../store/vacCalibration';
 import { changeWashHistory, changeWashInfo, changeWashStage } from '../store/washInfo';
@@ -43,12 +43,12 @@ const useTcpConnection = () => {
 };
 
   const connectionToTcpServer = async () => {
-    client.connect(12000, '10.5.130.250', () => {
+    client.connect(12000, '10.5.130.240', () => {
     })
   }
 
   const connectionToCamera = async () => {
-    client2.connect(12001, "10.5.130.186", () => {
+    client2.connect(12001, '10.5.130.240', () => {
     })
   }
   let buffer = ""
@@ -115,20 +115,6 @@ const useTcpConnection = () => {
       console.log(alarmInfoObj);
       dispatch(addNewAlarm(alarmInfoObj))
     }
-
-    else if (data.toString().includes("teats_actualposition")) {
-      
-      const modifiedTeatData = data.toString().match(/(\b[sxyz]\d;-?\d{1,3}(;)?)+\b/g);
-      const dataTeat = modifiedTeatData.join().replace(/;/g,',');
-      const dataTeatArray = dataTeat.split(",")
-     
-      const dataTeatObj = {}
-      for (let i = 0; i < dataTeatArray.length; i += 2) {
-        dataTeatObj[dataTeatArray[i]] = (dataTeatArray[(i + 1)])
-      }
-      console.log(dataTeatObj)
-      dispatch(updateTeatValueAction(dataTeatObj))
-    } 
 
     else if (data.toString().includes("cow_parameters")) {
       const modifiedData = data.toString().replace(/[a-zA-Z()_]/g, '');
@@ -370,6 +356,17 @@ const useTcpConnection = () => {
     } else if (parsedData.hasOwnProperty("cowSeparate")) {
       dispatch(toggleSeparate(parsedData.cowSeparate))
       console.log(parsedData.cowSeparate);
+    } else if (parsedData.hasOwnProperty("teatStatus")) {
+      let newData = {
+        ...parsedData.teatStatus
+      }
+      console.log("TeatStatus");
+      dispatch(updateTeatValueAction(newData))
+      
+    } else if (parsedData.hasOwnProperty("start_calibration")) {
+      dispatch(toggleTeatCalibration(true))
+    } else if (parsedData.hasOwnProperty("stop_calibration")) {
+      dispatch(toggleTeatCalibration(false))
     }
   }
 
@@ -431,7 +428,7 @@ const useTcpConnection = () => {
   client.on('close', async() => {
     console.log('Connection closed');
     const netuti = currentModeVal
-    setTimeout(connectionToTcpServer, 500);
+    setTimeout(connectionToTcpServer, 15000);
     dispatch(changeConnectionStatusAction(false))
     // setIsConnected(false)
     // console.log(netuti);
@@ -447,7 +444,7 @@ const useTcpConnection = () => {
 
   client.on('data', async (data) => {
     dispatch(changeConnectionStatusAction(true))
-    let array = data.toString().split(/(\)|\]}|\}\})/).filter(Boolean);
+    let array = data.toString().split(/(\}\}\}|\}\}|\)}|\]}|\))/).filter(Boolean);
     console.log(array);
     if (array.length === 1) {
       await checkType(array[0]);

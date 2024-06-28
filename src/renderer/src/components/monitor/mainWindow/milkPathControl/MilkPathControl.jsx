@@ -17,7 +17,7 @@ const MilkPathControl = () => {
 
   const warningColor = {
     "Мастит": "red",
-    "Молозево": "orange",
+    "Молозиво": "orange",
     "Антибиотик": "green"
   }
 
