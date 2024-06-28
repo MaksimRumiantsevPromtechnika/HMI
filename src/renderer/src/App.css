@@ -503,7 +503,13 @@ body {
   margin-bottom: 115px;
 }
 
+.status-cow {
+  justify-content: start;
+  height: 100%;
+}
+
 .status-cow-in-cell {
+  flex-direction: column;
   justify-content: start;
   height: 100%;
 }
@@ -1776,8 +1782,9 @@ body {
 .cow-bar {
   display: flex;
   justify-content: start;
-
-  transform: rotate(-90deg) translate(-26px, 82px);
+  flex-direction: column;
+  margin-top: 11px;
+  margin-left: 79px;
 }
 
 .cup-button {
@@ -1786,10 +1793,8 @@ body {
   border: solid 3px #2A569A;
   background-color: white;
   border-radius: 5px;
-  display: none;
   background-position: center;
   background-repeat: no-repeat;
-  transform: rotate(90deg);
 }
 
 .cup-active {
@@ -1814,14 +1819,9 @@ body {
   background-size: 59px;
 }
 
-.right-cups {
-  margin-left: 21px;
-}
 
-.right-bottom-cup,
-.left-bottom-cup {
-  margin-top: 20px;
-}
+
+
 
 button.cup-button:disabled {
   filter: opacity(20%)
@@ -1837,6 +1837,18 @@ button.cup-button:disabled {
   background-repeat: no-repeat;
   margin-top: 0px;
   margin-left: 22px;
+}
+
+.cow-h {
+  width: 170px;
+  height: 64px;
+  display: block;
+  background-image: url(../png/cow-left.png);
+  background-size: 160px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 22px;
+  margin-bottom: 22px;
 }
 
 .arm-button {
@@ -1985,7 +1997,8 @@ button.cup-button:disabled {
 
 .side-control-bar {
   margin-top: 12px;
-  transform: translate(30px, 0px);
+  /* transform: translate(30px, 0px); */
+  margin-left: 50px;
 }
 
 
@@ -2991,6 +3004,10 @@ input, button {
   background-size: 60px;
 }
 
+button:disabled {
+  color: black;
+}
+
 
 .configuration-cancel, 
 .camera-cancel,
@@ -3611,7 +3628,7 @@ option {
   border-radius: 10px;
   width: 366px;
   margin: auto;
-  height: 380px;
+  height: 420px;
   padding: 20px;
   border: solid 3px #2A569A;
   display: flex;
@@ -3625,7 +3642,7 @@ option {
 .camera-popup-content-main {
   border-radius: 10px;
   width: 320px;
-  height: 240px;
+  height: 300px;
   background-color: #fff;
 }
 
