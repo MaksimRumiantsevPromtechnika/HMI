@@ -13,7 +13,7 @@ function CanvasImage({ digits }) {
       case '4': return 'rgb(0, 255, 255)';
       case '5': return 'rgb(0, 0, 255)';
       case '6': return 'rgb(0, 0, 192)';
-      case '7': return 'rgb(163, 87, 239)';
+      case '7': return 'rgb(255, 0, 255)';
       default: return 'rgb(105,19,191)';
     }
   }
@@ -50,7 +50,7 @@ function CanvasImage({ digits }) {
     canvas.width = 320; // 160 пикселей * 3
     canvas.height = 240; // 60 пикселей * 3
 
-    let x = 80;
+    let x = 0;
     let y = 0;
     if (digits) {
       for (let i = 0; i < digits.length; i++) {
@@ -61,7 +61,7 @@ function CanvasImage({ digits }) {
         ctx.fillRect(x * scale, y * scale, pixelSize * scale, pixelSize * scale);
 
         x++;
-        if (x >= 160) {
+        if (x >= 80) {
           x = 0;
           y++;
         }
@@ -69,7 +69,7 @@ function CanvasImage({ digits }) {
     }
   }, [digits]);
 
-  return <canvas ref={canvasRef} width="160" height="60" />;
+  return <canvas ref={canvasRef} width="80" height="60" />;
 }
 
 export default CanvasImage;
