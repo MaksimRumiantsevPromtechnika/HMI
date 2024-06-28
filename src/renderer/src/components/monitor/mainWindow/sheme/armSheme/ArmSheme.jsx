@@ -542,7 +542,7 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
                     strokeWidth: 0,
                     strokeLinecap: "round"
                   }}
-                  id="7"
+                  id="13"
                   className="Valve"
                   onClick={(e) => valvePopupOpen(true, e)}
                   width="7.11936"
