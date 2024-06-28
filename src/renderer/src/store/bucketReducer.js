@@ -14,7 +14,7 @@ const defaultState = {
     },
     {
         val: "",
-        status: "Молозево",
+        status: "Молозиво",
         dateTime: "",
         id: "3333"
     },
