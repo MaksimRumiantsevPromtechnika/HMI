@@ -6,6 +6,7 @@ const defaultState = {
   connectionStatus: false,
   armSlowSpeed: false,
   cowSeparate: false,
+  teatCalibration: false,
 }
 
 const CHANGE_MODE = "CHANGE_MODE"
@@ -15,6 +16,7 @@ const CHANGE_ACCESS_RIGHTS = "CHANGE_ACCESS_RIGHTS"
 const TOGGLE_MILKING = "TOGGLE_MILKING"
 const TOGGLE_SPEED = "TOGGLE_SPEED"
 const TOGGLE_SEPARATE = "TOGGLE_SEPARATE"
+const TOGGLE_TEAT_CALIBRATION = "TOGGLE_TEAT_CALIBRATION"
 
 export const hmiModeReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -34,6 +36,9 @@ export const hmiModeReducer = (state = defaultState, action) => {
     case TOGGLE_SEPARATE :
       console.log(action.payload);
       return {...state, cowSeparate: action.payload}
+    case TOGGLE_TEAT_CALIBRATION :
+      console.log(action.payload);
+      return {...state, teatCalibration: action.payload}
     default:
       return state
   }
@@ -46,3 +51,4 @@ export const changeAccessRights = (payload) => ({ type: CHANGE_ACCESS_RIGHTS, pa
 export const toggleMilking = () => ({type: TOGGLE_MILKING})
 export const toggleSpeed = (payload) => ({type: TOGGLE_SPEED, payload})
 export const toggleSeparate = (payload) => ({type: TOGGLE_SEPARATE, payload})
+export const toggleTeatCalibration = (payload) => ({type: TOGGLE_TEAT_CALIBRATION, payload})

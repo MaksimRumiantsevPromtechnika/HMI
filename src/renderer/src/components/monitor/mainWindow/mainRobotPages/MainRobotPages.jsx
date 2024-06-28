@@ -30,7 +30,7 @@ const MainRobotPages = () => {
       <div className={main === "4" ? "status-alkaline home-status status-active" : "status-alkaline home-status"}>
         <AlkalineClean></AlkalineClean>
       </div>
-      <div className={main === "7" ? "status-cow-in-cell home-status status-active" : "status-alkaline home-status"}>
+      <div className={main === "7" ? "status-cow home-status status-active" : "status-alkaline home-status"}>
         <CowReleasing></CowReleasing>
       </div>
       {/* <div className={main === 5 ? "status-alkaline home-status status-active" : "status-alkaline home-status"}>
@@ -42,7 +42,7 @@ const MainRobotPages = () => {
       <div className={main === 7 ? "status-alkaline home-status status-active" : "status-alkaline home-status"}>
         <PumpPeracetic></PumpPeracetic>
       </div> */}
-      <div className={main === "1" ? "status-cow-in-cell home-status status-active" : "status-alkaline home-status"}>
+      <div className={main === "1" ? "status-cow home-status status-active" : "status-alkaline home-status"}>
         <CowReleasing></CowReleasing>
       </div>
       <div className={main === "5" ? "status-alkaline home-status status-active" : "status-alkaline home-status"}>
@@ -57,7 +57,7 @@ const MainRobotPages = () => {
       <div className={main === "9" ? "status-cow-in-cell home-status status-active" : "status-alkaline home-status"}>
         <CowLock></CowLock>
       </div>
-      <div className={(main === "8" && milking == false) ? "status-cow-in-cell home-status status-active" : "status-alkaline home-status"}>
+      <div className={(main === "8" && milking == false) ? "status-cow home-status status-active" : "status-alkaline home-status"}>
         <CowReleasing></CowReleasing>
       </div>
     </>
