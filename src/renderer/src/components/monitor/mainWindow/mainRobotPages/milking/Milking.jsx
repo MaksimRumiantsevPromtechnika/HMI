@@ -39,7 +39,7 @@ const Milking = () => {
             <div className="graphics-tanker-value">{milkingInfo.length == 0 ? "0,0" : (((milkingInfo[milkingInfo.length - 1].milk).toFixed(1) / 30).toFixed(1)).replace(".", ",")}</div>
           </div>
           <div className="graphics-cow-container">
-            <div className="gaphics-cow-left-buttons" style={{ backgroundColor: "red", marginBottom: "120px" }}>
+            <div className="gaphics-cow-left-buttons">
               <div>
                 <div><p>0:00</p></div>
                 <button id={4} className={`graphics-cup-button sidetouch graphics-cow-left-top-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat4]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
@@ -51,13 +51,15 @@ const Milking = () => {
             </div>
             <div className="graphics-cow-icon" />
             <div className="graphics-cow-right-buttons">
-              <button id={3} className={`graphics-cup-button sidetouch graphics-cow-right-top-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat3]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
-              <button id={1} className={`graphics-cup-button sidetouch graphics-cow-right-bottom-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat1]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+              <div>
+                <div><p>0:00</p></div>
+                <button id={3} className={`graphics-cup-button sidetouch graphics-cow-right-top-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat3]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+              </div>
+              <div>
+                <button id={1} className={`graphics-cup-button sidetouch graphics-cow-right-bottom-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat1]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+                <div><p>0:00</p></div>
+              </div>
             </div>
-          </div>
-          <div className="buttonsOfGr">
-            <button className="demoGr">Demo Start</button>
-            <button className="stopGr">Stop</button>
           </div>
         </div>
         <div className="gr-cup-milk-mode-div">

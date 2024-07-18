@@ -10,6 +10,7 @@ const MilkControl = () => {
   const [isMoved, setIsMoved] = useState(false)
   const [modeTeatPopup, setModeTeatPopup] = useState(false)
   const dispatch = useDispatch()
+  const configurator = useSelector(state => state.configurator)
   const modeTeatPopupClose = () => {
     setModeTeatPopup(false);
   };
@@ -60,8 +61,8 @@ const MilkControl = () => {
   const teatReducer = useSelector(state => state.teats.teatsInfo)
   const settings = useSelector(state => state.globalSettings)
   const cowInfo = useSelector(state => state.cow.cowInfo)
-  const jsonString = JSON.stringify(settings.udrGlobalSettings);
-  const globalSettings = useSelector(state => state.globalSettings.realSettings)
+  // const jsonString = JSON.stringify(settings.udrGlobalSettings);
+  // const globalSettings = useSelector(state => state.globalSettings.realSettings)
   const points = [  // точка отсчета
     { x: teatReducer.teat1.x, y: teatReducer.teat1.y * (-1), s: teatReducer.teat1.status },
     { x: teatReducer.teat2.x, y: teatReducer.teat2.y * (-1), s: teatReducer.teat2.status },
@@ -162,9 +163,14 @@ const MilkControl = () => {
     });
   };
   const classMap = {
-    0: 'cup-unknow',
-    1: 'cup-done',
-    2: 'cup-note',
+    1: "cup-forbiden",
+    2: 'cup-unknow',
+    3: 'cup-done-auto',
+    4: 'cup-unknow-ind',
+    5: 'cup-done-ind',
+    6: 'cup-done-auto-ind',
+    7: 'cup-clear',
+    // 2: 'cup-note',
   }
 
   return (
@@ -172,20 +178,28 @@ const MilkControl = () => {
       <div className="arm-control">
         <div onMouseUp={() => console.log(22)} className="main-control-bar">
           <div className="cow-bar">
-            <div className="left-cups" style={{ display: "flex", marginLeft: "75px" }}>
-              <button id={4} className={`cup-button sidetouch left-top-cup ${classMap[teatReducer.s1]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat4.status == 1 ? true : false} onClick={(e) => handleModeTeatOpen(true, e)}>{teatReducer.teat4.status}</button>
-              <button id={2} className={`cup-button sidetouch left-bottom-cup ${classMap[teatReducer.s1]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat2.status == 1 ? true : false} style={{ marginLeft: "20px" }} onClick={(e) => handleModeTeatOpen(true, e)}>{teatReducer.teat2.status}</button>
+            <div className="left-cups" style={{ display: configurator.cowOrientation === 1 ? "flex" : "none", marginLeft: "75px" }}>
+              <button id={3} className={`cup-button sidetouch ${classMap[teatReducer.teat3.status]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat3.status == 1 ? true : false} onClick={(e) => handleModeTeatOpen(true, e)}></button>
+              <button id={1} className={`cup-button sidetouch ${classMap[teatReducer.teat1.status]} cup-active`} disabled={teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat1.status == 1 ? true : false} style={{ marginLeft: "20px" }} onClick={(e) => handleModeTeatOpen(true, e)}></button>
+            </div>
+            <div className="right-cups" style={{ display: configurator.cowOrientation === 0 ? "flex" : "none", marginLeft: "75px" }}>
+              <button id={2} className={`cup-button sidetouch ${classMap[teatReducer.teat2.status]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat2.status == 1 ? true : false} onClick={(e) => handleModeTeatOpen(true, e)}></button>
+              <button id={4} className={`cup-button sidetouch ${classMap[teatReducer.teat4.status]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat4.status == 1 ? true : false} style={{ marginLeft: "20px" }} onClick={(e) => handleModeTeatOpen(true, e)}></button>
             </div>
             <div style={{ display: "flex" }}>
               <div style={{ width: "75px", height: "75px" }}>
-                <button id={3} className={`cup-button cup-active configuration-done`} style={{ marginTop: "15px", display: statuses.includes(7) ? "" : "none" }} onClick={() => clearConfirm()}></button>
-                <button id={3} className={`cup-button cup-active configuration-done`} style={{ marginTop: "15px", display: statuses.includes(5) ? "" : "none" }} onClick={() => indScanConfirm()}></button>
+                <button className={`cup-button cup-active configuration-done`} style={{ marginTop: "15px", display: statuses.includes(7) ? "" : "none" }} onClick={() => clearConfirm()}></button>
+                <button className={`cup-button cup-active configuration-done`} style={{ marginTop: "15px", display: statuses.includes(5) ? "" : "none" }} onClick={() => indScanConfirm()}></button>
               </div>
-              <div className="cow-h"></div>
+              <div className={configurator.cowOrientation === 1 ? "cow-left" : "cow-right"}></div>
             </div>
-            <div className="right-cups" style={{ display: "flex", marginLeft: "75px" }}>
-              <button id={3} className={`cup-button sidetouch right-top-cup ${classMap[teatReducer.s1]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat3.status == 1 ? true : false} onClick={(e) => handleModeTeatOpen(true, e)}>{teatReducer.teat3.status}</button>
-              <button id={1} className={`cup-button sidetouch right-bottom-cup ${classMap[teatReducer.s4]} cup-active`} disabled={teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat1.status == 1 ? true : false} style={{ marginLeft: "20px" }} onClick={(e) => handleModeTeatOpen(true, e)}>{teatReducer.teat1.status}</button>
+            <div className="left-cups" style={{ display: configurator.cowOrientation === 0 ? "flex" : "none", marginLeft: "75px" }}>
+              <button id={1} className={`cup-button sidetouch ${classMap[teatReducer.teat1.status]} cup-active`} disabled={teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat1.status == 1 ? true : false} onClick={(e) => handleModeTeatOpen(true, e)}></button>
+              <button id={3} className={`cup-button sidetouch ${classMap[teatReducer.teat3.status]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat3.status == 1 ? true : false} style={{ marginLeft: "20px" }} onClick={(e) => handleModeTeatOpen(true, e)}></button>
+            </div>
+            <div className="right-cups" style={{ display: configurator.cowOrientation === 1 ? "flex" : "none", marginLeft: "75px" }}>
+              <button id={4} className={`cup-button sidetouch ${classMap[teatReducer.teat4.status]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat4.status == 1 ? true : false} onClick={(e) => handleModeTeatOpen(true, e)}></button>
+              <button id={2} className={`cup-button sidetouch ${classMap[teatReducer.teat2.status]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat2.status == 1 ? true : false} style={{ marginLeft: "20px" }} onClick={(e) => handleModeTeatOpen(true, e)}></button>
             </div>
           </div>
           <div className="arm-bar">
@@ -211,7 +225,7 @@ const MilkControl = () => {
             </div>
             <div className="cross-arm-bar">
               <div className="top-cross">
-                <button id="move_left" className="arm-button sidetouch cross-button top-cross-button"
+                <button id="move_rotateleft" className="arm-button sidetouch cross-button top-cross-button"
                   onMouseDown={(e) => startMove(e.target.id)}
                   onMouseUp={() => stoptMove('move_stopl')}
                   onMouseOut={() => (isMoved === true) ? stoptMove('move_stopl') : ""}
@@ -221,15 +235,15 @@ const MilkControl = () => {
                 ></button>
               </div>
               <div className="middle-cross">
-                <button id="move_rotateright" className="arm-button sidetouch cross-button left-cross-button"
+                <button id="move_left" className="arm-button sidetouch cross-button left-cross-button"
                   onMouseDown={(e) => startMove(e.target.id)}
                   onMouseUp={() => stoptMove('move_stopq')}
                   onMouseOut={() => (isMoved === true) ? stoptMove('move_stopq') : ""}
                   onTouchStart={(e) => startMove(e.target.id)}
                   onTouchEnd={() => stoptMove('move_stopq')}
                   onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopq') : ""}></button>
-                <div className="cross-cow"></div>
-                <button id="move_rotateleft" className="arm-button sidetouch cross-button right-cross-button"
+                <div className={configurator.cowOrientation === 1 ? "cross-cow-left" : "cross-cow-right"}></div>
+                <button id="move_right" className="arm-button sidetouch cross-button right-cross-button"
                   onMouseDown={(e) => startMove(e.target.id)}
                   onMouseUp={() => stoptMove('move_stopq')}
                   onMouseOut={() => (isMoved === true) ? stoptMove('move_stopq') : ""}
@@ -238,7 +252,7 @@ const MilkControl = () => {
                   onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopq') : ""}></button>
               </div>
               <div className="bottom-cross">
-                <button id="move_right" className="arm-button sidetouch cross-button bottom-cross-button"
+                <button id="move_rotateright" className="arm-button sidetouch cross-button bottom-cross-button"
                   onMouseDown={(e) => startMove(e.target.id)}
                   onMouseUp={() => stoptMove('move_stopl')}
                   onMouseOut={() => (isMoved === true) ? stoptMove('move_stopl') : ""}

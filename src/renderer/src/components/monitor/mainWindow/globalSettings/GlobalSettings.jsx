@@ -7,7 +7,7 @@ import NumPad from "../numPad/NumPad";
 import NumPadPopup from "../numPadPopup/NumPadPopup";
 
 const GlobalSettings = () => {
-
+  const configurator = useSelector(state => state.configurator)
   const TcpConnecion = useTcpConnection()
   const dispatch = useDispatch()
   const [openPopup, setOpenPopup] = useState(false)
@@ -84,49 +84,48 @@ const GlobalSettings = () => {
               <button className="top-setting-button sidetouch under-setting-clear"></button>
             </div>
           </div>
-          <div className="arm-setting-bar">
-            <div className="side-setting-arm-bar">
-              <button id="move_up" className="arm-setting-button side-setting-arm-button arm-setting-up"
+          <div className="arm-bar">
+            <div className="side-arm-bar">
+              <button id="move_up" className="arm-button sidetouch side-arm-button arm-up"
                 onTouchStart={(e) => startMove(e.target.id)}
                 onTouchEnd={() => stoptMove('move_stopz')}
                 onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopz') : ""}
                 onMouseDown={(e) => startMove(e.target.id)}
                 onMouseUp={() => stoptMove('move_stopz')}
                 onMouseOut={() => (isMoved === true) ? stoptMove('move_stopz') : ""}></button>
-              <button id="move_down" className="arm-setting-button side-setting-arm-button arm-setting-down"
+              <button id="move_down" className="arm-button sidetouch side-arm-button arm-down"
                 onMouseDown={(e) => startMove(e.target.id)}
                 onMouseUp={() => stoptMove('move_stopz')}
                 onMouseOut={() => (isMoved === true) ? stoptMove('move_stopz') : ""}
                 onTouchStart={(e) => startMove(e.target.id)}
                 onTouchEnd={() => stoptMove('move_stopz')}
-                onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopz') : ""}></button>
-              <div className="speed-setting">
+                onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopz') : ""}
+              ></button>
+              <div className="speed">
                 <button className={mode.armSlowSpeed ? "arm-setting-speed-active arm-button sidetouch side-arm-button arm-slow" : "arm-button sidetouch side-arm-button arm-fast arm-setting-speed-active"} onClick={() => toggleSpeed(!mode.armSlowSpeed)}></button>
               </div>
             </div>
-            <div className="cross-setting-arm-bar">
-              <div className="top-setting-cross">
-                <button
-                  id="move_left" className="arm-setting-button sidetouch cross-setting-button top-setting-cross-button"
+            <div className="cross-arm-bar">
+              <div className="top-cross">
+                <button id="move_rotateleft" className="arm-button sidetouch cross-button top-cross-button"
                   onMouseDown={(e) => startMove(e.target.id)}
                   onMouseUp={() => stoptMove('move_stopl')}
                   onMouseOut={() => (isMoved === true) ? stoptMove('move_stopl') : ""}
                   onTouchStart={(e) => startMove(e.target.id)}
                   onTouchEnd={() => stoptMove('move_stopl')}
-                  onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopl') : ""}></button>
+                  onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopl') : ""}
+                ></button>
               </div>
-              <div className="middle-setting-cross">
-                <button
-                  id="move_rotateright" className="arm-setting-button sidetouch cross-setting-button left-setting-cross-button"
+              <div className="middle-cross">
+                <button id="move_left" className="arm-button sidetouch cross-button left-cross-button"
                   onMouseDown={(e) => startMove(e.target.id)}
                   onMouseUp={() => stoptMove('move_stopq')}
                   onMouseOut={() => (isMoved === true) ? stoptMove('move_stopq') : ""}
                   onTouchStart={(e) => startMove(e.target.id)}
                   onTouchEnd={() => stoptMove('move_stopq')}
                   onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopq') : ""}></button>
-                <div className="cross-setting-cow"></div>
-                <button
-                  id="move_rotateleft" className="arm-setting-button sidetouch cross-setting-button right-setting-cross-button"
+                <div className={configurator.cowOrientation === 1 ? "cross-cow-left" : "cross-cow-right"}></div>
+                <button id="move_right" className="arm-button sidetouch cross-button right-cross-button"
                   onMouseDown={(e) => startMove(e.target.id)}
                   onMouseUp={() => stoptMove('move_stopq')}
                   onMouseOut={() => (isMoved === true) ? stoptMove('move_stopq') : ""}
@@ -134,9 +133,8 @@ const GlobalSettings = () => {
                   onTouchEnd={() => stoptMove('move_stopq')}
                   onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopq') : ""}></button>
               </div>
-              <div className="bottom-setting-cross">
-                <button
-                  id="move_right" className="arm-setting-button sidetouch cross-setting-button bottom-setting-cross-button"
+              <div className="bottom-cross">
+                <button id="move_rotateright" className="arm-button sidetouch cross-button bottom-cross-button"
                   onMouseDown={(e) => startMove(e.target.id)}
                   onMouseUp={() => stoptMove('move_stopl')}
                   onMouseOut={() => (isMoved === true) ? stoptMove('move_stopl') : ""}
