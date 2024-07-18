@@ -22,7 +22,7 @@ const WashInfo = () => {
   }
   const TcpConnecion = useTcpConnection()
   const reportStatusOpen = (value) => {
-    TcpConnecion.sendTcpData(`get_cleaning_report(${selectedRow})`)
+    TcpConnecion.sendTcpData(`get_cleaning_report("${selectedRow}")`)
     setReportStatus(value);
   }
   const washInfo = useSelector(state => state.washHistory.washHistory)
