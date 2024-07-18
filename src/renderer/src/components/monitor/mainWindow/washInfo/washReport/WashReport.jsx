@@ -4,10 +4,11 @@ import { useSelector } from "react-redux";
 
 const WashReport = ({ reportStatusClose, reportStatus }) => {
   const [AcidWashTime, setAcidWashTime] = useState();
-  const reportData = useSelector(state => state.washReport)
-  const currentWash = reportData.currentWash
+  const reportData = useSelector(state => state.washReport.reportInfo)
+  const washTypeList = useSelector(state => state.washReport.washTypeList)
+  const washType = reportData.washType
   const currentStage = reportData.lastStage
-  const success = reportData.success
+  const success = reportData.washResult
   const stageTimeLeft = reportData.stageTimeLeft
   const totalTimeLeft = reportData.totalTimeLeft
   const stageTime = reportData.stageTime
@@ -18,6 +19,7 @@ const WashReport = ({ reportStatusClose, reportStatus }) => {
     console.log(reportData.stageTime);
   }
   console.log(reportData.stageTime);
+  const currentWash = washTypeList[washType]
   const stagesData = {
     acid: [
       "status-icon-clean-tanker",
@@ -106,7 +108,7 @@ const WashReport = ({ reportStatusClose, reportStatus }) => {
       <div>
         <div key={index} className={`status-icon ${stage} ${currentStage === index ? 'current-state' : ''}`} style={{ backgroundColor: currentStage === index && !success ? "red" : "" }}>
         </div>
-        <div style={{ display: "flex", justifyContent: "center" }} ><p>{reportData.stageTimeList[index] ? moment.utc(reportData.stageTimeList[index] * 1000).format('m:ss') : ''}</p></div>
+        <div style={{ display: "flex", justifyContent: "center" }} ><p>{reportData.pastStages[index] ? moment.utc(reportData.pastStages[index] * 1000).format('m:ss') : ''}</p></div>
       </div >
     );
   });

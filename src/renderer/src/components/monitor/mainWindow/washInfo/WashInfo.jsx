@@ -8,18 +8,21 @@ import '../../../../App.css'
 import { useDispatch, useSelector } from 'react-redux';
 import WashReport from './washReport/WashReport';
 import AcidClean from '../mainRobotPages/acidClean/AcidClean';
+import useTcpConnection from '../../../../services/tcpService';
 
 const WashInfo = () => {
   const rowHeight = 28;
   const gridRef = useRef(); // Optional - for accessing Grid's API
   const [rowData, setRowData] = useState(); // Set rowData to Array of Objects, one Object per Row
+  const [selectedRow, setSelectedRow] = useState();
   const dispatch = useDispatch;
   const [reportStatus, setReportStatus] = useState(false)
   const reportStatusClose = () => {
     setReportStatus(false);
   }
-
+  const TcpConnecion = useTcpConnection()
   const reportStatusOpen = (value) => {
+    TcpConnecion.sendTcpData(`get_cleaning_report(${selectedRow})`)
     setReportStatus(value);
   }
   const washInfo = useSelector(state => state.washHistory.washHistory)
@@ -28,15 +31,16 @@ const WashInfo = () => {
     { headerName: 'Время', field: 'dateTime', width: 205, resizable: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
     { headerName: 'Тип', field: 'washType', width: 205, resizable: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
     { headerName: 'Продолжительность', field: 'washDuration', width: 200, resizable: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
-    { headerName: 'Результат', field: 'washStatus', width: 205, resizable: true, cellClass: "grid-cell-centered", lockPosition: 'left' }
+    { headerName: 'Результат', field: 'washStatus', width: 205, resizable: true, cellClass: "grid-cell-centered", lockPosition: 'left' },
+    { headerName: 'Оригинальное время', field: 'washOrigTime', width: 0, resizable: false, cellClass: "grid-cell-centered", lockPosition: 'left', hide: true }
   ]);
 
   // Example of consuming Grid Event
   const cellClickedListener = useCallback(event => {
-    console.log('cellClicked', event);
+    console.log('cellClicked', event.data.washOrigTime);
+    setSelectedRow(event.data.washOrigTime)
   }, []);
 
-  // Example load data from server
   // useEffect(() => {
   //   fetch('/wash.json')
   //     .then(result => result.json())

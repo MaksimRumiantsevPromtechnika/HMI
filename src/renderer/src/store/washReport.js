@@ -1,25 +1,33 @@
 const defaultState = {
-  stageTimeList: {
-    0: "1",
-    1: "44",
-    2: "108",
-    3: "2",
+  reportInfo: {
+    pastStages: {
+      0: "1",
+      1: "44",
+      2: "108",
+      3: "2",
+    },
+    washResult: false,
+    lastStage: 4,
+    washType: 1,
+    stageTimeLeft: 20,
+    totalTimeLeft: 100,
+    stageTime: 40,
+    totalTime: 600,
   },
-  success: false,
-  lastStage: 4,
-  washType: 3,
-  stageTimeLeft: 20,
-  totalTimeLeft: 100,
-  stageTime: 40,
-  totalTime: 600,
-  currentWash: "full-rising"
+
+  washTypeList: {
+    0: "acid",
+    1: "alkaline",
+    2: "full-rising",
+    3: "half-rising"
+  }
 }
-const UPDATE_TEAT_INFO = "UPDATE_TEAT_INFO"
+const UPDATE_WASH_REPORT_INFO = "UPDATE_WASH_REPORT_INFO"
 
 export const washReportReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case UPDATE_TEAT_INFO:
-      return { ...state,teatsInfo: action.payload }
+    case UPDATE_WASH_REPORT_INFO:
+      return { ...state, reportInfo: action.payload }
     default:
       return state
   }
@@ -27,4 +35,4 @@ export const washReportReducer = (state = defaultState, action) => {
 
 
 
-export const updateTeatValueAction = (payload) => ({ type: UPDATE_TEAT_INFO, payload })
+export const updateWashReportInfo = (payload) => ({ type: UPDATE_WASH_REPORT_INFO, payload })

@@ -1458,7 +1458,7 @@ const Sheme = () => {
           <g
             id="g37447-0-4-3-4-6"
             inkscape:label="створка открытая"
-            style={{ opacity: allState.i31 === 0 ? 0 : 1, }}
+            style={{ opacity: allState.i31 === 0 ? 0 : 1, display: configurator.cowOrientation === 0 ? "" : "none" }}
             transform="rotate(45,722.16526,361)"
           >
             <rect
@@ -1532,7 +1532,7 @@ const Sheme = () => {
           <g
             id="g37447-0-4-3-4-6-9"
             inkscape:label="створка открытая"
-            style={{ opacity: allState.i29 === 0 ? 0 : 1, fill: "none", fillOpacity: 1 }}
+            style={{ opacity: allState.i29 === 0 ? 0 : 1, fill: "none", fillOpacity: 1, display: configurator.cowOrientation === 0 ? "" : "none" }}
             transform="rotate(-45,399.24348,36.557294)"
             shapeRendering="geometricPrecision"
           >
@@ -1985,7 +1985,8 @@ const Sheme = () => {
               strokeLinecap: "butt",
               strokeLinejoin: "miter",
               strokeDasharray: "none",
-              strokeOpacity: 1
+              strokeOpacity: 1,
+              display: configurator.cowOrientation === 0 ? "" : "none"
             }}
             d="m 513.18412,195.75219 v 10 h 17 17 17 17 17 17 17 17 17 17 16.99805 17 10.33203 6.66797 10.33203 v -10 h -10.33203 -6.66797 -10.33203 -17 -16.99805 -17 -17 -17 -17 -17 -17 -17 -17 -17 z"
             inkscape:label="Нижняя стенка клетки"
@@ -2850,7 +2851,7 @@ const Sheme = () => {
             <g
               id="g37447"
               inkscape:label="створка"
-              style={{ opacity: allState.i28 === 0 ? 1 : 0, strokeWidth: 2, strokeDasharray: "none" }}
+              style={{ opacity: allState.i28 === 0 ? 1 : 0, strokeWidth: 2, strokeDasharray: "none", display: configurator.cowOrientation === 0 ? "" : "none" }}
             >
               <rect
                 style={{
@@ -2894,7 +2895,8 @@ const Sheme = () => {
                 strokeLinecap: "butt",
                 strokeLinejoin: "miter",
                 strokeDasharray: "none",
-                strokeOpacity: 1
+                strokeOpacity: 1,
+                display: configurator.cowOrientation === 0 ? "" : "none"
               }}
               id="path45721-0"
               shapeRendering="geometricPrecision"
@@ -2913,7 +2915,8 @@ const Sheme = () => {
                 strokeLinecap: "butt",
                 strokeLinejoin: "miter",
                 strokeDasharray: "none",
-                strokeOpacity: 1
+                strokeOpacity: 1,
+                display: configurator.cowOrientation === 0 ? "" : "none"
               }}
               id="path45721-0-6"
               shapeRendering="geometricPrecision"
@@ -2931,7 +2934,8 @@ const Sheme = () => {
                 strokeLinecap: "butt",
                 strokeLinejoin: "miter",
                 strokeDasharray: "none",
-                strokeOpacity: 1
+                strokeOpacity: 1,
+                display: configurator.cowOrientation === 0 ? "" : "none"
               }}
               id="path45721-0-0"
               shapeRendering="geometricPrecision"
@@ -2948,7 +2952,8 @@ const Sheme = () => {
                 opacity: allState.i29 === 0 ? 1 : 0,
                 fillOpacity: 1,
                 stroke: "#000000",
-                strokeOpacity: 1
+                strokeOpacity: 1,
+                display: configurator.cowOrientation === 0 ? "" : "none"
               }}
               transform="rotate(-90,486.47235,137.1346)"
             >
@@ -2988,7 +2993,7 @@ const Sheme = () => {
             <g
               id="g37447-0-4-3-4"
               inkscape:label="створка"
-              style={{ opacity: allState.i31 === 0 ? 1 : 0, fill: "none", fillOpacity: 1 }}
+              style={{ opacity: allState.i31 === 0 ? 1 : 0, fill: "none", fillOpacity: 1, display: configurator.cowOrientation === 0 ? "" : "none" }}
               transform="rotate(90,618.23413,254.5533)"
             >
               <rect
@@ -3032,7 +3037,8 @@ const Sheme = () => {
                 fill: "none",
                 fillOpacity: 1,
                 strokeWidth: 2,
-                strokeDasharray: "none"
+                strokeDasharray: "none",
+                display: configurator.cowOrientation === 0 ? "" : "none"
               }}
               transform="matrix(-1,0,0,1,1222.2134,-5.8623474e-6)"
             >
@@ -3074,6 +3080,7 @@ const Sheme = () => {
               id="401"
               shapeRendering="geometricPrecision"
               transform="rotate(90,598.71649,222.31578)"
+              style={{ display: configurator.cowOrientation === 0 ? "" : "none" }}
             >
               <path
                 d="m 556.85631,201.10233 c -0.42087,-1.462 -1.5949,-2.89075 -2.95719,-3.5996 -0.99682,-0.52055 -1.39556,-0.6313 -2.43666,-0.731 l -0.86391,-0.0775 -0.12183,-0.57593 c -0.43195,-1.92717 -2.01577,-3.6439 -3.97618,-4.3306 -0.94143,-0.33227 -2.5474,-0.39872 -3.44453,-0.14397 -2.18192,0.62023 -3.96509,2.41449 -4.43028,4.47457 l -0.12182,0.57593 -0.77531,0.0664 c -1.04112,0.0997 -1.62813,0.26582 -2.51418,0.731 -1.27371,0.67561 -2.4145,2.00471 -2.90184,3.41131 -0.25473,0.71992 -0.34334,2.44773 -0.16613,3.25626 0.45411,2.11546 2.14869,3.90972 4.24199,4.51887 1.63921,0.47626 2.51418,0.2769 2.51418,-0.56486 0,-0.54271 -0.31012,-0.76421 -1.22939,-0.85282 -1.57276,-0.1772 -2.91292,-1.11865 -3.57745,-2.53633 -0.32121,-0.66455 -0.34336,-0.80852 -0.34336,-1.88286 0,-1.07435 0.0221,-1.21834 0.34336,-1.88288 0.43195,-0.90821 1.21831,-1.6835 2.14868,-2.1376 0.6867,-0.34336 0.7753,-0.35444 2.07116,-0.35444 1.67243,0 1.70565,-0.0332 1.81641,-1.21831 0.19936,-2.11547 1.63921,-3.67714 3.72142,-4.06479 1.61706,-0.29904 3.40024,0.47625 4.36382,1.8718 0.43197,0.63131 0.76423,1.65028 0.76423,2.35912 0,0.35442 0.0665,0.60916 0.21044,0.78637 0.19936,0.25475 0.27689,0.26581 1.58383,0.26581 1.318,0 1.39552,0.0111 2.10437,0.3655 2.25944,1.10757 3.16765,3.65499 2.11547,5.9255 -0.65348,1.37339 -2.01579,2.33697 -3.57747,2.50311 -0.64237,0.0664 -0.85281,0.13291 -1.00787,0.33227 -0.28797,0.35442 -0.26582,0.83067 0.0443,1.12972 0.22152,0.21043 0.33227,0.22151 1.07435,0.1772 2.49203,-0.16613 4.71824,-2.03792 5.37171,-4.51887 0.22151,-0.8196 0.19936,-2.42559 -0.0444,-3.2784 z"
@@ -3101,7 +3108,7 @@ const Sheme = () => {
             id="g38984"
             inkscape:label="Стрелка Входа прямо"
             transform="translate(42.276214,-81.848082)"
-            style={{ strokeWidth: 2, strokeDasharray: "none", display: configurator.i907 === 1 ? "" : "none", }}
+            style={{ strokeWidth: 2, strokeDasharray: "none", display: configurator.i907 === 1 ? "" : "none", display: configurator.cowOrientation === 0 ? "" : "none" }}
           >
             <path
               style={{
@@ -3110,7 +3117,7 @@ const Sheme = () => {
                 stroke: "#000000",
                 strokeWidth: 2,
                 strokeDasharray: "none",
-                strokeOpacity: 1
+                strokeOpacity: 1,
               }}
               d="m 415.18629,244.08579 h 30"
               id="path38976"
@@ -3138,7 +3145,8 @@ const Sheme = () => {
               fill: "none",
               fillOpacity: 1,
               strokeWidth: 2,
-              strokeDasharray: "none"
+              strokeDasharray: "none",
+              display: configurator.cowOrientation === 0 ? "" : "none"
             }}
           >
             <path
@@ -3176,7 +3184,8 @@ const Sheme = () => {
               fill: "none",
               fillOpacity: 1,
               strokeWidth: 2,
-              strokeDasharray: "none"
+              strokeDasharray: "none",
+              display: configurator.cowOrientation === 0 ? "" : "none"
             }}
           >
             <path
@@ -3214,7 +3223,8 @@ const Sheme = () => {
               fill: "none",
               fillOpacity: 1,
               strokeWidth: 2,
-              strokeDasharray: "none"
+              strokeDasharray: "none",
+              display: configurator.cowOrientation === 0 ? "" : "none"
             }}
           >
             <path
@@ -3904,6 +3914,592 @@ const Sheme = () => {
             />
           </g>
           <g
+            id="g908"
+            inkscape:label="Клетка с правым входом"
+            transform="matrix(-1,0,0,1,1259.545,0)"
+            style={{ display: configurator.cowOrientation === 1 ? "" : "none" }}
+          >
+            <g
+              id="g37447-0-4-3-4-6"
+              inkscape:label="створка открытая"
+              style={{ opacity: allState.i31 === 0 ? 0 : 1, fill: "none", fillOpacity: 1 }}
+              transform="rotate(45,722.16526,361)"
+            >
+              <rect
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="rect31786-5-1-8-6-6"
+                width="9.9986343"
+                height="110.32981"
+                x="-498.5094"
+                y="140.18881"
+                transform="scale(-1,1)"
+              />
+              <ellipse
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="path30280-1-8-6-3-3"
+                cx="493.64389"
+                cy="254.05275"
+                rx="5.4999719"
+                ry="5.4999733"
+              />
+            </g>
+            <g
+              id="g37447-0-4-3-4-6-9"
+              inkscape:label="створка открытая"
+              style={{ opacity: allState.i29 === 0 ? 0 : 1, fill: "none", fillOpacity: 1 }}
+              transform="rotate(-45,399.24348,36.557294)"
+            >
+              <rect
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="rect31786-5-1-8-6-6-6"
+                width="9.9986343"
+                height="110.32981"
+                x="-498.5094"
+                y="140.18881"
+                transform="scale(-1,1)"
+              ></rect>
+              <ellipse
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="path30280-1-8-6-3-3-1"
+                cx="493.64389"
+                cy="254.05275"
+                rx="5.4999719"
+                ry="5.4999733"
+              />
+            </g>
+            <path
+              id="rect63402-7-8-8-0-5-9-4-7"
+              style={{
+                fill: "#ffffff",
+                fillOpacity: 1,
+                stroke: "#000000",
+                strokeWidth: "2.00011",
+                strokeLinecap: "butt",
+                strokeLinejoin: "miter",
+                strokeDasharray: "none",
+                strokeOpacity: 1
+              }}
+              d="m 513.18412,195.75219 v 10 h 17 17 17 17 17 17 17 17 17 17 16.99805 17 10.33203 6.66797 10.33203 v -10 h -10.33203 -6.66797 -10.33203 -17 -16.99805 -17 -17 -17 -17 -17 -17 -17 -17 -17 z"
+              inkscape:label="Нижняя стенка клетки"
+            ></path>
+            <g
+              id="g38955"
+              inkscape:label="Клетка"
+              transform="translate(17.819639,-5.9577207)"
+            >
+              <g
+                id="g37447"
+                inkscape:label="створка"
+                style={{ strokeWidth: 2, strokeDasharray: "none", opacity: allState.i28 === 0 ? 1 : 0, }}
+              >
+                <rect
+                  style={{
+                    fill: "#ffffff",
+                    fillOpacity: 1,
+                    stroke: "#000000",
+                    strokeWidth: 2,
+                    strokeDasharray: "none",
+                    strokeOpacity: 1
+                  }}
+                  id="rect31786"
+                  width="9.8275423"
+                  height="64.827538"
+                  x="-499.43207"
+                  y="139.18718"
+                  transform="scale(-1,1)"
+                ></rect>
+                <ellipse
+                  style={{
+                    fill: "#ffffff",
+                    fillOpacity: 1,
+                    stroke: "#000000",
+                    strokeWidth: "2.3077",
+                    strokeDasharray: "none",
+                    strokeOpacity: 1
+                  }}
+                  id="path30280"
+                  cx="494.51831"
+                  cy="206.20995"
+                  rx="6.346149"
+                  ry="6.3461485"
+                />
+              </g>
+              <ellipse
+                style={{
+                  fill: "none",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: "1.99982",
+                  strokeLinecap: "butt",
+                  strokeLinejoin: "miter",
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="path45721-0"
+                cx="558.07684"
+                cy="168.15306"
+                rx="3.0000889"
+                ry="3.0000885"
+              />
+              <ellipse
+                style={{
+                  fill: "none",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: "1.99982",
+                  strokeLinecap: "butt",
+                  strokeLinejoin: "miter",
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="path45721-0-6"
+                cx="481.56851"
+                cy="168.01985"
+                rx="3.0000889"
+                ry="3.0000885"
+              />
+              <ellipse
+                style={{
+                  fill: "none",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: "1.99982",
+                  strokeLinecap: "butt",
+                  strokeLinejoin: "miter",
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="path45721-0-0"
+                cx="692.7182"
+                cy="168.01926"
+                rx="3.0000889"
+                ry="3.0000885"
+              />
+              <g
+                id="g37447-0-4-3"
+                inkscape:label="створка"
+                style={{
+                  fill: "none",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeOpacity: 1,
+                  opacity: allState.i29 === 0 ? 1 : 0,
+                }}
+                transform="rotate(-90,486.47235,137.1346)"
+              >
+                <rect
+                  style={{
+                    fill: "#ffffff",
+                    fillOpacity: 1,
+                    stroke: "#000000",
+                    strokeWidth: 2,
+                    strokeDasharray: "none",
+                    strokeOpacity: 1
+                  }}
+                  id="rect31786-5-1-8"
+                  width="9.9986343"
+                  height="110.32981"
+                  x="-498.5094"
+                  y="140.18881"
+                  transform="scale(-1,1)"
+                />
+                <ellipse
+                  style={{
+                    fill: "#ffffff",
+                    fillOpacity: 1,
+                    stroke: "#000000",
+                    strokeWidth: "2.3077",
+                    strokeDasharray: "none",
+                    strokeOpacity: 1
+                  }}
+                  id="path30280-1-8-6"
+                  cx="493.64389"
+                  cy="253.5712"
+                  rx="6.3461485"
+                  ry="6.346149"
+                />
+              </g>
+              <g
+                id="g37447-0-4-3-4"
+                inkscape:label="створка"
+                style={{ fill: "none", fillOpacity: 1, opacity: allState.i31 === 0 ? 1 : 0, }}
+                transform="rotate(90,618.23413,254.5533)"
+              >
+                <rect
+                  style={{
+                    fill: "#ffffff",
+                    fillOpacity: 1,
+                    stroke: "#000000",
+                    strokeWidth: 2,
+                    strokeDasharray: "none",
+                    strokeOpacity: 1
+                  }}
+                  id="rect31786-5-1-8-6"
+                  width="9.9986343"
+                  height="110.32981"
+                  x="-498.5094"
+                  y="140.18881"
+                  transform="scale(-1,1)"
+                />
+                <ellipse
+                  style={{
+                    fill: "#ffffff",
+                    fillOpacity: 1,
+                    stroke: "#000000",
+                    strokeWidth: "2.3077",
+                    strokeDasharray: "none",
+                    strokeOpacity: 1
+                  }}
+                  id="path30280-1-8-6-3"
+                  cx="493.64389"
+                  cy="253.20657"
+                  rx="6.3461485"
+                  ry="6.346149"
+                />
+              </g>
+              <g
+                id="g37447-1-7-5"
+                inkscape:label="створка"
+                style={{
+                  fill: "none",
+                  fillOpacity: 1,
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  opacity: allState.i30 === 0 ? 1 : 0,
+                }}
+                transform="matrix(-1,0,0,1,1222.2134,-5.8623474e-6)"
+              >
+                <rect
+                  style={{
+                    fill: "#ffffff",
+                    fillOpacity: 1,
+                    stroke: "#000000",
+                    strokeWidth: 2,
+                    strokeDasharray: "none",
+                    strokeOpacity: 1
+                  }}
+                  id="rect31786-2-9-1"
+                  width="9.8275423"
+                  height="64.827538"
+                  x="-499.4321"
+                  y="139.0493"
+                  transform="scale(-1,1)"
+                />
+                <ellipse
+                  style={{
+                    fill: "#ffffff",
+                    fillOpacity: 1,
+                    stroke: "#000000",
+                    strokeWidth: "2.3077",
+                    strokeDasharray: "none",
+                    strokeOpacity: 1
+                  }}
+                  id="path30280-3-5-1"
+                  cx="494.51831"
+                  cy="206.20995"
+                  rx="6.346149"
+                  ry="6.3461485"
+                />
+              </g>
+              <g id="g18575" transform="rotate(90,598.71649,222.31578)"
+                style={{ display: configurator.cowOrientation === 1 ? "" : "none" }}>
+                <path
+                  d="m 556.85631,201.10233 c -0.42087,-1.462 -1.5949,-2.89075 -2.95719,-3.5996 -0.99682,-0.52055 -1.39556,-0.6313 -2.43666,-0.731 l -0.86391,-0.0775 -0.12183,-0.57593 c -0.43195,-1.92717 -2.01577,-3.6439 -3.97618,-4.3306 -0.94143,-0.33227 -2.5474,-0.39872 -3.44453,-0.14397 -2.18192,0.62023 -3.96509,2.41449 -4.43028,4.47457 l -0.12182,0.57593 -0.77531,0.0664 c -1.04112,0.0997 -1.62813,0.26582 -2.51418,0.731 -1.27371,0.67561 -2.4145,2.00471 -2.90184,3.41131 -0.25473,0.71992 -0.34334,2.44773 -0.16613,3.25626 0.45411,2.11546 2.14869,3.90972 4.24199,4.51887 1.63921,0.47626 2.51418,0.2769 2.51418,-0.56486 0,-0.54271 -0.31012,-0.76421 -1.22939,-0.85282 -1.57276,-0.1772 -2.91292,-1.11865 -3.57745,-2.53633 -0.32121,-0.66455 -0.34336,-0.80852 -0.34336,-1.88286 0,-1.07435 0.0221,-1.21834 0.34336,-1.88288 0.43195,-0.90821 1.21831,-1.6835 2.14868,-2.1376 0.6867,-0.34336 0.7753,-0.35444 2.07116,-0.35444 1.67243,0 1.70565,-0.0332 1.81641,-1.21831 0.19936,-2.11547 1.63921,-3.67714 3.72142,-4.06479 1.61706,-0.29904 3.40024,0.47625 4.36382,1.8718 0.43197,0.63131 0.76423,1.65028 0.76423,2.35912 0,0.35442 0.0665,0.60916 0.21044,0.78637 0.19936,0.25475 0.27689,0.26581 1.58383,0.26581 1.318,0 1.39552,0.0111 2.10437,0.3655 2.25944,1.10757 3.16765,3.65499 2.11547,5.9255 -0.65348,1.37339 -2.01579,2.33697 -3.57747,2.50311 -0.64237,0.0664 -0.85281,0.13291 -1.00787,0.33227 -0.28797,0.35442 -0.26582,0.83067 0.0443,1.12972 0.22152,0.21043 0.33227,0.22151 1.07435,0.1772 2.49203,-0.16613 4.71824,-2.03792 5.37171,-4.51887 0.22151,-0.8196 0.19936,-2.42559 -0.0444,-3.2784 z"
+                  id="path1401"
+                  style={{
+                    fill: allState.i21 === 0 ? "#000000" : "#25be2c",
+                    fillOpacity: 1,
+                    strokeWidth: "0.0110756",
+                  }}
+                />
+                <path
+                  d="m 551.75042,202.3428 c -0.16613,-0.43194 -0.39871,-0.53162 -1.12971,-0.47625 -1.39555,0.0886 -2.68032,0.97466 -3.33379,2.29267 l -0.35441,0.731 -0.0331,10.15641 c -0.0221,10.05673 -0.0221,10.16748 0.19935,10.389 0.29905,0.29904 0.89713,0.28796 1.17402,-0.0111 0.19937,-0.22152 0.21044,-0.59809 0.26582,-10.27824 l 0.0554,-10.04565 0.31011,-0.46518 c 0.40981,-0.62024 1.01898,-1.00788 1.80534,-1.12973 0.48734,-0.0775 0.71992,-0.1772 0.90822,-0.38764 0.2658,-0.31012 0.27689,-0.42088 0.1329,-0.7753 z"
+                  id="path1405"
+                  style={{
+                    fill: allState.i21 === 0 ? "#000000" : "#25be2c",
+                    fillOpacity: 1,
+                    strokeWidth: "0.0110756"
+                  }}
+                />
+                <path
+                  d="m 545.34867,202.43141 c -0.0775,-0.5427 -0.94142,-0.77529 -1.35124,-0.36549 -0.2215,0.22151 -0.2215,0.36549 -0.2215,13.39051 v 13.18006 l 0.28797,0.22152 c 0.37657,0.29905 0.63131,0.28798 0.98573,-0.0111 l 0.28797,-0.25473 0.0221,-12.95856 c 0.0111,-7.12167 0.0111,-13.06932 -0.0111,-13.20223 z"
+                  id="path1407"
+                  style={{
+                    fill: allState.i21 === 0 ? "#000000" : "#25be2c",
+                    fillOpacity: 1,
+                    strokeWidth: "0.0110756"
+                  }}
+                />
+                <path
+                  d="m 541.94844,204.45827 c -0.64239,-1.57276 -2.10438,-2.61387 -3.67713,-2.61387 -0.65346,0 -0.9525,0.25475 -0.9525,0.78638 0,0.44302 0.3101,0.74207 0.86389,0.81961 0.74208,0.11075 1.16295,0.28796 1.56168,0.64238 0.8196,0.70885 0.75315,-0.0775 0.8196,10.7988 l 0.0554,9.7909 0.32119,0.27691 c 0.34335,0.29903 0.731,0.27687 1.0965,-0.0444 0.17721,-0.16614 0.18827,-0.78639 0.18827,-9.99027 v -9.81306 z"
+                  id="path1409"
+                  style={{
+                    fill: allState.i21 === 0 ? "#000000" : "#25be2c",
+                    fillOpacity: 1,
+                    strokeWidth: "0.0110756"
+                  }}
+                />
+              </g>
+            </g>
+            <g
+              id="g38984"
+              inkscape:label="Стрелка Входа прямо"
+              transform="translate(42.276214,-81.848082)"
+              style={{ strokeWidth: 2, strokeDasharray: "none" }}
+            >
+              <path
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                d="m 415.18629,244.08579 h 30"
+                id="path38976"
+              />
+              <path
+                style={{
+                  fill: "none",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                d="m 434.56129,233.4608 10.625,10.62499 -10.97855,10.25"
+                id="path38980"
+              />
+            </g>
+            <g
+              id="g38984-5"
+              inkscape:label="Стрелка выхода прямо"
+              transform="translate(340.18702,-81.848089)"
+              style={{
+                fill: "none",
+                fillOpacity: 1,
+                strokeWidth: 2,
+                strokeDasharray: "none"
+              }}
+            >
+              <path
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                d="m 415.18629,244.08579 h 30"
+                id="path38976-4"
+              />
+              <path
+                style={{
+                  fill: "none",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                d="m 434.56129,233.4608 10.625,10.62499 -10.97855,10.25"
+                id="path38980-1"
+              />
+            </g>
+            <g
+              id="g38984-57"
+              inkscape:label="Стрелка выхода верх"
+              transform="rotate(-45,413.6536,-197.41875)"
+              style={{
+                fill: "none",
+                fillOpacity: 1,
+                strokeWidth: 2,
+                strokeDasharray: "none"
+              }}
+            >
+              <path
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                d="m 415.18629,244.08579 h 30"
+                id="path38976-2"
+              />
+              <path
+                style={{
+                  fill: "none",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                d="m 434.56129,233.4608 10.625,10.62499 -10.97855,10.25"
+                id="path38980-3"
+              />
+            </g>
+            <g
+              id="g38984-57-5"
+              inkscape:label="Стрелка Входа верх"
+              transform="rotate(43.99529,651.78952,274.0332)"
+              style={{
+                fill: "none",
+                fillOpacity: 1,
+                strokeWidth: 2,
+                strokeDasharray: "none"
+              }}
+            >
+              <path
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                d="m 415.18629,244.08579 h 30"
+                id="path38976-2-5"
+              />
+              <path
+                style={{
+                  fill: "none",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                d="m 434.56129,233.4608 10.625,10.62499 -10.97855,10.25"
+                id="path38980-3-2"
+              />
+            </g>
+            <g
+              id="g37447-1"
+              inkscape:label="створка-вход-прямо-октрыто"
+              style={{
+                opacity: 0,
+                fill: "none",
+                fillOpacity: 1,
+                strokeWidth: 2,
+                strokeDasharray: "none",
+                opacity: allState.i28 === 0 ? 0 : 1,
+              }}
+              transform="rotate(-90,500.79154,193.81737)"
+            >
+              <rect
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: "2.00007",
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="rect31786-2"
+                width="9.9999342"
+                height="53.999931"
+                x="-499.51828"
+                y="148.42613"
+                transform="scale(-1,1)"
+              />
+              <ellipse
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="path30280-3"
+                cx="494.35669"
+                cy="206.20995"
+                rx="5.4999719"
+                ry="5.4999733"
+              />
+            </g>
+            <g
+              id="g37447-1-7"
+              inkscape:label="Створка-выход-прямо-открыто"
+              style={{
+                opacity: allState.i30 === 0 ? 0 : 1,
+                fill: "none",
+                fillOpacity: 1,
+                strokeWidth: 2,
+                strokeDasharray: "none"
+              }}
+              transform="matrix(0,-1,-1,0,952.57085,694.60891)"
+            >
+              <rect
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: "2.00007",
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="rect31786-2-9"
+                width="9.9999342"
+                height="53.999931"
+                x="-499.51828"
+                y="148.42613"
+                transform="scale(-1,1)"
+              ></rect>
+              <ellipse
+                style={{
+                  fill: "#ffffff",
+                  fillOpacity: 1,
+                  stroke: "#000000",
+                  strokeWidth: 2,
+                  strokeDasharray: "none",
+                  strokeOpacity: 1
+                }}
+                id="path30280-3-5"
+                cx="494.35669"
+                cy="206.20995"
+                rx="5.4999719"
+                ry="5.4999733"
+              />
+            </g>
+          </g>
+
+          <g
             id="g37447-1"
             inkscape:label="створка-вход-прямо-октрыто"
             style={{
@@ -3911,7 +4507,8 @@ const Sheme = () => {
               fill: "none",
               fillOpacity: 1,
               strokeWidth: 2,
-              strokeDasharray: "none"
+              strokeDasharray: "none",
+              display: configurator.cowOrientation === 0 ? "" : "none"
             }}
             transform="rotate(-90,500.79154,193.81737)"
           >
@@ -3956,7 +4553,8 @@ const Sheme = () => {
               fill: "none",
               fillOpacity: 1,
               strokeWidth: 2,
-              strokeDasharray: "none"
+              strokeDasharray: "none",
+              display: configurator.cowOrientation === 0 ? "" : "none"
             }}
             transform="matrix(0,-1,-1,0,952.57085,694.60891)"
           >
@@ -9492,7 +10090,7 @@ const Sheme = () => {
                   stroke: "#000000",
                   strokeWidth: "2.00012",
                   strokeDasharray: "none",
-                  strokeOpacity: 1
+                  strokeOpacity: 1,
                 }}
                 d="m 334.93085,430.80763 v -0.99998 0 h 14.61076 v 5.99988 h -14.61076 l -1e-5,-0.99999"
               />
@@ -9963,7 +10561,7 @@ const Sheme = () => {
               display: configurator.i908 === 1 ? "" : "none",
               strokeLinecap: "round"
             }}
-            id="29"
+            id={configurator.cowOrientation === 0 ? "29" : "31"}
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
             inkscape:flatsided="true"
@@ -9980,7 +10578,7 @@ const Sheme = () => {
             transform="matrix(-0.48217094,0.87459991,-1.1117311,-0.61182118,850.08467,-327.73395)"
             inkscape:transform-center-x="-7.7685527"
             inkscape:transform-center-y="-14.637777"
-            inkscape:label="Маска створки 29"
+            inkscape:label="Маска створки"
           ></path>
           <path
             sodipodi:type="star"
@@ -9992,7 +10590,7 @@ const Sheme = () => {
               display: configurator.i909 === 1 ? "" : "none",
               strokeLinecap: "round"
             }}
-            id="31"
+            id={configurator.cowOrientation === 0 ? "31" : "29"}
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
             inkscape:flatsided="true"
@@ -10019,7 +10617,7 @@ const Sheme = () => {
               display: configurator.i907 === 1 ? "" : "none",
               strokeLinecap: "round"
             }}
-            id="28"
+            id={configurator.cowOrientation === 0 ? "28" : "30"}
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
             width="14.259958"
@@ -10037,7 +10635,7 @@ const Sheme = () => {
               display: configurator.i910 === 1 ? "" : "none",
               strokeLinecap: "round"
             }}
-            id="30"
+            id={configurator.cowOrientation === 0 ? "30" : "28"}
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
             width="13.507251"
@@ -10053,7 +10651,8 @@ const Sheme = () => {
               fillOpacity: 1,
               stroke: "#25be2c",
               strokeWidth: 0,
-              strokeLinecap: "round"
+              strokeLinecap: "round",
+              // display: configurator.cowOrientation === 0 ? "" : "none"
             }}
             id="21"
             className='Air'

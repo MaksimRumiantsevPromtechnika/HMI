@@ -1,8 +1,8 @@
 const defaultState = {
   teatsInfo: {
-    teat1:  {x: -44, y: 108, status: 2},
-    teat2:  {x: "-59", y: "115", status: 2},
-    teat3:  {x: "57", y: "232", status: 7},
+    teat1:  {x: -44, y: 108, status: 3},
+    teat2:  {x: "-59", y: "115", status: 3},
+    teat3:  {x: "57", y: "232", status: 2},
     teat4:  {x: "92", y: "136", status: 2},
     teat0: [
       {x: -66, y: 128, status: 0},

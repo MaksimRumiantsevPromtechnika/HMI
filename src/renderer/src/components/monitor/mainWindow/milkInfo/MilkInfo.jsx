@@ -50,7 +50,7 @@ const MilkInfo = React.memo(() => {
     <div>
 
       {/* On div wrapping Grid a) specify theme CSS Class Class and b) sets Grid size */}
-      <div className="ag-theme-alpine" style={{ width: 834, height: 477, margin: 3, }}>
+      {/* <div className="ag-theme-alpine" style={{ width: 834, height: 477, margin: 3, }}>
 
         <AgGridReact
           ref={gridRef} // Ref for accessing Grid's API
@@ -66,8 +66,8 @@ const MilkInfo = React.memo(() => {
         />
         <button className="button milk-filter sidetouch" style={{ backgroundColor: filter ? 'rgba(42, 86, 154, 0.66)' : '', }} onClick={toggleFilter}></button>
         <button className="button milk-search sidetouch"></button>
-      </div>
-      {/* <MilkingReport></MilkingReport> */}
+      </div> */}
+      <MilkingReport></MilkingReport>
     </div>
   );
 })

@@ -31,9 +31,10 @@ const TeatStatus = ({ modeTeatPopup, hanleSetMode, modeTeatPopupClose, currentTe
             backgroundColor: '#fff'
           }}>
             <div style={{ display: 'flex', justifyContent: "space-between", gap: "20px" }}>
-              <button className="button" onClick={() => changeTeat(currentTeat, 2)}>Автомат</button>
-              <button className="button" disabled={statuses.includes(7) ? true : false} onClick={() => changeTeat(currentTeat, 4)}>Индивидуальный</button>
-              <button className="button" onClick={() => changeTeat(currentTeat, 6)}>Сбросс</button>
+              <button className="button cup-unknow" onClick={() => changeTeat(currentTeat, 2)}></button>
+              <button className="button cup-unknow-ind" disabled={statuses.includes(7) ? true : false} onClick={() => changeTeat(currentTeat, 4)}></button>
+              {/* CHANGE BELOW from 6 to 7 (16:37 04.07.2024)*/}
+              <button className="button cup-clear" onClick={() => changeTeat(currentTeat, 7)}></button>
               <button className="button popup-contetn-close" onClick={() => modeTeatPopupClose()}></button>
             </div>
             {/* <button className="button popup-contetn-close" onClick={() => vacPopupClose()}></button> */}

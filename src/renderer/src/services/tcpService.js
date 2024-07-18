@@ -17,6 +17,7 @@ import { updateCowValueAction } from '../store/cowInfoReducer';
 import { addMilkingHistory, addNewMilking } from '../store/milkingHistoryReducer';
 import { changeSettings, updateSettings } from '../store/mainSettingsReduser';
 import { changeCameraMap } from '../store/cameraReducer';
+import { updateWashReportInfo } from '../store/washReport';
 const split2 = require('split2');
 
 const net = require('net');
@@ -43,12 +44,12 @@ const useTcpConnection = () => {
 };
 
   const connectionToTcpServer = async () => {
-    client.connect(12000, '10.5.130.240', () => {
+    client.connect(12000, '10.5.130.250', () => {
     })
   }
 
   const connectionToCamera = async () => {
-    client2.connect(12001, '10.5.130.240', () => {
+    client2.connect(12001, '10.5.130.250', () => {
     })
   }
   let buffer = ""
@@ -261,11 +262,12 @@ const useTcpConnection = () => {
         vak3: convertVak3,
         vak4: convertVak4,
       }
+
       console.log(newDot);
       dispatch(addNewDot(newDot))
       client.write(...parsedData.milkStat)
     } else if (parsedData.hasOwnProperty("washHistoryLast")) {      
-      let origTime = parsedData.washHistoryLast.lastWash
+      let origTime = parsedData.washHistoryLast.washTime
       let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
       let convertedType = washVocabulary.washType[parsedData.washHistoryLast.washType]
       let newData = {
@@ -273,6 +275,7 @@ const useTcpConnection = () => {
         washType: convertedType,
         washDuration: parsedData.washHistoryLast.totalTime,
         washStatus: "Успешно",
+        washOrigTime: origTime
       }
       console.log(newData);
       dispatch(addNewWash(newData))
@@ -331,7 +334,7 @@ const useTcpConnection = () => {
       console.log(parsedData);
       let newDataList = {
         wash: parsedData.washHistory.map(item => {
-          let origTime = item.lastWash
+          let origTime = item.washTime
           let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
           let convertedType = washVocabulary.washType[item.washType]
             return {
@@ -339,6 +342,7 @@ const useTcpConnection = () => {
                 washType: convertedType,
                 washDuration: item.totalTime,
                 washStatus: "Успешно",
+                washOrigTime: origTime
             };
         })
     };
@@ -367,6 +371,33 @@ const useTcpConnection = () => {
       dispatch(toggleTeatCalibration(true))
     } else if (parsedData.hasOwnProperty("stop_calibration")) {
       dispatch(toggleTeatCalibration(false))
+    } else if (parsedData.hasOwnProperty("pedometr")) {
+      let newData = {
+        ...parsedData.pedometr
+      }
+      // dispatch(updateTeatValueAction(newData))
+    } else if (parsedData.hasOwnProperty("antennaStatus")) {
+      let newData = {
+        ...parsedData.antennaStatus
+      }
+      // dispatch(updateTeatValueAction(newData))
+    }
+    else if (parsedData.hasOwnProperty("feedInfo")) {
+      let newData = {
+        ...parsedData.feedInfo
+      }
+      // dispatch(updateTeatValueAction(newData))
+    }  else if (parsedData.hasOwnProperty("erorrsList")) {
+      let newData = {
+        ...parsedData.feedInfo
+      }
+      // dispatch(updateTeatValueAction(newData))
+    } else if (parsedData.hasOwnProperty("cleaningReport")) {
+      let newData = {
+        ...parsedData.cleaningReport
+      }
+      console.log(newData);
+      dispatch(updateWashReportInfo(newData))
     }
   }
 
@@ -414,8 +445,8 @@ const useTcpConnection = () => {
     console.log("kek");
     dispatch(changeConnectionAction(client))
     client.write("auto_status_on()");
-    setTimeout(getCurState, 500)
-    setTimeout(getCurMode, 100)
+    setTimeout(getCurState, 1000)
+    setTimeout(getCurMode, 500)
     setTimeout(getVacStatus, 1500)
     setTimeout(getWashHistory, 2000)
     setTimeout(getLastWashes, 2500)

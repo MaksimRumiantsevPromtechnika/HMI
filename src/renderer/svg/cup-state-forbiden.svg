@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.0"
+   width="79.000000pt"
+   height="79.000000pt"
+   viewBox="0 0 79.000000 79.000000"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg16"
+   sodipodi:docname="cup-state-forbiden.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt"
+     showgrid="false"
+     inkscape:zoom="7.9462025"
+     inkscape:cx="38.005575"
+     inkscape:cy="51.219434"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16" />
+  <g
+     transform="translate(0.000000,79.000000) scale(0.100000,-0.100000)"
+     fill="#000000"
+     stroke="none"
+     id="g14">
+    <path
+       d="M0 705 l0 -85 30 0 c30 0 30 1 30 55 l0 55 55 0 c54 0 55 0 55 30 l0 30 -85 0 -85 0 0 -85z"
+       id="path2" />
+    <path
+       d="M620 760 c0 -30 1 -30 55 -30 l55 0 0 -55 c0 -54 0 -55 30 -55 l30 0 0 85 0 85 -85 0 -85 0 0 -30z"
+       id="path4" />
+    <path
+       d="M0 85 l0 -85 85 0 85 0 0 30 c0 30 -1 30 -55 30 l-55 0 0 55 c0 54 0 55 -30 55 l-30 0 0 -85z"
+       id="path10" />
+    <path
+       d="M730 115 l0 -55 -55 0 c-54 0 -55 0 -55 -30 l0 -30 85 0 85 0 0 85 0 85 -30 0 c-30 0 -30 -1 -30 -55z"
+       id="path12" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:87.2605px;font-family:'Century Schoolbook';-inkscape-font-specification:'Century Schoolbook';fill:#25be2c;stroke-width:50.6647;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+     x="13.36548"
+     y="68.295967"
+     id="text303"><tspan
+       sodipodi:role="line"
+       id="tspan301"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Cera Pro';-inkscape-font-specification:'Cera Pro';fill:#000000;fill-opacity:1;stroke-width:50.6647"
+       x="13.36548"
+       y="68.295967">X</tspan></text>
+</svg>
