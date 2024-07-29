@@ -1,13 +1,9 @@
 import MainWindow from "./mainWindow/MainWindow";
 import Sidebar from "./sidebar/Sidebar";
-import React, { useState, useEffect, } from 'react';
-const net = require('net');
+import React, { useState } from 'react';
 
 
 const Monitor = ({ connection, connectChange }) => {
-
-  const [mode, setMode] = useState("stop")
-
 
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
@@ -28,6 +24,7 @@ const Monitor = ({ connection, connectChange }) => {
   const toggleTabSetting = (index) => {
     setToggleStateSetting(index)
   }
+
   return (
     <div className="monitor">
       <MainWindow

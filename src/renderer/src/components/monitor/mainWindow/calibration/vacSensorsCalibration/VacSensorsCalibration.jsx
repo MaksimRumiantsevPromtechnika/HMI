@@ -4,19 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import useTcpConnection from "../../../../../services/tcpService";
 
 const VacSensorsCalibration = ({ vacSensorsPopup, vacPopupClose }) => {
-
-  const dispath = useDispatch()
   const TcpConnection = useTcpConnection()
   const vacStatus = useSelector(state => state.vacCalibration.vacStatus)
-  const testStatus = useSelector(state => state.vacCalibration.testStatus)
-
   const [calibrationMode, setCalibrationMode] = useState(true)
-
   const [selectedSensor, setSelectedSensor] = useState(6)
-  const swapSensor = (e) => {
-    setSelectedSensor(e.target.id)
-  }
-
   return (
     <Dialog sx={{ padding: "0px", width: "100%", }} PaperProps={{
       style: {

@@ -1,7 +1,6 @@
 import { Dialog, DialogContent, DialogTitle } from "@mui/material";
 import React from "react";
-const net = require('net');
-
+//Окно выбора направления молока
 const MilkMode = ({ modeMilkPopup, changeDestination, modeMilkPopupClose }) => {
   return (
     <>

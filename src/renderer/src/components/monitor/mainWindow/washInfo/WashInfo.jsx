@@ -13,17 +13,17 @@ import useTcpConnection from '../../../../services/tcpService';
 const WashInfo = () => {
   const rowHeight = 28;
   const gridRef = useRef(); // Optional - for accessing Grid's API
-  const [rowData, setRowData] = useState(); // Set rowData to Array of Objects, one Object per Row
   const [selectedRow, setSelectedRow] = useState();
-  const dispatch = useDispatch;
   const [reportStatus, setReportStatus] = useState(false)
   const reportStatusClose = () => {
     setReportStatus(false);
   }
   const TcpConnecion = useTcpConnection()
   const reportStatusOpen = (value) => {
-    TcpConnecion.sendTcpData(`get_cleaning_report("${selectedRow}")`)
-    setReportStatus(value);
+    if (selectedRow) {
+      TcpConnecion.sendTcpData(`get_cleaning_report("${selectedRow}")`)
+      setReportStatus(value);
+    }
   }
   const washInfo = useSelector(state => state.washHistory.washHistory)
   // Each Column Definition results in one Column.
@@ -40,12 +40,6 @@ const WashInfo = () => {
     console.log('cellClicked', event.data.washOrigTime);
     setSelectedRow(event.data.washOrigTime)
   }, []);
-
-  // useEffect(() => {
-  //   fetch('/wash.json')
-  //     .then(result => result.json())
-  //     .then(rowData => setRowData(rowData))
-  // }, []);
 
 
   return (

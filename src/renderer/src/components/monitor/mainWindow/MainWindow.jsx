@@ -13,7 +13,7 @@ import SamplerControl from './samplerControl/SamplerControl';
 import Sheme from './sheme/Sheme';
 import TouchControl from './touchControl/TouchControl';
 import WashInfo from './washInfo/WashInfo';
-
+//Переключение между табулами
 const MainWindow = ({ toggleState, toggleTab, toggleStateInfo, toggleTabInfo, toggleStateControl, toggleTabControl, toggleStateSetting, toggleTabSetting, mode, connection, connectChange }) => {
   const accessRights = useSelector(state => state.mode.accessRights)
 

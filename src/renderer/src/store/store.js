@@ -1,9 +1,9 @@
 import { createStore, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { alarmReducer } from "./alarm";
+import { alarmReducer } from "./alarmReducer";
 import { bucketInfoReducer } from "./bucketReducer";
 import { cameraMap } from "./cameraReducer";
-import { clean } from "./clean";
+import { clean } from "./cleanReducer";
 import { configuratorReduser } from "./configuratorReducer";
 import { connectionReducer } from "./connectionReducer";
 import { cowInfoReducer } from "./cowInfoReducer";
@@ -13,10 +13,11 @@ import { hmiModeReducer } from "./hmiMode";
 import { mainSettingsReduser } from "./mainSettingsReduser";
 import { milkingHistory } from "./milkingHistoryReducer";
 import { milkingReducer } from "./milkingReducer";
+import { milkReportReducer } from "./milkReportReducer";
 import { shemeInfoReducer } from "./schemeInfoReducer";
-import { vacCalibrationReducer } from "./vacCalibration";
-import { washReducer } from "./washInfo";
-import { washReportReducer } from "./washReport";
+import { vacCalibrationReducer } from "./vacCalibrationReducer";
+import { washReducer } from "./washInfoReducer";
+import { washReportReducer } from "./washReportReducer";
 
 const rootReducer = combineReducers({
   globalSettings: mainSettingsReduser,
@@ -27,7 +28,7 @@ const rootReducer = combineReducers({
   configurator: configuratorReduser,
   cupStatus: cupStatusReduser,
   washInfo: washReducer,
-  alarm: alarmReducer,
+  alarmReducer: alarmReducer,
   cow: cowInfoReducer,
   teats: teatInfoReducer,
   buckets: bucketInfoReducer,
@@ -35,7 +36,8 @@ const rootReducer = combineReducers({
   washHistory: clean,
   milkingHistory: milkingHistory,
   cameraMap: cameraMap,
-  washReport: washReportReducer
+  washReport: washReportReducer,
+  milkReport: milkReportReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools())

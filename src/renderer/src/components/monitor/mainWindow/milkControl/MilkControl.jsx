@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useTcpConnection from "../../../../services/tcpService";
-import { toggleSpeed } from "../../../../store/mainSettingsReduser";
+import CrossBar from "../../../../utilites/crossBar";
 import ManualAttachmentPopup from "./manualAttachment/ManualAttachmentPopup";
 import TeatStatus from "./teatStatus/TeatStatus";
-
+// Окно для калибровки животного
 const MilkControl = () => {
   const TcpConnecion = useTcpConnection()
-  const [isMoved, setIsMoved] = useState(false)
   const [modeTeatPopup, setModeTeatPopup] = useState(false)
   const dispatch = useDispatch()
   const configurator = useSelector(state => state.configurator)
@@ -34,21 +33,6 @@ const MilkControl = () => {
     const JSONString = JSON.stringify(obj)
     TcpConnecion.sendTcpData(`teat_mode(${JSONString})`)
   }
-
-  const startMove = (movedElement) => {
-    setIsMoved(true)
-    TcpConnecion.sendTcpData(`${movedElement}()`);
-    console.log(`${movedElement}()`);
-  }
-  const stoptMove = (movedElement) => {
-    setIsMoved(false)
-    TcpConnecion.sendTcpData(`${movedElement}()`);
-    console.log(`${movedElement}()`);
-  }
-  const toggleSpeed = (data) => {
-    TcpConnecion.sendTcpData(`set_arm_speed(${data})`)
-  }
-  const mode = useSelector(state => state.mode)
   const [manualAttachmentPopup, setmManualAttachmentPopup] = useState(false);
   const manualAttachmentPopupClose = () => {
     setmManualAttachmentPopup(false)
@@ -59,10 +43,7 @@ const MilkControl = () => {
   }
 
   const teatReducer = useSelector(state => state.teats.teatsInfo)
-  const settings = useSelector(state => state.globalSettings)
   const cowInfo = useSelector(state => state.cow.cowInfo)
-  // const jsonString = JSON.stringify(settings.udrGlobalSettings);
-  // const globalSettings = useSelector(state => state.globalSettings.realSettings)
   const points = [  // точка отсчета
     { x: teatReducer.teat1.x, y: teatReducer.teat1.y * (-1), s: teatReducer.teat1.status },
     { x: teatReducer.teat2.x, y: teatReducer.teat2.y * (-1), s: teatReducer.teat2.status },
@@ -202,69 +183,9 @@ const MilkControl = () => {
               <button id={2} className={`cup-button sidetouch ${classMap[teatReducer.teat2.status]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat3.status == 4 || teatReducer.teat3.status == 5 || teatReducer.teat2.status == 1 ? true : false} style={{ marginLeft: "20px" }} onClick={(e) => handleModeTeatOpen(true, e)}></button>
             </div>
           </div>
-          <div className="arm-bar">
-            <div className="side-arm-bar">
-              <button id="move_up" className="arm-button sidetouch side-arm-button arm-up"
-                onTouchStart={(e) => startMove(e.target.id)}
-                onTouchEnd={() => stoptMove('move_stopz')}
-                onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopz') : ""}
-                onMouseDown={(e) => startMove(e.target.id)}
-                onMouseUp={() => stoptMove('move_stopz')}
-                onMouseOut={() => (isMoved === true) ? stoptMove('move_stopz') : ""}></button>
-              <button id="move_down" className="arm-button sidetouch side-arm-button arm-down"
-                onMouseDown={(e) => startMove(e.target.id)}
-                onMouseUp={() => stoptMove('move_stopz')}
-                onMouseOut={() => (isMoved === true) ? stoptMove('move_stopz') : ""}
-                onTouchStart={(e) => startMove(e.target.id)}
-                onTouchEnd={() => stoptMove('move_stopz')}
-                onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopz') : ""}
-              ></button>
-              <div className="speed">
-                <button className={mode.armSlowSpeed ? "arm-setting-speed-active arm-button sidetouch side-arm-button arm-slow" : "arm-button sidetouch side-arm-button arm-fast arm-setting-speed-active"} onClick={() => toggleSpeed(!mode.armSlowSpeed)}></button>
-              </div>
-            </div>
-            <div className="cross-arm-bar">
-              <div className="top-cross">
-                <button id="move_rotateleft" className="arm-button sidetouch cross-button top-cross-button"
-                  onMouseDown={(e) => startMove(e.target.id)}
-                  onMouseUp={() => stoptMove('move_stopl')}
-                  onMouseOut={() => (isMoved === true) ? stoptMove('move_stopl') : ""}
-                  onTouchStart={(e) => startMove(e.target.id)}
-                  onTouchEnd={() => stoptMove('move_stopl')}
-                  onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopl') : ""}
-                ></button>
-              </div>
-              <div className="middle-cross">
-                <button id="move_left" className="arm-button sidetouch cross-button left-cross-button"
-                  onMouseDown={(e) => startMove(e.target.id)}
-                  onMouseUp={() => stoptMove('move_stopq')}
-                  onMouseOut={() => (isMoved === true) ? stoptMove('move_stopq') : ""}
-                  onTouchStart={(e) => startMove(e.target.id)}
-                  onTouchEnd={() => stoptMove('move_stopq')}
-                  onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopq') : ""}></button>
-                <div className={configurator.cowOrientation === 1 ? "cross-cow-left" : "cross-cow-right"}></div>
-                <button id="move_right" className="arm-button sidetouch cross-button right-cross-button"
-                  onMouseDown={(e) => startMove(e.target.id)}
-                  onMouseUp={() => stoptMove('move_stopq')}
-                  onMouseOut={() => (isMoved === true) ? stoptMove('move_stopq') : ""}
-                  onTouchStart={(e) => startMove(e.target.id)}
-                  onTouchEnd={() => stoptMove('move_stopq')}
-                  onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopq') : ""}></button>
-              </div>
-              <div className="bottom-cross">
-                <button id="move_rotateright" className="arm-button sidetouch cross-button bottom-cross-button"
-                  onMouseDown={(e) => startMove(e.target.id)}
-                  onMouseUp={() => stoptMove('move_stopl')}
-                  onMouseOut={() => (isMoved === true) ? stoptMove('move_stopl') : ""}
-                  onTouchStart={(e) => startMove(e.target.id)}
-                  onTouchEnd={() => stoptMove('move_stopl')}
-                  onTouchCancel={() => (isMoved === true) ? stoptMove('move_stopl') : ""}></button>
-              </div>
-            </div>
-          </div>
+          <CrossBar></CrossBar>
         </div>
         <div className="side-control-bar">
-          {/* onClick={() => TcpConnecion.sendTcpData("set_manualattachment()")} */}
           <button className="arm-side-button sidetouch save-cups-info" onClick={() => TcpConnecion.sendTcpData("assist_scan()")}></button>
           <button className="arm-side-button sidetouch clear-cups-info" onClick={() => allClear()}></button>
           <button className="arm-side-button sidetouch manual-cups" onClick={() => manualAttachmentPopupOpen(true)}></button>

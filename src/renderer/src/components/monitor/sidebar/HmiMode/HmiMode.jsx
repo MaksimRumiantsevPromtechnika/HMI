@@ -1,8 +1,7 @@
 import { Dialog, DialogContent, DialogTitle } from "@mui/material";
 import React from "react";
-const net = require('net');
-
-const HmiMode = ({ modePopup, hanleSetMode, modePopupClose, handleModeChange, changeMode }) => {
+// Окно смены состояния робота
+const HmiMode = ({ modePopup, modePopupClose, changeMode }) => {
   return (
     <Dialog sx={{ padding: "0px", width: "100%" }} PaperProps={{
       style: {

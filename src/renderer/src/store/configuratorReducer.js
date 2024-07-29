@@ -12,7 +12,7 @@ const defaultState = {
   i911: 1,
   i912: 5,
   i913: 1,
-  cowOrientation: 0,
+  cowOrientation: 1,
 }
 
 const CHANGE_VALUE = "CHANGE_VALUE"

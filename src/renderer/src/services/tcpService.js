@@ -4,20 +4,21 @@ import 'moment/dist/locale/ru';
 import Moment from 'moment';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addDisconnectAlarm, addHistoryAlarm, addNewAlarm, addNewHistory, deletaAlarm } from '../store/alarm';
+import { addDisconnectAlarm, addHistoryAlarm, addNewAlarm, addNewHistory, deletaAlarm } from '../store/alarmReducer';
 import { changeCameraConnectionAction, changeConnectionAction } from '../store/connectionReducer';
 import { updateTeatValueAction } from '../store/cupsInfoReducer';
 import { changeConnectionStatusAction, changeMainAction, changeModeAction, toggleSeparate, toggleSpeed, toggleTeatCalibration } from '../store/hmiMode';
 import { updateShemeValueAction } from '../store/schemeInfoReducer';
-import { updateVacValueAction } from '../store/vacCalibration';
-import { changeWashHistory, changeWashInfo, changeWashStage } from '../store/washInfo';
+import { updateVacValueAction } from '../store/vacCalibrationReducer';
+import { changeWashHistory, changeWashInfo, changeWashStage } from '../store/washInfoReducer';
 import { addNewDot, addSuccessMilking, clearData } from '../store/milkingReducer';
-import { addHistoryWash, addNewWash } from '../store/clean';
+import { addHistoryWash, addNewWash } from '../store/cleanReducer';
 import { updateCowValueAction } from '../store/cowInfoReducer';
 import { addMilkingHistory, addNewMilking } from '../store/milkingHistoryReducer';
 import { changeSettings, updateSettings } from '../store/mainSettingsReduser';
 import { changeCameraMap } from '../store/cameraReducer';
-import { updateWashReportInfo } from '../store/washReport';
+import { updateWashReportInfo } from '../store/washReportReducer';
+import { updateMilkReportInfo } from '../store/milkReportReducer';
 const split2 = require('split2');
 
 const net = require('net');
@@ -31,16 +32,21 @@ const useTcpConnection = () => {
   const dispatch = useDispatch()
   const connection = useSelector(state => state.connection.connection)
   const cameraConnection = useSelector(state => state.connection.cameraConnection)
-  const alarmVocabulary = useSelector(state => state.alarm.alarmVocabulary)
+  const alarmVocabulary = useSelector(state => state.alarmReducer.alarmVocabulary)
   const washVocabulary = useSelector(state => state.washHistory.washVocabulary)
   const milkVocabulary = useSelector(state => state.milkingHistory.milkingVocabulary)
   const client = new net.Socket();
   const client2 = new net.Socket();
+   // Словарь трансформаций
   let transformDict = {
     "vak1": { "false": 1, "true": 2 },
     "vak2": { "false": 3, "true": 4 },
     "vak3": { "false": 5, "true": 6 },
     "vak4": { "false": 7, "true": 8 },
+};
+
+const transformArray = (array, key) => {
+  return array.map(item => transformDict[key][item]);
 };
 
   const connectionToTcpServer = async () => {
@@ -175,7 +181,7 @@ const useTcpConnection = () => {
   }
 
   const checkType = async (data) => {
-    if (data.toString().includes("{")) {
+    if (data.toString().includes("{") || data.toString().includes("}") || data.toString().includes("[") || data.toString().includes("]")) {
       buffer += data
       let parsedData = ""
       console.log(buffer);
@@ -265,7 +271,7 @@ const useTcpConnection = () => {
 
       console.log(newDot);
       dispatch(addNewDot(newDot))
-      client.write(...parsedData.milkStat)
+      // client.write(...parsedData.milkStat)
     } else if (parsedData.hasOwnProperty("washHistoryLast")) {      
       let origTime = parsedData.washHistoryLast.washTime
       let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
@@ -294,6 +300,7 @@ const useTcpConnection = () => {
         destination: convertedDestination,
         amt: convertedAmt,
         milkAmount: convertedMilkAmount,
+        milkOrigTime: origTime
       }
       console.log(newData);
       dispatch(addNewMilking(newData))
@@ -325,6 +332,7 @@ const useTcpConnection = () => {
             destination: convertedDestination,
             amt: convertedAmt,
             milkAmount: convertedMilkAmount,
+            milkOrigTime: origTime
           }
         })
       }
@@ -399,6 +407,21 @@ const useTcpConnection = () => {
       console.log(newData);
       dispatch(updateWashReportInfo(newData))
     }
+    else if (parsedData.hasOwnProperty("milkingReport")) {
+      let convertVak1 = transformArray(parsedData.milkingReport.vak1, 'vak1');
+      let convertVak2 = transformArray(parsedData.milkingReport.vak2, 'vak2');
+      let convertVak3 = transformArray(parsedData.milkingReport.vak3, 'vak3');
+      let convertVak4 = transformArray(parsedData.milkingReport.vak4, 'vak4');
+      let newData = {
+        ...parsedData.milkingReport,
+        vak1: convertVak1,
+        vak2: convertVak2,
+        vak3: convertVak3,
+        vak4: convertVak4,
+      }
+      console.log(newData);
+      dispatch(updateMilkReportInfo(newData))
+    }
   }
 
   const getVacStatus = () => {
@@ -441,13 +464,13 @@ const useTcpConnection = () => {
   })
 
   client.on('connect', async () => {
-    // dispatch(deletaAlarm(0))
+    dispatch(deletaAlarm(0))
     console.log("kek");
     dispatch(changeConnectionAction(client))
     client.write("auto_status_on()");
     setTimeout(getCurState, 1000)
-    setTimeout(getCurMode, 500)
-    setTimeout(getVacStatus, 1500)
+    setTimeout(getCurMode, 1500)
+    setTimeout(getVacStatus, 4500)
     setTimeout(getWashHistory, 2000)
     setTimeout(getLastWashes, 2500)
     setTimeout(getMilkingHistory, 3000)
@@ -461,16 +484,15 @@ const useTcpConnection = () => {
     const netuti = currentModeVal
     setTimeout(connectionToTcpServer, 15000);
     dispatch(changeConnectionStatusAction(false))
-    // setIsConnected(false)
-    // console.log(netuti);
-    //   const time = new Date()
-    //   const mm = time.getMinutes().toString().padStart(2, '0');
-    //   const hh = time.getHours().toString().padStart(2, '0');
-    //   const formattedTime = `${hh}:${mm}`;
-    //   console.log(formattedTime);
-    //   console.log(currentMode);
-    //   dispatch(addDisconnectAlarm({nameID: 666, dateTime: Moment().format('HH:mm D MMM'), msgType: "Авария", msgDecription: "666 Нет связи с КСПВ"}))
-    //   dispatch(changeMainAction(10))
+    setIsConnected(false)
+      const time = new Date()
+      const mm = time.getMinutes().toString().padStart(2, '0');
+      const hh = time.getHours().toString().padStart(2, '0');
+      const formattedTime = `${hh}:${mm}`;
+      console.log(formattedTime);
+      console.log(currentMode);
+      dispatch(addDisconnectAlarm({nameID: 666, dateTime: Moment().format('HH:mm D MMM'), msgType: "Авария", msgDecription: "666 Нет связи с КСПВ"}))
+      dispatch(changeMainAction(10))
   })
 
   client.on('data', async (data) => {

@@ -5,16 +5,10 @@ import React, { PureComponent, useEffect, useState } from 'react';
 import { toggleMilking } from "../../../../../store/hmiMode";
 import { clearData } from "../../../../../store/milkingReducer";
 
-const MilkingReport = () => {
-  const TcpConnection = useTcpConnection()
-  const dispatch = useDispatch()
-  const cowInfo = useSelector(state => state.cow.cowInfo)
+const MilkingReport = ({ reportStatusClose, reportStatus }) => {
+  const reportData = useSelector(state => state.milkReport.reportInfo)
   const main = useSelector(state => state.mode.main)
-  const milkingInfo = useSelector(state => state.milking.milkingList)
   const milkVocaburary = useSelector(state => state.milking.cupsStatus)
-  const [modeMilkPopup, setModeMilkPopup] = useState(false)
-  const pastPath = useSelector(state => state.milking.pastPath)
-  const milkLength = useSelector(state => state.milking.Milklength)
   const modeMilkPopupClose = () => {
     setModeMilkPopup(false);
   };
@@ -23,43 +17,55 @@ const MilkingReport = () => {
     setModeMilkPopup(value);
     setCurrentCup(e.target.id)
   }
-  // useEffect(() => {
-  //   dispatch(clearData())
-  // }, [cowInfo.id])
+
+  // Получаем данные из состояния Redux
+  const flow1 = useSelector(state => state.milkReport.reportInfo.flow1);
+  const flow2 = useSelector(state => state.milkReport.reportInfo.flow2);
+  const flow3 = useSelector(state => state.milkReport.reportInfo.flow3);
+  const flow4 = useSelector(state => state.milkReport.reportInfo.flow4);
+
+  const vak1 = useSelector(state => state.milkReport.reportInfo.vak1);
+  const vak2 = useSelector(state => state.milkReport.reportInfo.vak2);
+  const vak3 = useSelector(state => state.milkReport.reportInfo.vak3);
+  const vak4 = useSelector(state => state.milkReport.reportInfo.vak4);
+
+  const maxLength = Math.max(flow1.length, flow2.length, flow3.length, flow4.length);
+  const flowData = Array.from({ length: maxLength }, (_, index) => ({
+    index,
+    flow1: flow1[index] !== undefined ? flow1[index] : null,
+    flow2: flow2[index] !== undefined ? flow2[index] : null,
+    flow3: flow3[index] !== undefined ? flow3[index] : null,
+    flow4: flow4[index] !== undefined ? flow4[index] : null,
+  }));
+
+  const vakData = Array.from({ length: maxLength }, (_, index) => ({
+    index,
+    vak1: vak1[index] !== undefined ? vak1[index] : null,
+    vak2: vak2[index] !== undefined ? vak2[index] : null,
+    vak3: vak3[index] !== undefined ? vak3[index] : null,
+    vak4: vak4[index] !== undefined ? vak4[index] : null,
+  }));
 
   return (
     <>
-      <div className="graphics-container">
+      <div className="graphics-container" style={{ display: reportStatus ? "" : "none" }}>
         <div className="graphics-left-bar" style={{ width: "280px" }}>
           <div className="graphics-tanker-container" style={{ width: "280px" }}>
-            <div className="graphics-icon graphics-tanker" style={{ display: (cowInfo.milkDestination === 0 && (milkingInfo.length - 1) >= 0 && (milkingInfo[milkingInfo.length - 1].milk).toFixed(1) > 0 ? "" : "none") }} />
-            <div className="graphics-icon graphics-backet" style={{ backgroundPosition: "center", display: ((cowInfo.milkDestination === 1 || ((milkingInfo.length - 1) >= 0 && (milkingInfo[milkingInfo.length - 1].milk).toFixed(1) == 0) || (milkingInfo.length) == 0) ? "" : "none"), marginRight: "12px" }} />
-            <div className="graphics-icon graphics-drain" style={{ backgroundPosition: "center", display: ((cowInfo.milkDestination === 2 && (milkingInfo.length - 1) >= 0 && (milkingInfo[milkingInfo.length - 1].milk).toFixed(1) > 0) ? "" : "none") }} />
-            <div className="graphics-tanker-value">{milkingInfo.length == 0 ? "0,0" : (((milkingInfo[milkingInfo.length - 1].milk).toFixed(1) / 30).toFixed(1)).replace(".", ",")}</div>
+            <div className="graphics-icon graphics-tanker" style={{ display: (reportData.milkDestination === 0) ? "" : "none" }} />
+            <div className="graphics-icon graphics-backet" style={{ backgroundPosition: "center", display: (reportData.milkDestination === 1) ? "" : "none" }} />
+            <div className="graphics-icon graphics-drain" style={{ backgroundPosition: "center", display: (reportData.milkDestination === 2) ? "" : "none" }} />
+            <div className="graphics-tanker-value">{!reportData.milk ? "0,0" : (((reportData.milk)).toFixed(1)).replace(".", ",")}</div>
           </div>
           <div className="graphics-cow-container">
             <div className="gaphics-cow-left-buttons">
-              <button id={4} className={`graphics-cup-button sidetouch graphics-cow-left-top-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat4]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
-              <button id={2} className={`graphics-cup-button sidetouch graphics-cow-left-bottom-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat2]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+              <button id={4} className={`graphics-cup-button sidetouch graphics-cow-left-top-button ${!reportData.stat4 ? "not_attached" : milkVocaburary[reportData.stat4]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+              <button id={2} className={`graphics-cup-button sidetouch graphics-cow-left-bottom-button ${!reportData.stat2 ? "not_attached" : milkVocaburary[reportData.stat2]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
             </div>
             <div className="graphics-cow-icon" />
             <div className="graphics-cow-right-buttons">
-              <button id={3} className={`graphics-cup-button sidetouch graphics-cow-right-top-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat3]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
-              <button id={1} className={`graphics-cup-button sidetouch graphics-cow-right-bottom-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat1]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+              <button id={3} className={`graphics-cup-button sidetouch graphics-cow-right-top-button ${!reportData.stat3 ? "not_attached" : milkVocaburary[reportData.stat3]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
+              <button id={1} className={`graphics-cup-button sidetouch graphics-cow-right-bottom-button ${!reportData.stat1 ? "not_attached" : milkVocaburary[reportData.stat1]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
             </div>
-          </div>
-          <div className="buttonsOfGr">
-            <button className="demoGr">Demo Start</button>
-            <button className="stopGr">Stop</button>
-          </div>
-        </div>
-        <div className="gr-cup-milk-mode-div">
-          <div className="gr-cup-milk-mode-content">
-            <button className="milk-cup-mode-button sidetouch do-not-milk-mode" />
-            <button className="milk-cup-mode-button sidetouch remove-cup-mode" />
-            <button className="milk-cup-mode-button sidetouch milk-flow-mode" />
-            <button className="milk-cup-mode-button sidetouch cancel-acr-mode" />
-            <button className="milk-cup-mode-button sidetouch milk-cup-mode-close" />
           </div>
         </div>
         <div className="graph-container">
@@ -68,7 +74,7 @@ const MilkingReport = () => {
               <LineChart
                 width={500}
                 height={300}
-                data={milkingInfo}
+                data={vakData}
                 isAnimationActive={false}
                 margin={{
                   top: 5,
@@ -78,7 +84,7 @@ const MilkingReport = () => {
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis dataKey="time" interval={10} />
+                <XAxis dataKey="index" interval={19} />
                 <YAxis tick={props => <text {...props} visibility="hidden" domain={[0, "auto"]} />} />
                 <Tooltip hide="true" />
                 <Line dataKey="vak1" stroke="#ed1c24" isAnimationActive={false} dot={false} />
@@ -88,11 +94,11 @@ const MilkingReport = () => {
               </LineChart>
             </ResponsiveContainer>
           </div>
-          <ResponsiveContainer width="100%" height={381}>
+          <ResponsiveContainer width="100%" height={371}>
             <LineChart
               width={500}
               height={300}
-              data={milkingInfo}
+              data={flowData}
               isAnimationActive={false}
               margin={{
                 top: 5,
@@ -102,8 +108,8 @@ const MilkingReport = () => {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="time" interval={4} />
-              <YAxis tick={props => <text {...props} visibility="hidden" />} />
+              <XAxis dataKey="index" interval={19} />
+              <YAxis type="number" tick={props => <text {...props} visibility="hidden" />} />
               <Tooltip hide="true" />
               <Line dataKey="flow1" stroke="#ed1c24" isAnimationActive={false} dot={false} />
               <Line dataKey="flow2" stroke="#00a2e8" isAnimationActive={false} dot={false} jointType="stepAfter" />
@@ -111,7 +117,7 @@ const MilkingReport = () => {
               <Line dataKey="flow4" stroke="#22b14c" isAnimationActive={false} dot={false} />
             </LineChart>
           </ResponsiveContainer>
-          <button className="button graph-swap sidetouch" style={{bottom: "14px", right: "94px"}} onClick={() => dispatch(toggleMilking())} />
+          <button className="button graph-swap sidetouch" style={{ bottom: "14px", right: "94px" }} onClick={() => reportStatusClose()} />
         </div>
       </div>
     </>

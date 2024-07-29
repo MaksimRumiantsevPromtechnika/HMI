@@ -6,7 +6,7 @@ import { changeAccessRights } from '../../store/hmiMode';
 import NumPad from '../monitor/mainWindow/numPad/NumPad';
 import NumPadPopup from '../monitor/mainWindow/numPadPopup/NumPadPopup';
 const Header = () => {
-  const connectionStatus = useSelector(state => state.mode.connectionStatus)
+
   const cowInfo = useSelector(state => state.cow.cowInfo)
   const currentMode = useSelector(state => state.mode.main)
   const [openPopup, setOpenPopup] = useState(false)
@@ -15,26 +15,28 @@ const Header = () => {
   const dispatch = useDispatch()
   const milkingInfo = useSelector(state => state.milking.milkingList)
   const lastSuccessMilking = useSelector(state => state.milking.lastSuccessMilking)
+
   const handleOpen = (value, e) => {
     setOpenPopup(value);
   }
 
   useEffect(() => {
     setSeconds(0); // сброс таймера
-
     timerRef.current = setInterval(() => {
       setSeconds((prevSeconds) => prevSeconds + 1);
     }, 1000); // запуск нового таймера
-
     // очистка useEffect при выполнении unmount компонента или перезапуске таймера
     return () => {
       clearInterval(timerRef.current);
     };
   }, [currentMode]);
+
   let time = moment.utc(seconds * 1000).format('m:ss');
+
   const handleClose = () => {
     setOpenPopup(false);
   };
+
   const handleChange = (value, currentSett) => {
     const current_date = +moment().format('DDMM');
     if (value == current_date) {
@@ -43,6 +45,7 @@ const Header = () => {
       dispatch(changeAccessRights(0))
     }
   }
+  //Список режимов работы Робота
   const mods = {
     0: "",
     1: 'wait-icon',
@@ -56,9 +59,7 @@ const Header = () => {
     9: "status-cow-close-icon",
     10: "alarm-button",
   };
-  // useEffect(() => {
-  //   console.log(connectionStatus);
-  // }, [connectionStatus])
+
   return (
     <>
       <header className='header'>

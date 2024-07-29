@@ -2,10 +2,8 @@ import { Dialog, DialogContent, DialogTitle } from "@mui/material";
 import { useState } from "react";
 import useTcpConnection from "../../../../../services/tcpService";
 import CounterInput from "../../../../../utilites/CounterInput";
-
+//Окно выбора времени задержки при ручном присоединении сосков
 const ManualAttachmentPopup = ({ manualAttachmentPopup, manualAttachmentPopupClose }) => {
-  const foodList = []
-  const [foodValue, setFoodValue] = useState(4)
 
   const handleChange = (inputIndex) => (newValue) => {
     setInputValues(newValue)
@@ -59,7 +57,6 @@ const ManualAttachmentPopup = ({ manualAttachmentPopup, manualAttachmentPopupClo
                 <button className="button teat-cup-confirm" onClick={() => { closeCow(inputValues); manualAttachmentPopupClose() }}></button>
               </div>
               <button className="button popup-contetn-close" onClick={() => manualAttachmentPopupClose()}></button>
-              {/* <button className="button popup-contetn-close" onClick={() => vacPopupClose()}></button> */}
             </div>
           </div>
         </DialogContent>
