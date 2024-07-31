@@ -1,3 +1,4 @@
+//Редюсер алармов
 const defaultState = {
   alarmVocabulary: {
 

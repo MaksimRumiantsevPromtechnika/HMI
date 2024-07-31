@@ -120,19 +120,19 @@ const MilkControl = () => {
   // Создание элементов <circle> для каждой точки
   const renderPoints = () => {
     return relativePoints.map((point, index) => {
-      return <circle key={index} cx={point.x} cy={point.y} r={7} fill={point.s == null || point.s == 2 || point.s == 4 ? 'white' : 'red'} />;
+      return <circle key={index} cx={point.x} cy={point.y} r={12} fill={point.s == null || point.s == 2 || point.s == 4 ? 'white' : 'red'} />;
     });
   };
 
   const renderHistoryPoints = () => {
     return historyPoints.map((point, index) => {
-      return <rect key={index} x={point.x} y={point.y} width="13" height="13" fill="grey" />;
+      return <rect key={index} x={point.x} y={point.y} width="24" height="24" fill="grey" />;
     });
   };
   const statuses = [teatReducer.teat1.status, teatReducer.teat2.status, teatReducer.teat3.status, teatReducer.teat4.status];
   const renderProbablePoints = () => {
     return probablePoints.map((point, index) => {
-      const radius = 7;
+      const radius = 12;
       const points = [
         { x: point.x, y: point.y - radius }, // вершина треугольника
         { x: point.x - radius, y: point.y + radius },  // левая точка внизу
