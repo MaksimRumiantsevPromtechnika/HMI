@@ -28,8 +28,6 @@ const AlarmInfo = () => {
   const dispatch = useDispatch()
 
   const stopAlarm = () => {
-    console.log(selectedAlarm);
-    console.log(selecterAlarmData);
     if (selectedAlarm >= 0) {
       dispatch(deletaAlarm(selectedAlarm))
       // dispatch(addHistoryAlarm(selecterAlarmData))
@@ -42,7 +40,7 @@ const AlarmInfo = () => {
   const cellClickedListener = useCallback(event => {
     setSelectedAlarm(event.data.id);
     setSelectedAlarmData(event.data);
-    console.log(event.data);
+    // console.log(event.data);
   });
 
   useEffect(() => {

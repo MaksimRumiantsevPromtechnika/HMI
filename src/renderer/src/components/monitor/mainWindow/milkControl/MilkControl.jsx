@@ -50,7 +50,6 @@ const MilkControl = () => {
     { x: teatReducer.teat3.x, y: teatReducer.teat3.y * (-1), s: teatReducer.teat3.status },
     { x: teatReducer.teat4.x, y: teatReducer.teat4.y * (-1), s: teatReducer.teat4.status },
   ];
-  console.log(teatReducer.teat1.x);
   const historyCowPoints = [  // точка отсчета
     { x: cowInfo.coords.x1, y: cowInfo.coords.y1 * -1 },
     { x: cowInfo.coords.x2, y: cowInfo.coords.y2 * -1 },
@@ -157,7 +156,7 @@ const MilkControl = () => {
   return (
     <>
       <div className="arm-control">
-        <div onMouseUp={() => console.log(22)} className="main-control-bar">
+        <div className="main-control-bar">
           <div className="cow-bar">
             <div className="left-cups" style={{ display: configurator.cowOrientation === 1 ? "flex" : "none", marginLeft: "75px" }}>
               <button id={3} className={`cup-button sidetouch ${classMap[teatReducer.teat3.status]} cup-active`} disabled={teatReducer.teat1.status == 4 || teatReducer.teat1.status == 5 || teatReducer.teat4.status == 4 || teatReducer.teat4.status == 5 || teatReducer.teat2.status == 4 || teatReducer.teat2.status == 5 || teatReducer.teat3.status == 1 ? true : false} onClick={(e) => handleModeTeatOpen(true, e)}></button>

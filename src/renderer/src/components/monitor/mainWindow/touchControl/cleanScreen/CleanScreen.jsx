@@ -13,7 +13,6 @@ const CleanScreen = ({ isOpen, onClose }) => {
     if (isOpen && secondsRemaining > 0) {
       const timer = setInterval(() => {
         setSecondsRemaining((prevSeconds) => prevSeconds - 1);
-        console.log(22);
       }, 1000);
 
       return () => {

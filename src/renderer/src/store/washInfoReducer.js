@@ -69,19 +69,15 @@ export const washReducer = (state = defaultState, action) => {
     if (action.payload[0] === "0") {
   
       action.payload.shift()
-      console.log(action.payload);
       return  {...state, washingAcid: action.payload, currentWash: 0, currentStage: 0}
     } else if ((action.payload[0] === "1")) {
       action.payload.shift()
-      console.log(action.payload);
       return  {...state, washingAlkaline: action.payload, currentWash: 1, currentStage: 0}
     } else if ((action.payload[0] === "2")) {
       action.payload.shift()
-      console.log(action.payload);
       return  {...state, washingMilkline: action.payload, currentWash: 2, currentStage: 0}
     } else if ((action.payload[0] === "3")) {
       action.payload.shift()
-      console.log(action.payload);
       return  {...state, washingRising: action.payload, currentWash: 3, currentStage: 0}
     }
     case CHANGE_WASH_STAGE: 

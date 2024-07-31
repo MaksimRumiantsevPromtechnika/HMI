@@ -68,7 +68,6 @@ const transformArray = (array, key) => {
       for (let i = 0; i < dataArray.length; i += 2) {
         dataObj[`i${dataArray[i]}`] = parseFloat(dataArray[(i + 1)])
       }
-      console.log(dataObj);
       dispatch(updateShemeValueAction(dataObj))
     } 
 
@@ -94,23 +93,19 @@ const transformArray = (array, key) => {
         washHistoryObj[`i${washHistoryArray[i]}`] = (washHistoryArray[(i + 1)])
       }
       dispatch(changeWashHistory(washHistoryObj))
-      console.log(washHistoryObj);
+      // console.log(washHistoryObj);
     }
 
     else if (data.toString().includes("wash_stage")) {
       const modifiedStage = parseFloat(data.toString().replace(/[a-zA-Z()_]/g, ''));
-      console.log(modifiedStage);
+      // console.log(modifiedStage);
       dispatch(changeWashStage(modifiedStage))
     }
 
     else if (data.toString().includes("msg")) {
-      console.log(data.toString());
       const modifiedMsg = (data.toString().replace(/[a-zA-Z()_]/g, ''));
-      console.log(modifiedMsg);
       const alarmInfoArray = modifiedMsg.split(";")
-
       let formattedDateTime = moment(alarmInfoArray[3], 'DD.MM.YYYY HH:mm:ss').locale('ru').format('DD MMMM HH:mm') // '15 января 10:00'
-      console.log(alarmInfoArray);
       const alarmTypeCode = alarmInfoArray[1].toString()
       const alarmCode = alarmInfoArray[2].toString()
       const alarmInfoObj = {
@@ -119,7 +114,7 @@ const transformArray = (array, key) => {
         "Номер": alarmInfoArray[2],
         "Описание ошибки": alarmVocabulary.alarmDescription[alarmCode]
       }
-      console.log(alarmInfoObj);
+      // console.log(alarmInfoObj);
       dispatch(addNewAlarm(alarmInfoObj))
     }
 
@@ -130,21 +125,19 @@ const transformArray = (array, key) => {
       for (let i = 0; i < dataArray.length; i += 2) {
         dataObj[`i${dataArray[i]}`] = parseFloat(dataArray[(i + 1)])
       }
-      console.log(dataObj);
+      // console.log(dataObj);
       dispatch(updateShemeValueAction(dataObj))
     }
 
     else if (data.toString().includes("vacinfo")) {
-      console.log(data.toString());
       const modifiedVacData = data.toString().match(/(\b[ct]\d;-?\d{1,3}(;)?)+\b/g);
       const dataVac = modifiedVacData.join().replace(/;/g,',');
       const dataVacArray = dataVac.split(",")
-      console.log(dataVacArray);
       const dataVacObj = {}
       for (let i = 0; i < dataVacArray.length; i += 2) {
         dataVacObj[dataVacArray[i]] = (dataVacArray[(i + 1)])
       }
-      console.log(dataVacObj);
+      // console.log(dataVacObj);
       dispatch(updateVacValueAction(dataVacObj))
     } 
 
@@ -194,7 +187,7 @@ const transformArray = (array, key) => {
         console.log(parsedData);
         buffer = "";
         await checkJSON(parsedData)
-        console.log(44);
+        // console.log(44);
       }
     } else {
       await checkMsg(data)
@@ -206,7 +199,6 @@ const transformArray = (array, key) => {
       let origTime = parsedData.eventMsg.dateTime
       let convertedTime = moment(origTime, moment.ISO_8601).locale('ru').format('HH:mm D MMM')
       let convertedType = alarmVocabulary.alarmType[parsedData.eventMsg.msgType]
-      console.log(parsedData);
       let newData = {
         ...parsedData.eventMsg,
         dateTime: convertedTime,
@@ -221,13 +213,11 @@ const transformArray = (array, key) => {
           dispatch(addNewHistory(newData))
           break;
         default:
-            console.log(parsedData.eventMsg.msgType);
-            console.log(newData);
+            // console.log(newData);
             dispatch(addNewHistory(newData))
             dispatch(addNewAlarm(newData))
       }
     } else if (parsedData.hasOwnProperty("eventMsgs")) {
-      console.log(parsedData);
       let newDataList = {
         msg: parsedData.eventMsgs.map(item => {
           let origTime = item.dateTime
@@ -241,9 +231,8 @@ const transformArray = (array, key) => {
             };
         })
     };
-    console.log(newDataList.msg);
     const sortedData = newDataList.msg.sort((a, b) => new Date(moment(b.dateTime, "DD MMMM HH:mm").toISOString()) - new Date(moment(a.dateTime, "DD MMMM HH:mm").toISOString()));
-    console.log(sortedData);
+    // console.log(sortedData);
     dispatch(addHistoryAlarm(sortedData))
     } else if (parsedData.hasOwnProperty("cowParameters")) {
       let cowInfo = {
@@ -253,10 +242,8 @@ const transformArray = (array, key) => {
     } 
     else if (parsedData.hasOwnProperty("cameraMap")) {
       dispatch(changeCameraMap(parsedData.cameraMap.map))
-      console.log(parsedData.cameraMap.map);
     } 
     else if (parsedData.hasOwnProperty("milkStat")) {
-      console.log(parsedData.milkStat.vak1);
       let convertVak1 = transformDict["vak1"][parsedData.milkStat.vak1]
       let convertVak2 = transformDict["vak2"][parsedData.milkStat.vak2]
       let convertVak3 = transformDict["vak3"][parsedData.milkStat.vak3]
@@ -269,7 +256,7 @@ const transformArray = (array, key) => {
         vak4: convertVak4,
       }
 
-      console.log(newDot);
+      // console.log(newDot);
       dispatch(addNewDot(newDot))
       // client.write(...parsedData.milkStat)
     } else if (parsedData.hasOwnProperty("washHistoryLast")) {      
@@ -283,7 +270,7 @@ const transformArray = (array, key) => {
         washStatus: "Успешно",
         washOrigTime: origTime
       }
-      console.log(newData);
+      // console.log(newData);
       dispatch(addNewWash(newData))
     } else if (parsedData.hasOwnProperty("milkLast")) {      
       let origTime = parsedData.milkLast.dateTime
@@ -302,7 +289,7 @@ const transformArray = (array, key) => {
         milkAmount: convertedMilkAmount,
         milkOrigTime: origTime
       }
-      console.log(newData);
+      // console.log(newData);
       dispatch(addNewMilking(newData))
       dispatch(clearData());
       client.write("end")
@@ -312,7 +299,7 @@ const transformArray = (array, key) => {
           milkAmount: parsedData.milkLast.actualMilk,
           expMilk: parsedData.milkLast.expMilk
         }
-        console.log(lastMilk);
+        // console.log(lastMilk);
         dispatch(addSuccessMilking(lastMilk))
       }
     } else if (parsedData.hasOwnProperty("milkingHistory")) {      
@@ -339,7 +326,6 @@ const transformArray = (array, key) => {
       const sortedData = newDataList.milking.sort((a, b) => new Date(moment(b.dateTime, "DD MMMM HH:mm").toISOString()) - new Date(moment(a.dateTime, "DD MMMM HH:mm").toISOString()));
       dispatch(addMilkingHistory(sortedData))
     } else if (parsedData.hasOwnProperty("washHistory")) {
-      console.log(parsedData);
       let newDataList = {
         wash: parsedData.washHistory.map(item => {
           let origTime = item.washTime
@@ -354,9 +340,8 @@ const transformArray = (array, key) => {
             };
         })
     };
-    console.log(newDataList.wash);
     const sortedData = newDataList.wash.sort((a, b) => new Date(moment(b.dateTime, "DD MMMM HH:mm").toISOString()) - new Date(moment(a.dateTime, "DD MMMM HH:mm").toISOString()));
-    console.log(sortedData);
+    // console.log(sortedData);
     dispatch(addHistoryWash(sortedData))
     } else if (parsedData.hasOwnProperty("udrGlobalSettings")) {
       let newData = {
@@ -367,12 +352,11 @@ const transformArray = (array, key) => {
       dispatch(toggleSpeed(parsedData.armSlowSpeed))
     } else if (parsedData.hasOwnProperty("cowSeparate")) {
       dispatch(toggleSeparate(parsedData.cowSeparate))
-      console.log(parsedData.cowSeparate);
     } else if (parsedData.hasOwnProperty("teatStatus")) {
       let newData = {
         ...parsedData.teatStatus
       }
-      console.log("TeatStatus");
+      // console.log("TeatStatus");
       dispatch(updateTeatValueAction(newData))
       
     } else if (parsedData.hasOwnProperty("start_calibration")) {
@@ -404,7 +388,7 @@ const transformArray = (array, key) => {
       let newData = {
         ...parsedData.cleaningReport
       }
-      console.log(newData);
+      // console.log(newData);
       dispatch(updateWashReportInfo(newData))
     }
     else if (parsedData.hasOwnProperty("milkingReport")) {
@@ -419,7 +403,7 @@ const transformArray = (array, key) => {
         vak3: convertVak3,
         vak4: convertVak4,
       }
-      console.log(newData);
+      // console.log(newData);
       dispatch(updateMilkReportInfo(newData))
     }
   }
@@ -464,8 +448,7 @@ const transformArray = (array, key) => {
   })
 
   client.on('connect', async () => {
-    dispatch(deletaAlarm(0))
-    console.log("kek");
+    // dispatch(deletaAlarm(0))
     dispatch(changeConnectionAction(client))
     client.write("auto_status_on()");
     setTimeout(getCurState, 1000)
@@ -498,7 +481,6 @@ const transformArray = (array, key) => {
   client.on('data', async (data) => {
     dispatch(changeConnectionStatusAction(true))
     let array = data.toString().split(/(\}\}\}|\}\}|\)}|\]}|\))/).filter(Boolean);
-    console.log(array);
     if (array.length === 1) {
       await checkType(array[0]);
     } else {
@@ -598,60 +580,3 @@ const transformArray = (array, key) => {
 
 export default useTcpConnection
 
-
-
-
-
-
-
-
-
-
-
-// const net = require('net');
-
-// const serverHost = '10.5.130.240';
-// const serverPort = 12000;
-
-// let socket = null
-
-// const connectToServer = () => {
-//   socket = new net.Socket();
-//   const dispatch = useDispatch()
-//   socket.on('connect', () => {
-//     console.log('Connected to server.');
-//   });
-
-//   socket.on('data', (data) => {
-//         if (data.toString().includes("all_state")) {
-//           const modifiedData = data.toString().replace(/[a-zA-Z()_]/g, '');
-//           const dataArray = modifiedData.split(";")
-//           const dataObj = {}
-//           for (let i = 0; i < dataArray.length; i += 2) {
-//             dataObj[`i${dataArray[i]}`] = parseFloat(dataArray[(i + 1)])
-//           }
-//           console.log(dataObj);
-//           dispatch(updateShemeValueAction(dataObj))
-//         } else {
-//           console.log(data.toString());
-//         }
-//       });
-
-//   socket.on('error', (error) => {
-//     console.error('Connection error:', error.message);
-//   });
-
-//   socket.on('close', () => {
-//     console.log('Connection closed.');
-//   });
-
-//   socket.connect({ host: serverHost, port: serverPort });
-// };
-
-// const sendMessageToServer= (message) => {
-//   if (socket && socket.writable) {
-//     socket.write(message);
-//   }
-// };
-
-// export {sendMessageToServer, connectToServer}

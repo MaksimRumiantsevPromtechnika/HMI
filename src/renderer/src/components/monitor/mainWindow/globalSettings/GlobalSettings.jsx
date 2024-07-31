@@ -23,19 +23,12 @@ const GlobalSettings = () => {
   const handleOpen = (value, e) => {
     setOpenPopup(value);
     setCurrentSett(e.target.id)
-    console.log(currentSett);
   }
 
 
 
   const globalSettings = useSelector(state => state.globalSettings)
   const mode = useSelector(state => state.mode)
-  // useEffect(() => {
-  //   const jsonString = JSON.stringify(globalSettings.udrGlobalSettings);
-  //   TcpConnecion.sendTcpData(`set_globalsettings(${jsonString})`)
-  //   setTimeout(TcpConnecion.sendTcpData(`get_globalsettings()`), 200)
-  //   console.log(jsonString);
-  // }, [globalSettings.udrGlobalSettings])
 
   useEffect(() => {
 
@@ -47,18 +40,6 @@ const GlobalSettings = () => {
       id: currentSett
     }
     dispatch(updateSettings(inputValue))
-  }
-  const [isMoved, setIsMoved] = useState(false)
-  const startMove = (movedElement) => {
-    setIsMoved(true)
-    TcpConnecion.sendTcpData(`${movedElement}()`);
-    console.log(`${movedElement}()`);
-  }
-
-  const stoptMove = (movedElement) => {
-    setIsMoved(false)
-    TcpConnecion.sendTcpData(`${movedElement}()`);
-    console.log(`${movedElement}()`);
   }
   const TcpConnection = useTcpConnection()
   return (

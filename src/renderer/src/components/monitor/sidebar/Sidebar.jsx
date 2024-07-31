@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { start } from 'xstate/lib/actions';
 import useTcpConnection from '../../../services/tcpService';
+import { changeCowLock } from '../../../store/cowInfoReducer';
 import { changeModeAction } from '../../../store/hmiMode';
 import CowLock from './CowLock/CowLock';
 import HmiMode from './HmiMode/HmiMode';
@@ -19,7 +20,6 @@ const Sidebar = ({ toggleTab, toggleTabInfo, setMode, handleModeChange, connecti
   const toggleSeparateStatus = () => {
     const newValue = separateMode === 0 ? 1 : 0;
     setSeparateMode(newValue);
-    console.log(newValue);
     TcpConnection.sendTcpData(`separate_cow(${newValue.toString()})`)
   };
   const separate = useSelector(state => state.mode.cowSeparate)
@@ -30,14 +30,18 @@ const Sidebar = ({ toggleTab, toggleTabInfo, setMode, handleModeChange, connecti
   }
   const toggleSeparate = (data) => {
     TcpConnection.sendTcpData(`set_cow_separate(${data})`)
-    console.log(data);
   }
   const modeList = {
     1: "play",
     2: "pause",
     3: "stop"
   }
-  console.log(separate)
+
+  const cowLockList = {
+    0: 300,
+    1: 600,
+    2: 900
+  }
   const changeDestination = (value) => {
     TcpConnection.sendTcpData(`set_milkdestination(${value})`)
     // setTimeout(TcpConnection.sendTcpData(`get_cowparameters()`, 250))
@@ -45,16 +49,8 @@ const Sidebar = ({ toggleTab, toggleTabInfo, setMode, handleModeChange, connecti
 
   const lockCow = (value) => {
     TcpConnection.sendTcpData(`lock_cow(${value})`)
-    // setTimeout(TcpConnection.sendTcpData(`get_cowparameters()`, 250))
+    dispatch(changeCowLock(cowLockList[value]))
   }
-
-  // const sendMode = (value) => {
-  //   if (connection) {
-  //     connection.write(`set_mode_${value}()`);
-  //     console.log(`set_mode_${value}()`);
-  //     // connection.write("get_all_state()")
-  //   }
-  // }
 
   const TcpConnection = useTcpConnection()
 

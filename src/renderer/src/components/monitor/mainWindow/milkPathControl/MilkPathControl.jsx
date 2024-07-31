@@ -10,7 +10,6 @@ const MilkPathControl = () => {
   const dispatch = useDispatch()
   const swapBucket = (e) => {
     setSelectedBucket(e.target.id);
-    console.log(selectedBucket);
   };
 
   const bucketsInfo = useSelector(state => state.buckets.buckets)

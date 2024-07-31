@@ -431,7 +431,6 @@ export const CoolerMachine = createMachine(
         initial: "empty",
         states: {
           empty: {
-            // entry: console.log(context.value211),
             on: {
               UPDATE_CONTEXT: {
                 actions: ["updateContext"]
@@ -680,13 +679,10 @@ const Sheme = () => {
 
   const valvePopupOpen = (value, e) => {
     if (mode === "1") {
-      console.log(mode)
     } else {
       setValvePopup(value);
       setCurrentValve(e.target.id)
       setCurrentType(e.target.className.baseVal)
-      console.log(currentType);
-      console.log(currentValve);
     }
   }
 
@@ -710,7 +706,6 @@ const Sheme = () => {
   const setOn = (stringToSend) => {
     TcpConnecion.sendTcpData(`set_on(${stringToSend})`)
     console.log(`set_on(${stringToSend})`);
-    console.log(connectionStatus);
   };
 
   const setOff = (stringToSend) => {
@@ -3942,6 +3937,7 @@ const Sheme = () => {
                 transform="scale(-1,1)"
               />
               <ellipse
+                shapeRendering="geometricPrecision"
                 style={{
                   fill: "#ffffff",
                   fillOpacity: 1,
@@ -3980,6 +3976,7 @@ const Sheme = () => {
                 transform="scale(-1,1)"
               ></rect>
               <ellipse
+                shapeRendering="geometricPrecision"
                 style={{
                   fill: "#ffffff",
                   fillOpacity: 1,
@@ -4037,6 +4034,7 @@ const Sheme = () => {
                   transform="scale(-1,1)"
                 ></rect>
                 <ellipse
+                  shapeRendering="geometricPrecision"
                   style={{
                     fill: "#ffffff",
                     fillOpacity: 1,
@@ -4053,6 +4051,7 @@ const Sheme = () => {
                 />
               </g>
               <ellipse
+                shapeRendering="geometricPrecision"
                 style={{
                   fill: "none",
                   fillOpacity: 1,
@@ -4070,6 +4069,7 @@ const Sheme = () => {
                 ry="3.0000885"
               />
               <ellipse
+                shapeRendering="geometricPrecision"
                 style={{
                   fill: "none",
                   fillOpacity: 1,
@@ -4087,6 +4087,7 @@ const Sheme = () => {
                 ry="3.0000885"
               />
               <ellipse
+                shapeRendering="geometricPrecision"
                 style={{
                   fill: "none",
                   fillOpacity: 1,
@@ -4132,6 +4133,7 @@ const Sheme = () => {
                   transform="scale(-1,1)"
                 />
                 <ellipse
+                  shapeRendering="geometricPrecision"
                   style={{
                     fill: "#ffffff",
                     fillOpacity: 1,
@@ -4170,6 +4172,7 @@ const Sheme = () => {
                   transform="scale(-1,1)"
                 />
                 <ellipse
+                  shapeRendering="geometricPrecision"
                   style={{
                     fill: "#ffffff",
                     fillOpacity: 1,
@@ -4214,6 +4217,7 @@ const Sheme = () => {
                   transform="scale(-1,1)"
                 />
                 <ellipse
+                  shapeRendering="geometricPrecision"
                   style={{
                     fill: "#ffffff",
                     fillOpacity: 1,
@@ -4232,6 +4236,7 @@ const Sheme = () => {
               <g id="g18575" transform="rotate(90,598.71649,222.31578)"
                 style={{ display: configurator.cowOrientation === 1 ? "" : "none" }}>
                 <path
+                  shapeRendering="geometricPrecision"
                   d="m 556.85631,201.10233 c -0.42087,-1.462 -1.5949,-2.89075 -2.95719,-3.5996 -0.99682,-0.52055 -1.39556,-0.6313 -2.43666,-0.731 l -0.86391,-0.0775 -0.12183,-0.57593 c -0.43195,-1.92717 -2.01577,-3.6439 -3.97618,-4.3306 -0.94143,-0.33227 -2.5474,-0.39872 -3.44453,-0.14397 -2.18192,0.62023 -3.96509,2.41449 -4.43028,4.47457 l -0.12182,0.57593 -0.77531,0.0664 c -1.04112,0.0997 -1.62813,0.26582 -2.51418,0.731 -1.27371,0.67561 -2.4145,2.00471 -2.90184,3.41131 -0.25473,0.71992 -0.34334,2.44773 -0.16613,3.25626 0.45411,2.11546 2.14869,3.90972 4.24199,4.51887 1.63921,0.47626 2.51418,0.2769 2.51418,-0.56486 0,-0.54271 -0.31012,-0.76421 -1.22939,-0.85282 -1.57276,-0.1772 -2.91292,-1.11865 -3.57745,-2.53633 -0.32121,-0.66455 -0.34336,-0.80852 -0.34336,-1.88286 0,-1.07435 0.0221,-1.21834 0.34336,-1.88288 0.43195,-0.90821 1.21831,-1.6835 2.14868,-2.1376 0.6867,-0.34336 0.7753,-0.35444 2.07116,-0.35444 1.67243,0 1.70565,-0.0332 1.81641,-1.21831 0.19936,-2.11547 1.63921,-3.67714 3.72142,-4.06479 1.61706,-0.29904 3.40024,0.47625 4.36382,1.8718 0.43197,0.63131 0.76423,1.65028 0.76423,2.35912 0,0.35442 0.0665,0.60916 0.21044,0.78637 0.19936,0.25475 0.27689,0.26581 1.58383,0.26581 1.318,0 1.39552,0.0111 2.10437,0.3655 2.25944,1.10757 3.16765,3.65499 2.11547,5.9255 -0.65348,1.37339 -2.01579,2.33697 -3.57747,2.50311 -0.64237,0.0664 -0.85281,0.13291 -1.00787,0.33227 -0.28797,0.35442 -0.26582,0.83067 0.0443,1.12972 0.22152,0.21043 0.33227,0.22151 1.07435,0.1772 2.49203,-0.16613 4.71824,-2.03792 5.37171,-4.51887 0.22151,-0.8196 0.19936,-2.42559 -0.0444,-3.2784 z"
                   id="path1401"
                   style={{
@@ -4241,6 +4246,7 @@ const Sheme = () => {
                   }}
                 />
                 <path
+                  shapeRendering="geometricPrecision"
                   d="m 551.75042,202.3428 c -0.16613,-0.43194 -0.39871,-0.53162 -1.12971,-0.47625 -1.39555,0.0886 -2.68032,0.97466 -3.33379,2.29267 l -0.35441,0.731 -0.0331,10.15641 c -0.0221,10.05673 -0.0221,10.16748 0.19935,10.389 0.29905,0.29904 0.89713,0.28796 1.17402,-0.0111 0.19937,-0.22152 0.21044,-0.59809 0.26582,-10.27824 l 0.0554,-10.04565 0.31011,-0.46518 c 0.40981,-0.62024 1.01898,-1.00788 1.80534,-1.12973 0.48734,-0.0775 0.71992,-0.1772 0.90822,-0.38764 0.2658,-0.31012 0.27689,-0.42088 0.1329,-0.7753 z"
                   id="path1405"
                   style={{
@@ -4250,6 +4256,7 @@ const Sheme = () => {
                   }}
                 />
                 <path
+                  shapeRendering="geometricPrecision"
                   d="m 545.34867,202.43141 c -0.0775,-0.5427 -0.94142,-0.77529 -1.35124,-0.36549 -0.2215,0.22151 -0.2215,0.36549 -0.2215,13.39051 v 13.18006 l 0.28797,0.22152 c 0.37657,0.29905 0.63131,0.28798 0.98573,-0.0111 l 0.28797,-0.25473 0.0221,-12.95856 c 0.0111,-7.12167 0.0111,-13.06932 -0.0111,-13.20223 z"
                   id="path1407"
                   style={{
@@ -4259,6 +4266,7 @@ const Sheme = () => {
                   }}
                 />
                 <path
+                  shapeRendering="geometricPrecision"
                   d="m 541.94844,204.45827 c -0.64239,-1.57276 -2.10438,-2.61387 -3.67713,-2.61387 -0.65346,0 -0.9525,0.25475 -0.9525,0.78638 0,0.44302 0.3101,0.74207 0.86389,0.81961 0.74208,0.11075 1.16295,0.28796 1.56168,0.64238 0.8196,0.70885 0.75315,-0.0775 0.8196,10.7988 l 0.0554,9.7909 0.32119,0.27691 c 0.34335,0.29903 0.731,0.27687 1.0965,-0.0444 0.17721,-0.16614 0.18827,-0.78639 0.18827,-9.99027 v -9.81306 z"
                   id="path1409"
                   style={{
@@ -4286,6 +4294,7 @@ const Sheme = () => {
                 }}
                 d="m 415.18629,244.08579 h 30"
                 id="path38976"
+                shapeRendering="geometricPrecision"
               />
               <path
                 style={{
@@ -4298,6 +4307,7 @@ const Sheme = () => {
                 }}
                 d="m 434.56129,233.4608 10.625,10.62499 -10.97855,10.25"
                 id="path38980"
+                shapeRendering="geometricPrecision"
               />
             </g>
             <g
@@ -4322,6 +4332,7 @@ const Sheme = () => {
                 }}
                 d="m 415.18629,244.08579 h 30"
                 id="path38976-4"
+                shapeRendering="geometricPrecision"
               />
               <path
                 style={{
@@ -4334,6 +4345,7 @@ const Sheme = () => {
                 }}
                 d="m 434.56129,233.4608 10.625,10.62499 -10.97855,10.25"
                 id="path38980-1"
+                shapeRendering="geometricPrecision"
               />
             </g>
             <g
@@ -4358,6 +4370,7 @@ const Sheme = () => {
                 }}
                 d="m 415.18629,244.08579 h 30"
                 id="path38976-2"
+                shapeRendering="geometricPrecision"
               />
               <path
                 style={{
@@ -4370,6 +4383,7 @@ const Sheme = () => {
                 }}
                 d="m 434.56129,233.4608 10.625,10.62499 -10.97855,10.25"
                 id="path38980-3"
+                shapeRendering="geometricPrecision"
               />
             </g>
             <g
@@ -4451,6 +4465,7 @@ const Sheme = () => {
                 cy="206.20995"
                 rx="5.4999719"
                 ry="5.4999733"
+                shapeRendering="geometricPrecision"
               />
             </g>
             <g
@@ -4482,6 +4497,7 @@ const Sheme = () => {
                 transform="scale(-1,1)"
               ></rect>
               <ellipse
+                shapeRendering="geometricPrecision"
                 style={{
                   fill: "#ffffff",
                   fillOpacity: 1,
@@ -9896,7 +9912,7 @@ const Sheme = () => {
               y="165.5256"
             />
             <rect
-              style={{ fill: "#3f3f3f", fillOpacity: 1, strokeWidth: "0.990007" }}
+              style={{ fill: "#3f3f3f", fillOpacity: 1, strokeWidth: "0.990007", display: configurator.cowOrientation === 1 ? "none" : "" }}
               id="rect24057"
               width={4}
               height={1}
@@ -10620,17 +10636,18 @@ const Sheme = () => {
             id={configurator.cowOrientation === 0 ? "28" : "30"}
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
-            width="14.259958"
+            width="84.259958"
             height="72.522728"
-            x="507.42413"
+            x="437.42413"
             y="133.22946"
             inkscape:label="Маска створки 28"
           ></rect>
           <rect
             style={{
-              opacity: 0,
+              opacity: 1,
               fill: "#729fcf",
               stroke: "#729fcf",
+              fillOpacity: 0,
               strokeWidth: 0,
               display: configurator.i910 === 1 ? "" : "none",
               strokeLinecap: "round"
@@ -10638,7 +10655,7 @@ const Sheme = () => {
             id={configurator.cowOrientation === 0 ? "30" : "28"}
             className='Gate'
             onClick={(e) => valvePopupOpen(true, e)}
-            width="13.507251"
+            width="83.507251"
             height="71.998993"
             x="736.63757"
             y="133.09158"

@@ -18,7 +18,6 @@ const AlkalineClean = () => {
     }
   }, [currentStage]);
   useEffect(() => {
-    // console.log(alkalineStageTime);
     if (alkalineStageTime > 0) {
       const timer = setInterval(() => {
         setAlkalineWashTime((prevSeconds) => prevSeconds - 1);

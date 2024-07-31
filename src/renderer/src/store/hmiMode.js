@@ -1,6 +1,6 @@
 const defaultState = {
   mode: "2",
-  main: "8",
+  main: "9",
   milking: false,
   accessRights: 0, 
   connectionStatus: false,
@@ -34,10 +34,8 @@ export const hmiModeReducer = (state = defaultState, action) => {
     case TOGGLE_SPEED :
       return {...state, armSlowSpeed: action.payload}
     case TOGGLE_SEPARATE :
-      console.log(action.payload);
       return {...state, cowSeparate: action.payload}
     case TOGGLE_TEAT_CALIBRATION :
-      console.log(action.payload);
       return {...state, teatCalibration: action.payload}
     default:
       return state

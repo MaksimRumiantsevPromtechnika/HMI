@@ -10,7 +10,6 @@ import useTcpConnection from '../../../../services/tcpService';
 //Окно исторического доения
 //Для таблиц используется библиотеке AgGrid
 const MilkInfo = React.memo(() => {
-  console.log("RENDER");
   const rowHeight = 28;
   const gridRef = useRef();
   const milkingInfo = useSelector(state => state.milkingHistory.milkingHistory)
@@ -29,7 +28,7 @@ const MilkInfo = React.memo(() => {
   const reportStatusOpen = (value) => {
     TcpConnecion.sendTcpData(`get_milking_report("${selectedRow}")`)
     setReportStatus(value);
-    console.log(selectedRow);
+
   }
 
   useEffect(() => {
@@ -48,7 +47,6 @@ const MilkInfo = React.memo(() => {
   ]);
 
   const cellClickedListener = useCallback(event => {
-    console.log('cellClicked', event);
     setSelectedRow(event.data.milkOrigTime)
   }, []);
 

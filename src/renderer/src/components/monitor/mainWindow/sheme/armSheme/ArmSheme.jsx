@@ -11,13 +11,10 @@ const ArmSheme = ({ openArmSheme, onClose, setOn, valveOpen, valveClose, state, 
   const cupState = useSelector(state => state.cupStatus)
   const valvePopupOpen = (value, e) => {
     if (mode === "1") {
-      console.log(mode)
     } else {
       setValvePopup(value);
       setCurrentValve(e.target.id)
       setCurrentType(e.target.className.baseVal)
-      console.log(currentType);
-      console.log(currentValve);
     }
   }
 

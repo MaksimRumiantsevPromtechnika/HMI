@@ -16,9 +16,7 @@ const WashReport = ({ reportStatusClose, reportStatus }) => {
   // const currentWash = useSelector(state => state.washInfo.currentWash)
   const [AcidStageTime, setAcidStageTime] = useState();
   const send = () => {
-    console.log(reportData.stageTime);
   }
-  console.log(reportData.stageTime);
   const currentWash = washTypeList[washType]
   const stagesData = {
     acid: [

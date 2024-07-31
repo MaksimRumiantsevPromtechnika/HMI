@@ -42,14 +42,12 @@ export const bucketInfoReducer = (state = defaultState, action) => {
       return { ...state, buckets: action.payload}
     case CLEAR_BUCKET:
       const indexToClear = (action.payload - 1);
-      console.log(action.payload);
       const updatedBuckets = state.buckets.map((item, index) => {
         if (index === indexToClear) {
           return {};
         }
         return item;
       });
-      console.log(updatedBuckets);
       return { ...state, buckets: updatedBuckets };
     default:
       return state
