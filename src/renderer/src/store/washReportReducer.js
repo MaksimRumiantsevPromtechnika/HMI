@@ -1,21 +1,22 @@
-const defaultState = {
+const defaultState = {//Информация для отчета по промывкам
   reportInfo: {
-    pastStages: {
+    pastStages: {//Время прошедших этапов для отображения снизу
       0: "1",
       1: "44",
       2: "108",
       3: "2",
     },
-    washResult: false,
-    lastStage: 4,
-    washType: 1,
-    stageTimeLeft: 20,
-    totalTimeLeft: 100,
-    stageTime: 40,
-    totalTime: 600,
+    washResult: false,//Результат промывки
+    lastStage: 4,//Стадия на которой отсановилась промывка
+    washType: 1,//Тип промывки
+    stageTimeLeft: 20,//Время оставшееся до конца последнего этапа
+    totalTimeLeft: 100,//Время оставшееся до конца промывки
+    stageTime: 40,//Длительность последнего этапа теоритическая
+    totalTime: 600,//Общая длительность промывки теоритическая
   },
 
   washTypeList: {
+    //Тип провыки по коду
     0: "acid",
     1: "alkaline",
     2: "full-rising",

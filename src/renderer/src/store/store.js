@@ -18,7 +18,7 @@ import { shemeInfoReducer } from "./schemeInfoReducer";
 import { vacCalibrationReducer } from "./vacCalibrationReducer";
 import { washReducer } from "./washInfoReducer";
 import { washReportReducer } from "./washReportReducer";
-
+//Список редюсеров
 const rootReducer = combineReducers({
   globalSettings: mainSettingsReduser,
   mode: hmiModeReducer,

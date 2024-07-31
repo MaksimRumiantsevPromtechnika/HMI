@@ -1,4 +1,4 @@
-const defaultState = {
+const defaultState = { //Сотояние стаканов isMilked/isCleaned
   i911: 1,
   i912: 1,
   i913: 1,

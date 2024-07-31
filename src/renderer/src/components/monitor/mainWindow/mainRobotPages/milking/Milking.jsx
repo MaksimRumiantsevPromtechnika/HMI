@@ -41,23 +41,23 @@ const Milking = () => {
           <div className="graphics-cow-container">
             <div className="gaphics-cow-left-buttons">
               <div>
-                <div><p>0:00</p></div>
+                {/* <div><p>0:00</p></div> //Для отображения Таймера задержки отсоединеия */}
                 <button id={4} className={`graphics-cup-button sidetouch graphics-cow-left-top-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat4]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
               </div>
               <div>
                 <button id={2} className={`graphics-cup-button sidetouch graphics-cow-left-bottom-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat2]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
-                <div><p>0:00</p></div>
+                {/* <div><p>0:00</p></div> //Для отображения Таймера задержки отсоединеия */}
               </div>
             </div>
             <div className="graphics-cow-icon" />
             <div className="graphics-cow-right-buttons">
               <div>
-                <div><p>0:00</p></div>
+                {/* <div><p>0:00</p></div> //Для отображения Таймера задержки отсоединеия */}
                 <button id={3} className={`graphics-cup-button sidetouch graphics-cow-right-top-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat3]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
               </div>
               <div>
                 <button id={1} className={`graphics-cup-button sidetouch graphics-cow-right-bottom-button ${milkingInfo.length == 0 ? "not_attached" : milkVocaburary[milkingInfo[milkingInfo.length - 1].stat1]}`} onClick={(e) => handleModeMilkOpen(true, e)} />
-                <div><p>0:00</p></div>
+                {/* <div><p>0:00</p></div> //Для отображения Таймера задержки отсоединеия */}
               </div>
             </div>
           </div>

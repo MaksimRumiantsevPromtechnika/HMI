@@ -1,5 +1,6 @@
 import { createMachine, assign } from "xstate";
 const defaultState = {
+  //Данные по механизмам мнемосхемы
   shemeValue: {
     i56: 0,
     i57: 0,

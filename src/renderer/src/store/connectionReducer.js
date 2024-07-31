@@ -1,4 +1,5 @@
 const defaultState = {
+  //Статус подключения
   connection: "",
   cameraConnection: ""
 }

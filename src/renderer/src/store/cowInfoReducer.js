@@ -1,6 +1,7 @@
 const defaultState = {
+  //Информация по животному
   cowInfo: {
-    coords: {
+    coords: {//Координаты сосков исторические/стандартные
       z1: "",
       x1: null,
       y1: null,
@@ -14,13 +15,12 @@ const defaultState = {
       x4: "",
       y4: 25,
     },
-    id: 1234,
-    expmilk: 12.2,
-    status: "",
-    milkDestination: 1,
-    milkAvail: 105,
+    id: 1234,//ID Животного
+    expmilk: 12.2,//Ожидаемый надой
+    milkDestination: 1,//Направление молока
+    milkAvail: 105,//Готовность к доению
   },
-  cowLock: 20,
+  cowLock: 20,//Время удержания животного
 }
 
 const UPDATE_COW_INFO = "UPDATE_COW_INFO"

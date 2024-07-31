@@ -1,4 +1,5 @@
 const defaultState = {
+  //Точки изображения от камеры слежения
   cameraMap: {
 
   },

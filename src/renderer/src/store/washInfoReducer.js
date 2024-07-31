@@ -1,4 +1,4 @@
-const defaultState = {
+const defaultState = {//Инофрмация по промывкам
   washingAcid: [
 
   ],

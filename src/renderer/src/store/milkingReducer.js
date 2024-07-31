@@ -1,18 +1,18 @@
 const defaultState = {
 
-  milkingList: [
+  milkingList: [//Массив с данными для построения графиков
     
   ],
 
-  pastPath: 0,
+  pastPath: 0,//Последние направление куда транспортировалось молоко
 
-  lastSuccessMilking: {
+  lastSuccessMilking: {//Данные по последнему успешному доению
     cowId: "",
     milkAmount: 0,
     expMilk: ""
   },
 
-  cupsStatus: {
+  cupsStatus: {//Статусы стаканов по коду
     0: "not_attached",
     1: "attach_forbiden",
     2: "noflow",
@@ -22,9 +22,6 @@ const defaultState = {
     6: "milked",
     7: "milkingfailed"
   }
-  // alarmHistory: [
-    
-  // ]
 }
 
 const ADD_DOT = "ADD_DOT"

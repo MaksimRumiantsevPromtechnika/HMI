@@ -3,6 +3,7 @@ const defaultState = {
   alarmVocabulary: {
 
     alarmDescription: {
+      //описание ошибок по номерам
       1000: "АВАРИЯ",
       1001: "АВАРИЯ",
       2000: "Не перекачивается молоко",
@@ -74,6 +75,7 @@ const defaultState = {
     },
 
     alarmType: {
+      //Тип ошибок по коду
       1: "Авария",
       2: "Ошибка",
       3: "Предупреждение",
@@ -83,11 +85,11 @@ const defaultState = {
   },
 
   newAlarmList: [
-    
+    //Список активных ошибок
   ],
 
   alarmHistory: [
-    
+    //Список исторических ошибок
   ]
 }
 

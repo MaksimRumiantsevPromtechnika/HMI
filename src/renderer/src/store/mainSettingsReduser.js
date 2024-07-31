@@ -1,4 +1,5 @@
 const defaultState = {
+  //Глобальные настройки робота
   udrGlobalSettings: {
     configurateParams: {
     detachmentDelay: "3",

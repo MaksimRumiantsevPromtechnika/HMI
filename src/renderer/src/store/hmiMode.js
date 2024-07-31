@@ -1,12 +1,12 @@
 const defaultState = {
-  mode: "2",
-  main: "1",
-  milking: false,
-  accessRights: 0, 
+  mode: "2",//Статус Стоп/пауза/Плей
+  main: "1",//Режимы работы робота Ожидане/Доение/Выгон животного...
+  milking: false,//Идет ли процесс доения
+  accessRights: 0,//Доступ к 4 вкладке
   connectionStatus: false,
-  armSlowSpeed: false,
-  cowSeparate: false,
-  teatCalibration: false,
+  armSlowSpeed: false,//Скорость движения манипулятора
+  cowSeparate: false,//Активация отделения животного
+  teatCalibration: false,//Калибровка сосков активна/не активна
 }
 
 const CHANGE_MODE = "CHANGE_MODE"
